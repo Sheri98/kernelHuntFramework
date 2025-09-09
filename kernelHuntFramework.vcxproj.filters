@@ -18,7 +18,13 @@
     <ClCompile Include="kernelHuntFramework.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source.cpp">
+    <ClCompile Include="procSecView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IOCTFuzzerGen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ioctMain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

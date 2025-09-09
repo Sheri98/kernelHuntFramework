@@ -11,6 +11,7 @@ int main() {
     case 1:
     {
         println("Switch to IOCTL FUZZER");
+        ioctMain();
         break;
     };
     case 2:

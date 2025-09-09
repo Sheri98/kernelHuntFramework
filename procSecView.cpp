@@ -13,6 +13,8 @@ int pidSDChecker(DWORD pID)
 	return 0;
 }
 
+
+
 void procEnum(DWORD pID)
 {
 	HANDLE procHandle = OpenProcess(READ_CONTROL | PROCESS_QUERY_INFORMATION, FALSE, pID);

@@ -5,6 +5,7 @@ import std;
 #include <winioctl.h>
 #include <cstdint>
 
+
 struct RTCORE64_MEMORY_WRITE {
     BYTE Pad0[8];
     DWORD64 Address;
@@ -64,8 +65,5 @@ int ioctMain();
 DWORD ctlCodeGenerator(ioctlCodes& ioctlCode);
 vector<uint32_t> ioctlCodeGenerator();
 vector<uint32_t> fuzzIOCTLMain();
-
-
-
 
 

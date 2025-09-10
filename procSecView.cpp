@@ -8,7 +8,7 @@ int pidSDChecker(DWORD pID)
 	else
 	{
 
-		printf("[+] Enter PID");
+		procEnum(GetCurrentProcessId());
 	}
 	return 0;
 }

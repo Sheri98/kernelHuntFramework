@@ -1,11 +1,7 @@
-#include "Header.h"
-
+﻿#include "Header.h"
 
 WCHAR* errorCode() {
 	static WCHAR wszMsgBuff[512];
-
-
-
 	DWORD erroMess = FormatMessage(FORMAT_MESSAGE_FROM_SYSTEM |
 		FORMAT_MESSAGE_IGNORE_INSERTS,
 		NULL,
@@ -18,32 +14,75 @@ WCHAR* errorCode() {
 	return wszMsgBuff;
 
 }
+BOOL validateBasedOnError(auto ctlCode, auto returnedBytes, int& count) {
+	DWORD e = GetLastError();  
+	//e == ERROR_INVALID_PARAMETER || e == ERROR_ACCESS_DENIED || e == ERROR_NOT_SUPPORTED || e == ERROR_INVALID_USER_BUFFER
+	if (
+		e == ERROR_BAD_LENGTH ||
+		e == ERROR_INSUFFICIENT_BUFFER ||
+		e == ERROR_MORE_DATA ||
+		e == ERROR_BUFFER_OVERFLOW || 
+		e == ERROR_INVALID_USER_BUFFER
+		)
+	{
+		if (returnedBytes > 0) {
+		//	println("[+] IOCTL Code Exist || {:#010x} || {} || {}", ctlCode, returnedBytes, e);
+			count++;
+		}
+		return FALSE;
+	}
+	else if
+		(e == ERROR_INVALID_FUNCTION ||
+			e == ERROR_CALL_NOT_IMPLEMENTED)
+	{
+		println("\t[-] IOCTL Code Do not Exist || {:#010x} || {} || {}", ctlCode, returnedBytes, e);
+		return TRUE;
+	}
+	else {
+		//println("\t[-] Unhandled Case || {:#010x} || {} || {}", ctlCode, returnedBytes,e);
+		return TRUE;
+	}
+}
+
 void fuzzIOCLTCodes(HANDLE deviceHandle, vector <uint32_t> ctlCodes) {
 	DWORD bytes = 0;
-	RTCORE64_MEMORY_WRITE data;
-	for (auto ctlCode : ctlCodes) {
+	DWORD inputsizes[] = {8, 12, 16, 20, 24, 32, 40, 48, 64, 128, 256};
+	DWORD outputsizes[] = { 8, 12, 16, 20, 24, 32, 40, 48, 64, 128, 256 };
+	//BYTE outputBuff[4096];
 
-		BOOL ok = DeviceIoControl(deviceHandle, ctlCode, &data, sizeof(data), nullptr, 0, &bytes, nullptr);
-		DWORD err = GetLastError();
-		if (!ok && err == ERROR_INVALID_FUNCTION) {
-			printf("%ls", errorCode());
-			continue;
+	for (auto inputSize : inputsizes) {
+	
+		println("[+] Fuzzing with Input Buffsize {}", inputSize);
+		int count = 0;
+		LPVOID input = VirtualAlloc(NULL, inputSize, MEM_COMMIT, PAGE_READWRITE);
+		LPVOID outputBuff = VirtualAlloc(NULL, inputSize, MEM_COMMIT, PAGE_READWRITE);
+		for (auto ctlCode : ctlCodes) {
+			if (ctlCode == 0x80002044) {
+				continue;
+			}
+			
+			BOOL ok = DeviceIoControl(deviceHandle, ctlCode, input, inputSize, outputBuff, inputSize, &bytes, nullptr);
+			DWORD err = GetLastError();
+			if (!ok && validateBasedOnError(ctlCode, bytes, count)) {
+				continue;
+			}
+			
 		}
-		BYTE inSmall[16] = { 0 }, outSmall[16] = { 0 };
-		ok = DeviceIoControl(deviceHandle, ctlCode, inSmall, sizeof(inSmall), outSmall, sizeof(outSmall), &bytes, NULL);
-		wcout << format(L"{:#010x} -> ok={} err={} bytes={}", ctlCode, ok, errorCode(), bytes) << std::endl;
+		VirtualFree(input, 0, MEM_RELEASE);
+		VirtualFree(outputBuff, 0, MEM_RELEASE);
+		println("\t[+] No of IOCTL Codes with returned bytes {}", count);
 	}
 }
 int	ioctMain() {
 	vector <uint32_t> ctlCodes;
 	ctlCodes = fuzzIOCTLMain();
-	println("[+] Fuzzing with 1024 IOCT Codes");
-	HANDLE deviceHandle= CreateFile(L"\\\\.\\Value", GENERIC_READ | GENERIC_WRITE, 0, nullptr, OPEN_EXISTING, 0, nullptr);
+	println("[+] Fuzzing with {} IOCT Codes",ctlCodes.size());
+	HANDLE deviceHandle = CreateFile(L"\\\\.\\cpuz141", GENERIC_READ | GENERIC_WRITE, 0, nullptr, OPEN_EXISTING, 0, nullptr);
 	if (deviceHandle == INVALID_HANDLE_VALUE) {
 		printf("%ls", errorCode());
 		return 1;
 	}
-	
+
 	fuzzIOCLTCodes(deviceHandle, ctlCodes);
 	return 0;
 }

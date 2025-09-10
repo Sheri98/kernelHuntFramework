@@ -21,14 +21,14 @@ vector<uint32_t> ioctlCodeGenerator() {
 	ioctlCodes ioctlcode;
 	vector <uint32_t> ctlCodes;
 	const access accesses[] = { access::any, access::read, access::write, access::readWrite };
-	ctlCodes.reserve(16 * 16 * 4 * 1);
-	for (uint16_t i = 0x8000; i <= 0x800F; i++) {
-		for (uint16_t j = 0x800; j <= 0x80F; j++) {
-			for (access acode : accesses) {
-				ioctlcode = { i,j,method::buffer, acode };
+	ctlCodes.reserve(16 * 256);
+	for (uint16_t i = 0x9c30; i <= 0x9c50; i++) {
+		for (uint16_t j = 0x900; j <= 0x982; j++) {
+				ioctlcode = { i,j,method::buffer, access::any };
 				ctlCodes.push_back(ctlCodeGenerator(ioctlcode));
-			}
+			
 		}
 	}
 	return ctlCodes;
 }
+

@@ -5,6 +5,7 @@ int main() {
     println("1. Kernel DRIVER IOCTL Fuzzer\n");
     println("2. Check Driver Has EDR killing Capacity\n");
     println("3. Process checker\n");
+    println("4. Enumerate Thrid Party Drivers\n");
     DWORD input;
     cin>>input;
     switch (input) {
@@ -27,6 +28,8 @@ int main() {
         pidSDChecker(pID);
         break;
     };
+    case 4:
+        driverEnum();
     default:
         break;
     }

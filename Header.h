@@ -1,9 +1,22 @@
 #pragma once
+#pragma comment(lib, "wintrust.lib")
+#pragma comment(lib, "crypt32.lib")
 
 import std;      
-#include "Windows.h"
+#include <Windows.h>
+#include <wintrust.h>
 #include <winioctl.h>
 #include <cstdint>
+#include <tchar.h>
+#include <wintrust.h>
+#include <Softpub.h>
+#include <softpub.h>
+#include <mscat.h>
+#include <wincrypt.h>
+#include <tchar.h>
+#include <stdio.h>
+#define INITGUID
+#include <guiddef.h>
 
 
 struct RTCORE64_MEMORY_WRITE {
@@ -65,5 +78,5 @@ int ioctMain();
 DWORD ctlCodeGenerator(ioctlCodes& ioctlCode);
 vector<uint32_t> ioctlCodeGenerator();
 vector<uint32_t> fuzzIOCTLMain();
-
+void driverEnum();
 

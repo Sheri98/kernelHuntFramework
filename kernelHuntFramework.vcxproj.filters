@@ -21,10 +21,13 @@
     <ClCompile Include="procSecView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="IOCTFuzzerGen.cpp">
+    <ClCompile Include="ioctFuzzGen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ioctMain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="driverEnum.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

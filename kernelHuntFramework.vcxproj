@@ -137,7 +137,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="IOCTFuzzerGen.cpp" />
+    <ClCompile Include="driverEnum.cpp" />
+    <ClCompile Include="ioctFuzzGen.cpp" />
     <ClCompile Include="ioctMain.cpp" />
     <ClCompile Include="kernelHuntFramework.cpp" />
     <ClCompile Include="procSecView.cpp" />

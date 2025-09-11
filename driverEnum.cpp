@@ -154,4 +154,5 @@ void driverEnum() {
         printf("Driver = % ls || Dos Device Path = %ls || Symbolic Name =  \\\\.\\%ls\n", driver,deviceBuffer,driver);
     }
 
+
 }

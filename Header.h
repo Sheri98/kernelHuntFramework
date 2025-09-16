@@ -13,10 +13,34 @@ import std;
 #include <softpub.h>
 #include <mscat.h>
 #include <wincrypt.h>
+#include <winternl.h>
 #include <tchar.h>
 #include <stdio.h>
 #define INITGUID
 #include <guiddef.h>
+
+
+typedef struct _OBJECT_DIRECTORY_INFORMATION {
+    UNICODE_STRING Name;
+    UNICODE_STRING TypeName;
+} OBJECT_DIRECTORY_INFORMATION, * POBJECT_DIRECTORY_INFORMATION;
+
+
+typedef NTSTATUS(NTAPI* NtOpenDirectoryObject_t)(
+    PHANDLE DirectoryHandle,
+    ACCESS_MASK DesiredAccess,
+    POBJECT_ATTRIBUTES ObjectAttributes
+    );
+
+typedef NTSTATUS(NTAPI* NtQueryDirectoryObject_t)(
+    HANDLE DirectoryHandle,
+    PVOID Buffer,
+    ULONG Length,
+    BOOLEAN ReturnSingleEntry,
+    BOOLEAN RestartScan,
+    PULONG Context,
+    PULONG ReturnLength
+    );
 
 
 struct RTCORE64_MEMORY_WRITE {
@@ -65,6 +89,13 @@ constexpr ULONG to_win_access(access a) {
     }
     return FILE_ANY_ACCESS;
 };
+
+#define DIRECTORY_QUERY                 0x0001
+#define DIRECTORY_TRAVERSE              0x0002
+#define DIRECTORY_CREATE_OBJECT         0x0004
+#define DIRECTORY_CREATE_SUBDIRECTORY   0x0008
+#define DIRECTORY_ALL_ACCESS (STANDARD_RIGHTS_REQUIRED | 0xF)
+
 
 using namespace std;
 WCHAR* errorCode();

@@ -1,4 +1,81 @@
-﻿#include "../kernelHuntFramework/Header.h"
+﻿#define _CRT_SECURE_NO_WARNINGS
+
+#include "../kernelHuntFramework/Header.h"
+
+inline void MyRtlInitUnicodeString(PUNICODE_STRING DestinationString, PCWSTR SourceString)
+{
+    if (SourceString) {
+        DestinationString->Length = (USHORT)wcslen(SourceString) * sizeof(WCHAR);
+        DestinationString->MaximumLength = DestinationString->Length + sizeof(WCHAR);
+    }
+    else {
+        DestinationString->Length = 0;
+        DestinationString->MaximumLength = 0;
+    }
+    DestinationString->Buffer = (PWSTR)SourceString;
+}
+
+vector<wstring> EnumerateDeviceObjects()
+{
+    vector<wstring> devices;
+
+    // Load NT functions from ntdll.dll
+    HMODULE hNtdll = GetModuleHandleW(L"ntdll.dll");
+    auto NtOpenDirectoryObject = (NtOpenDirectoryObject_t)GetProcAddress(hNtdll, "NtOpenDirectoryObject");
+    auto NtQueryDirectoryObject = (NtQueryDirectoryObject_t)GetProcAddress(hNtdll, "NtQueryDirectoryObject");
+
+    if (!NtOpenDirectoryObject || !NtQueryDirectoryObject) {
+        println("[-] Failed to resolve NtOpenDirectoryObject/NtQueryDirectoryObject");
+        return devices;
+    }
+
+    // Prepare to open \Device directory
+    UNICODE_STRING dirName;
+    MyRtlInitUnicodeString(&dirName, L"\\Device");
+
+    OBJECT_ATTRIBUTES oa;
+    InitializeObjectAttributes(&oa, &dirName, OBJ_CASE_INSENSITIVE, NULL, NULL);
+
+    HANDLE hDir = nullptr;
+    NTSTATUS status = NtOpenDirectoryObject(&hDir, DIRECTORY_QUERY, &oa);
+    if (status != 0 || hDir == nullptr) {
+        println("[-] NtOpenDirectoryObject failed: 0x%X", status);
+        return devices;
+    }
+
+    BYTE buffer[8192];
+    ULONG context = 0;
+    ULONG retLength = 0;
+
+    while (true) {
+        status = NtQueryDirectoryObject(
+            hDir,
+            buffer,
+            sizeof(buffer),
+            TRUE,    // ReturnSingleEntry
+            FALSE,   // RestartScan
+            &context,
+            &retLength
+        );
+
+        if (status != 0) { // STATUS_NO_MORE_ENTRIES or error
+            break;
+        }
+
+        auto entry = (OBJECT_DIRECTORY_INFORMATION*)buffer;
+
+        if (entry->Name.Buffer && entry->TypeName.Buffer) {
+            wstring type(entry->TypeName.Buffer, entry->TypeName.Length / sizeof(WCHAR));
+            if (type == L"Device" || type == L"SymbolicLink") {
+                wstring name(entry->Name.Buffer, entry->Name.Length / sizeof(WCHAR));
+                devices.push_back(name);
+            }
+        }
+    }
+
+    CloseHandle(hDir);
+    return devices;
+}
 
 
 BOOL IsThirdPartyDriver(LPCWSTR filePath)
@@ -135,7 +212,7 @@ vector<LPWSTR> driverTest() {
             LPQUERY_SERVICE_CONFIG  sqBuffer = (LPQUERY_SERVICE_CONFIG)malloc(sretBytes);
             QueryServiceConfig(serOpenHandle, sqBuffer, sretBytes, &sretBytes);
             if (IsThirdPartyDriver(sqBuffer->lpBinaryPathName)) {
-                tpDrivers.push_back(services[i].lpServiceName);
+                tpDrivers.push_back(_wcsdup(sqBuffer->lpBinaryPathName ));
             }
         }
     }
@@ -143,16 +220,42 @@ vector<LPWSTR> driverTest() {
 
 
 }
+wstring GetBaseDriverName(const wstring& path)
+{
 
+    size_t slash = path.find_last_of(L"\\/");
+    wstring name = (slash == wstring::npos) ? path : path.substr(slash + 1);
+
+    
+    if (name.length() > 4) {
+        wstring lower = name;
+        transform(lower.begin(), lower.end(), lower.begin(), ::towlower);
+        if (lower.rfind(L".sys") == lower.length() - 4) {
+            name = name.substr(0, name.length() - 4);
+        }
+    }
+
+    return name;
+}
 
 void driverEnum() {
     println("[+] Enumerating Drivers");
     vector<LPWSTR> tpDrivers = driverTest();
-    for (auto driver : tpDrivers) {
-        wchar_t deviceBuffer[65535];
-        QueryDosDeviceW(driver, deviceBuffer, sizeof(deviceBuffer));
-        printf("Driver = % ls || Dos Device Path = %ls || Symbolic Name =  \\\\.\\%ls\n", driver,deviceBuffer,driver);
+    auto devices = EnumerateDeviceObjects();
+
+    for (auto driverPath : tpDrivers) {
+        wstring base = GetBaseDriverName(driverPath);
+        wprintf(L"\n[+] BaseName: %ls\n", base.c_str());
+
+        bool found = false;
+        for (auto& dev : devices) {
+            if (dev.find(base) != std::wstring::npos) {
+                wprintf(L"\t[+] Symbolic Link: \\\\.\\%ls\n", dev.c_str());
+                found = true;
+            }
+        }
+        if (!found) {
+            wprintf(L"\tNo obvious device name match found.\n");
+        }
     }
-
-
 }

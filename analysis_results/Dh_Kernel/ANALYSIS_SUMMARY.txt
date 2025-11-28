@@ -1,0 +1,75 @@
+DRIVER ANALYSIS SUMMARY
+================================================================================
+
+Driver: Dh_Kernel.sys
+Total Functions: 74
+
+================================================================================
+
+ALL FUNCTIONS:
+--------------------------------------------------------------------------------
+
+FxStubDriverUnloadCommon @ 140001000
+FxStubDriverUnload @ 140001038
+FxDriverEntryWorker @ 140001060
+entry @ 140001184
+FxStubUnbindClasses @ 1400011b0
+FxStubBindClasses @ 140001228
+FxStubInitTypes @ 1400012b0
+FUN_140001320 @ 140001320
+FUN_14000136c @ 14000136c
+FUN_140001544 @ 140001544
+FUN_1400015b8 @ 1400015b8
+FUN_14000163c @ 14000163c
+FUN_1400016d8 @ 1400016d8
+FUN_1400016f8 @ 1400016f8
+FUN_14000175c @ 14000175c
+FUN_14000182c @ 14000182c
+FUN_1400019cc @ 1400019cc
+FUN_140001b88 @ 140001b88
+FUN_140001bb0 @ 140001bb0
+FUN_140001c9c @ 140001c9c
+FUN_140001d48 @ 140001d48
+FUN_140001f20 @ 140001f20
+FUN_140001f40 @ 140001f40
+_stricmp @ 140001f68
+FUN_140001f70 @ 140001f70
+FUN_140001f90 @ 140001f90
+__GSHandlerCheck_SEH @ 140001fec
+__C_specific_handler @ 140002080
+WdfVersionUnbind @ 140002086
+WdfVersionBind @ 14000208c
+WdfVersionBindClass @ 140002092
+WdfVersionUnbindClass @ 140002098
+_guard_check_icall @ 1400020a0
+_guard_dispatch_icall @ 1400020c0
+FUN_1400020e0 @ 1400020e0
+FUN_140002110 @ 140002110
+thunk_FUN_140002170 @ 140002160
+FUN_140002170 @ 140002170
+FUN_140002180 @ 140002180
+FUN_14000265b @ 14000265b
+__security_init_cookie @ 140007000
+
+================================================================================
+
+IMPORTANT FUNCTIONS (Dispatch/IOCTL Related):
+--------------------------------------------------------------------------------
+
+*** FxDriverEntryWorker @ 140001060
+    File: FxDriverEntryWorker.c
+
+*** _guard_dispatch_icall @ 1400020c0
+    File: _guard_dispatch_icall.c
+
+
+================================================================================
+
+NEXT STEPS:
+--------------------------------------------------------------------------------
+
+1. Review the functions marked with *** above
+2. Look for IOCTL handling patterns
+3. Search for hex constants (0x...)
+4. Use AI to analyze the C code
+

@@ -1,0 +1,47 @@
+{
+  "security_score": 14,
+  "risk_level": "LOW",
+  "total": 5,
+  "by_severity": {
+    "low": {
+      "count": 2,
+      "functions": [
+        {
+          "name": "IofCompleteRequest",
+          "files": [
+            "FUN_00011460.c",
+            "FUN_00011010.c"
+          ]
+        }
+      ]
+    },
+    "critical": {
+      "count": 1,
+      "functions": [
+        {
+          "name": "MmMapIoSpace",
+          "files": [
+            "FUN_00011040.c"
+          ]
+        }
+      ]
+    },
+    "high": {
+      "count": 2,
+      "functions": [
+        {
+          "name": "IoCreateDevice",
+          "files": [
+            "FUN_00011170.c"
+          ]
+        },
+        {
+          "name": "IoCreateSymbolicLink",
+          "files": [
+            "FUN_00011170.c"
+          ]
+        }
+      ]
+    }
+  }
+}

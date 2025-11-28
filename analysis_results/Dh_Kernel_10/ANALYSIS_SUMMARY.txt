@@ -1,0 +1,71 @@
+DRIVER ANALYSIS SUMMARY
+================================================================================
+
+Driver: Dh_Kernel_10.sys
+Total Functions: 73
+
+================================================================================
+
+ALL FUNCTIONS:
+--------------------------------------------------------------------------------
+
+FUN_140001000 @ 140001000
+FUN_14000104c @ 14000104c
+FUN_140001228 @ 140001228
+FUN_14000129c @ 14000129c
+FUN_140001320 @ 140001320
+FUN_1400013bc @ 1400013bc
+FUN_1400013dc @ 1400013dc
+FUN_140001440 @ 140001440
+FUN_140001510 @ 140001510
+FUN_1400016b0 @ 1400016b0
+FUN_14000186c @ 14000186c
+FUN_140001894 @ 140001894
+FUN_140001980 @ 140001980
+FUN_140001a2c @ 140001a2c
+FUN_140001c10 @ 140001c10
+_stricmp @ 140001c38
+FUN_140001c40 @ 140001c40
+FUN_140001c60 @ 140001c60
+__GSHandlerCheck_SEH @ 140001cbc
+__C_specific_handler @ 140001d50
+FxStubDriverUnloadCommon @ 140001d58
+entry @ 140001d88
+FUN_140001db4 @ 140001db4
+FxStubDriverUnload @ 140001ee4
+FxStubInitTypes @ 140001f0c
+FxStubBindClasses @ 140001f78
+FxStubUnbindClasses @ 140002010
+WdfVersionBind @ 140002088
+WdfVersionUnbind @ 14000208e
+WdfVersionBindClass @ 140002094
+WdfVersionUnbindClass @ 14000209a
+_guard_check_icall @ 1400020a0
+_guard_dispatch_icall @ 1400020c0
+FUN_1400020e0 @ 1400020e0
+FUN_140002110 @ 140002110
+thunk_FUN_140002170 @ 140002160
+FUN_140002170 @ 140002170
+FUN_140002180 @ 140002180
+FUN_14000265b @ 14000265b
+FUN_140007000 @ 140007000
+
+================================================================================
+
+IMPORTANT FUNCTIONS (Dispatch/IOCTL Related):
+--------------------------------------------------------------------------------
+
+*** _guard_dispatch_icall @ 1400020c0
+    File: _guard_dispatch_icall.c
+
+
+================================================================================
+
+NEXT STEPS:
+--------------------------------------------------------------------------------
+
+1. Review the functions marked with *** above
+2. Look for IOCTL handling patterns
+3. Search for hex constants (0x...)
+4. Use AI to analyze the C code
+

@@ -1,0 +1,52 @@
+================================================================================
+DRIVER IOCTL ANALYSIS - FOR AI
+================================================================================
+
+TASK: Analyze these decompiled functions and extract all IOCTL codes
+
+Look for:
+- Hex constants (0x...) that appear in comparisons
+- Switch/case statements with hex values
+- Function calls that check IRP control codes
+
+================================================================================
+
+
+================================================================================
+FILE: _guard_dispatch_icall.c
+================================================================================
+
+// Function: _guard_dispatch_icall
+// Address: 140001f00
+// Decompiled by Ghidra
+
+
+
+/* WARNING: This is an inlined function */
+
+
+
+void _guard_dispatch_icall(void)
+
+
+
+{
+
+  code *UNRECOVERED_JUMPTABLE;
+
+  
+
+                    /* WARNING: Could not recover jumptable at 0x000140001f00. Too many branches */
+
+                    /* WARNING: Treating indirect jump as call */
+
+  (*UNRECOVERED_JUMPTABLE)();
+
+  return;
+
+}
+
+
+
+
+

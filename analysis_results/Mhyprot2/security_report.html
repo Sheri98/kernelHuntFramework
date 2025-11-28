@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Report - Mhyprot2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .header .subtitle {
+            color: #888;
+            font-size: 1.1rem;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-card {
+            text-align: center;
+        }
+
+        .stat-card .value {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .stat-card .label {
+            color: #888;
+            margin-top: 5px;
+            font-size: 0.9rem;
+        }
+
+        .score-card {
+            background: linear-gradient(135deg, #dc354522, #dc354511);
+            border-color: #dc354544;
+        }
+
+        .score-card .value {
+            color: #dc3545;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section h2::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 24px;
+            background: #667eea;
+            border-radius: 2px;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .category-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .category-header {
+            background: rgba(102, 126, 234, 0.2);
+            padding: 15px 20px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .category-count {
+            background: #667eea;
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .category-content {
+            padding: 15px 20px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .ioctl-item {
+            padding: 10px;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            border-left: 3px solid #667eea;
+        }
+
+        .ioctl-code {
+            font-family: 'Consolas', monospace;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .ioctl-details {
+            font-size: 0.85rem;
+            color: #888;
+            margin-top: 5px;
+        }
+
+        .danger-card {
+            border-left-color: #dc3545;
+        }
+
+        .danger-card .category-header {
+            background: rgba(220, 53, 69, 0.2);
+        }
+
+        .danger-card .category-count {
+            background: #dc3545;
+        }
+
+        .warning-card {
+            border-left-color: #fd7e14;
+        }
+
+        .warning-card .category-header {
+            background: rgba(253, 126, 20, 0.2);
+        }
+
+        .warning-card .category-count {
+            background: #fd7e14;
+        }
+
+        .func-item {
+            padding: 8px 12px;
+            margin-bottom: 8px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 6px;
+            font-family: 'Consolas', monospace;
+            font-size: 0.9rem;
+        }
+
+        .func-file {
+            color: #666;
+            font-size: 0.8rem;
+            margin-top: 3px;
+        }
+
+        .method-buffered { border-left-color: #28a745; }
+        .method-in-direct { border-left-color: #17a2b8; }
+        .method-out-direct { border-left-color: #ffc107; }
+        .method-neither { border-left-color: #dc3545; }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        th {
+            background: rgba(102, 126, 234, 0.2);
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-critical { background: #dc3545; color: #fff; }
+        .badge-high { background: #fd7e14; color: #fff; }
+        .badge-medium { background: #ffc107; color: #000; }
+        .badge-low { background: #28a745; color: #fff; }
+
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .dashboard {
+                grid-template-columns: 1fr 1fr;
+            }
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Security Analysis Report</h1>
+            <p class="subtitle">Mhyprot2</p>
+        </div>
+
+        <!-- Dashboard Stats -->
+        <div class="dashboard">
+            <div class="card stat-card score-card">
+                <div class="value">100/100</div>
+                <div class="label">Security Score (CRITICAL)</div>
+            </div>
+            <div class="card stat-card">
+                <div class="value">24</div>
+                <div class="label">IOCTL Codes Found</div>
+            </div>
+            <div class="card stat-card">
+                <div class="value">125</div>
+                <div class="label">Dangerous Functions</div>
+            </div>
+            <div class="card stat-card">
+                <div class="value">5</div>
+                <div class="label">Critical Issues</div>
+            </div>
+            <div class="card stat-card">
+                <div class="value">371</div>
+                <div class="label">Total Functions</div>
+            </div>
+        </div>
+
+        <!-- IOCTLs by Method -->
+        <div class="section">
+            <h2>IOCTLs by Transfer Method</h2>
+            <div class="category-grid">
+
+                <div class="category-card method-buffered">
+                    <div class="category-header">
+                        <span>METHOD_BUFFERED</span>
+                        <span class="category-count">6</span>
+                    </div>
+                    <div class="category-content">
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x133ECF0</div>
+                            <div class="ioctl-details">
+                                Device: 0x0133 | Func: 0xB3C |
+                                FILE_READ_WRITE_ACCESS
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x2FF38098</div>
+                            <div class="ioctl-details">
+                                Device: 0x2FF3 | Func: 0x026 |
+                                FILE_WRITE_ACCESS
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x39AC0BEC</div>
+                            <div class="ioctl-details">
+                                Device: 0x39AC | Func: 0x2FB |
+                                FILE_ANY_ACCESS
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x3FFFFFFC</div>
+                            <div class="ioctl-details">
+                                Device: 0x3FFF | Func: 0xFFF |
+                                FILE_READ_WRITE_ACCESS
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x45145114</div>
+                            <div class="ioctl-details">
+                                Device: 0x4514 | Func: 0x445 |
+                                FILE_READ_ACCESS
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0xBAEBAEEC</div>
+                            <div class="ioctl-details">
+                                Device: 0xBAEB | Func: 0xBBB |
+                                FILE_WRITE_ACCESS
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="category-card method-in-direct">
+                    <div class="category-header">
+                        <span>METHOD_IN_DIRECT</span>
+                        <span class="category-count">8</span>
+                    </div>
+                    <div class="category-content">
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x12A64799</div>
+                            <div class="ioctl-details">
+                                Device: 0x12A6 | Func: 0x1E6 |
+                                FILE_READ_ACCESS
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x3CFA8149</div>
+                            <div class="ioctl-details">
+                                Device: 0x3CFA | Func: 0x052 |
+                                FILE_WRITE_ACCESS
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x3FFFFFE9</div>
+                            <div class="ioctl-details">
+                                Device: 0x3FFF | Func: 0xFFA |
+                                FILE_READ_WRITE_ACCESS
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x4746544D</div>
+                            <div class="ioctl-details">
+                                Device: 0x4746 | Func: 0x513 |
+                                FILE_READ_ACCESS
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x80000005</div>
+                            <div class="ioctl-details">
+                                Device: 0x8000 | Func: 0x001 |
+                                FILE_ANY_ACCESS
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0xC000000D</div>
+                            <div class="ioctl-details">
+                                Device: 0xC000 | Func: 0x003 |
+                                FILE_ANY_ACCESS
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0xE859B14D</div>
+                            <div class="ioctl-details">
+                                Device: 0xE859 | Func: 0xC53 |
+                                FILE_WRITE_ACCESS
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0xFFFFFFFD</div>
+                            <div class="ioctl-details">
+                                Device: 0xFFFF | Func: 0xFFF |
+                                FILE_READ_WRITE_ACCESS
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="category-card method-neither">
+                    <div class="category-header">
+                        <span>METHOD_NEITHER</span>
+                        <span class="category-count">8</span>
+                    </div>
+                    <div class="category-content">
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x1FFFFF</div>
+                            <div class="ioctl-details">
+                                Device: 0x001F | Func: 0xFFF |
+                                FILE_READ_WRITE_ACCESS
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x3FFFFFF3</div>
+                            <div class="ioctl-details">
+                                Device: 0x3FFF | Func: 0xFFC |
+                                FILE_READ_WRITE_ACCESS
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x3FFFFFFF</div>
+                            <div class="ioctl-details">
+                                Device: 0x3FFF | Func: 0xFFF |
+                                FILE_READ_WRITE_ACCESS
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x7FFFFFFF</div>
+                            <div class="ioctl-details">
+                                Device: 0x7FFF | Func: 0xFFF |
+                                FILE_READ_WRITE_ACCESS
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0xCCFD593</div>
+                            <div class="ioctl-details">
+                                Device: 0x0CCF | Func: 0x564 |
+                                FILE_READ_WRITE_ACCESS
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0xF8D50DB</div>
+                            <div class="ioctl-details">
+                                Device: 0x0F8D | Func: 0x436 |
+                                FILE_READ_ACCESS
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0xFFFCFFFF</div>
+                            <div class="ioctl-details">
+                                Device: 0xFFFC | Func: 0xFFF |
+                                FILE_READ_WRITE_ACCESS
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0xFFFFFFFF</div>
+                            <div class="ioctl-details">
+                                Device: 0xFFFF | Func: 0xFFF |
+                                FILE_READ_WRITE_ACCESS
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="category-card method-out-direct">
+                    <div class="category-header">
+                        <span>METHOD_OUT_DIRECT</span>
+                        <span class="category-count">2</span>
+                    </div>
+                    <div class="category-content">
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x7FFFFFFE</div>
+                            <div class="ioctl-details">
+                                Device: 0x7FFF | Func: 0xFFF |
+                                FILE_READ_WRITE_ACCESS
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0xFFFFFFFE</div>
+                            <div class="ioctl-details">
+                                Device: 0xFFFF | Func: 0xFFF |
+                                FILE_READ_WRITE_ACCESS
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- IOCTLs by Device Type -->
+        <div class="section">
+            <h2>IOCTLs by Device Type</h2>
+            <div class="category-grid">
+
+                <div class="category-card">
+                    <div class="category-header">
+                        <span>Device Type 0x001F</span>
+                        <span class="category-count">1</span>
+                    </div>
+                    <div class="category-content">
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x1FFFFF</div>
+                            <div class="ioctl-details">
+                                Method: METHOD_NEITHER |
+                                Func: 0xFFF
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-header">
+                        <span>Device Type 0x0133</span>
+                        <span class="category-count">1</span>
+                    </div>
+                    <div class="category-content">
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x133ECF0</div>
+                            <div class="ioctl-details">
+                                Method: METHOD_BUFFERED |
+                                Func: 0xB3C
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-header">
+                        <span>Device Type 0x0CCF</span>
+                        <span class="category-count">1</span>
+                    </div>
+                    <div class="category-content">
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0xCCFD593</div>
+                            <div class="ioctl-details">
+                                Method: METHOD_NEITHER |
+                                Func: 0x564
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-header">
+                        <span>Device Type 0x0F8D</span>
+                        <span class="category-count">1</span>
+                    </div>
+                    <div class="category-content">
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0xF8D50DB</div>
+                            <div class="ioctl-details">
+                                Method: METHOD_NEITHER |
+                                Func: 0x436
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-header">
+                        <span>Device Type 0x12A6</span>
+                        <span class="category-count">1</span>
+                    </div>
+                    <div class="category-content">
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x12A64799</div>
+                            <div class="ioctl-details">
+                                Method: METHOD_IN_DIRECT |
+                                Func: 0x1E6
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-header">
+                        <span>Device Type 0x2FF3</span>
+                        <span class="category-count">1</span>
+                    </div>
+                    <div class="category-content">
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x2FF38098</div>
+                            <div class="ioctl-details">
+                                Method: METHOD_BUFFERED |
+                                Func: 0x026
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-header">
+                        <span>Device Type 0x39AC</span>
+                        <span class="category-count">1</span>
+                    </div>
+                    <div class="category-content">
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x39AC0BEC</div>
+                            <div class="ioctl-details">
+                                Method: METHOD_BUFFERED |
+                                Func: 0x2FB
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-header">
+                        <span>Device Type 0x3CFA</span>
+                        <span class="category-count">1</span>
+                    </div>
+                    <div class="category-content">
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x3CFA8149</div>
+                            <div class="ioctl-details">
+                                Method: METHOD_IN_DIRECT |
+                                Func: 0x052
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-header">
+                        <span>Device Type 0x3FFF</span>
+                        <span class="category-count">4</span>
+                    </div>
+                    <div class="category-content">
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x3FFFFFE9</div>
+                            <div class="ioctl-details">
+                                Method: METHOD_IN_DIRECT |
+                                Func: 0xFFA
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x3FFFFFF3</div>
+                            <div class="ioctl-details">
+                                Method: METHOD_NEITHER |
+                                Func: 0xFFC
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x3FFFFFFC</div>
+                            <div class="ioctl-details">
+                                Method: METHOD_BUFFERED |
+                                Func: 0xFFF
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x3FFFFFFF</div>
+                            <div class="ioctl-details">
+                                Method: METHOD_NEITHER |
+                                Func: 0xFFF
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-header">
+                        <span>Device Type 0x4514</span>
+                        <span class="category-count">1</span>
+                    </div>
+                    <div class="category-content">
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x45145114</div>
+                            <div class="ioctl-details">
+                                Method: METHOD_BUFFERED |
+                                Func: 0x445
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-header">
+                        <span>Device Type 0x4746</span>
+                        <span class="category-count">1</span>
+                    </div>
+                    <div class="category-content">
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x4746544D</div>
+                            <div class="ioctl-details">
+                                Method: METHOD_IN_DIRECT |
+                                Func: 0x513
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-header">
+                        <span>Device Type 0x7FFF</span>
+                        <span class="category-count">2</span>
+                    </div>
+                    <div class="category-content">
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x7FFFFFFE</div>
+                            <div class="ioctl-details">
+                                Method: METHOD_OUT_DIRECT |
+                                Func: 0xFFF
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x7FFFFFFF</div>
+                            <div class="ioctl-details">
+                                Method: METHOD_NEITHER |
+                                Func: 0xFFF
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-header">
+                        <span>Device Type 0x8000</span>
+                        <span class="category-count">1</span>
+                    </div>
+                    <div class="category-content">
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x80000005</div>
+                            <div class="ioctl-details">
+                                Method: METHOD_IN_DIRECT |
+                                Func: 0x001
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-header">
+                        <span>Device Type 0xBAEB</span>
+                        <span class="category-count">1</span>
+                    </div>
+                    <div class="category-content">
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0xBAEBAEEC</div>
+                            <div class="ioctl-details">
+                                Method: METHOD_BUFFERED |
+                                Func: 0xBBB
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-header">
+                        <span>Device Type 0xC000</span>
+                        <span class="category-count">1</span>
+                    </div>
+                    <div class="category-content">
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0xC000000D</div>
+                            <div class="ioctl-details">
+                                Method: METHOD_IN_DIRECT |
+                                Func: 0x003
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-header">
+                        <span>Device Type 0xE859</span>
+                        <span class="category-count">1</span>
+                    </div>
+                    <div class="category-content">
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0xE859B14D</div>
+                            <div class="ioctl-details">
+                                Method: METHOD_IN_DIRECT |
+                                Func: 0xC53
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-header">
+                        <span>Device Type 0xFFFC</span>
+                        <span class="category-count">1</span>
+                    </div>
+                    <div class="category-content">
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0xFFFCFFFF</div>
+                            <div class="ioctl-details">
+                                Method: METHOD_NEITHER |
+                                Func: 0xFFF
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-header">
+                        <span>Device Type 0xFFFF</span>
+                        <span class="category-count">3</span>
+                    </div>
+                    <div class="category-content">
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0xFFFFFFFD</div>
+                            <div class="ioctl-details">
+                                Method: METHOD_IN_DIRECT |
+                                Func: 0xFFF
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0xFFFFFFFE</div>
+                            <div class="ioctl-details">
+                                Method: METHOD_OUT_DIRECT |
+                                Func: 0xFFF
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0xFFFFFFFF</div>
+                            <div class="ioctl-details">
+                                Method: METHOD_NEITHER |
+                                Func: 0xFFF
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Dangerous Functions -->
+        <div class="section">
+            <h2>Dangerous Functions Detected</h2>
+            <div class="category-grid">
+
+                <div class="category-card danger-card">
+                    <div class="category-header">
+                        <span>CRITICAL</span>
+                        <span class="category-count">5</span>
+                    </div>
+                    <div class="category-content">
+
+                        <div class="func-item">
+                            MmMapLockedPagesSpecifyCache
+                            <div class="func-file">Found in: FUN_140003fa8.c</div>
+                        </div>
+
+                        <div class="func-item">
+                            MmMapLockedPages
+                            <div class="func-file">Found in: FUN_14000453c.c, FUN_1400043c0.c, FUN_140004250.c</div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="category-card warning-card">
+                    <div class="category-header">
+                        <span>HIGH SEVERITY</span>
+                        <span class="category-count">4</span>
+                    </div>
+                    <div class="category-content">
+
+                        <div class="func-item">
+                            ZwCreateFile
+                            <div class="func-file">Found in: FUN_140005c0c.c</div>
+                        </div>
+
+                        <div class="func-item">
+                            ZwWriteFile
+                            <div class="func-file">Found in: FUN_140005c0c.c</div>
+                        </div>
+
+                        <div class="func-item">
+                            IoCreateDevice
+                            <div class="func-file">Found in: FUN_14013278d.c</div>
+                        </div>
+
+                        <div class="func-item">
+                            IoCreateSymbolicLink
+                            <div class="func-file">Found in: FUN_14013278d.c</div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-header">
+                        <span>MEDIUM SEVERITY</span>
+                        <span class="category-count">108</span>
+                    </div>
+                    <div class="category-content">
+
+                        <div class="func-item">
+                            ExAllocatePool
+                            <div class="func-file">Found in: FUN_140003acc.c, FUN_140003874.c, FUN_14000556c.c</div>
+                        </div>
+
+                        <div class="func-item">
+                            ExFreePoolWithTag
+                            <div class="func-file">Found in: FUN_140003208.c, FUN_140003974.c, FUN_140006038.c</div>
+                        </div>
+
+                        <div class="func-item">
+                            PsLookupProcessByProcessId
+                            <div class="func-file">Found in: FUN_140131fe8.c, FUN_1400032b0.c, FUN_140003d44.c</div>
+                        </div>
+
+                        <div class="func-item">
+                            KeStackAttachProcess
+                            <div class="func-file">Found in: FUN_1400032b0.c, KeStackAttachProcess.c, FUN_140002a94.c</div>
+                        </div>
+
+                        <div class="func-item">
+                            KeUnstackDetachProcess
+                            <div class="func-file">Found in: FUN_1400032b0.c, KeUnstackDetachProcess.c, FUN_140002a94.c</div>
+                        </div>
+
+                        <div class="func-item">
+                            ExAllocatePoolWithTag
+                            <div class="func-file">Found in: FUN_14000d6e0.c, FUN_1400030b8.c</div>
+                        </div>
+
+                        <div class="func-item">
+                            IoFreeMdl
+                            <div class="func-file">Found in: FUN_140003208.c, FUN_140003fa8.c</div>
+                        </div>
+
+                        <div class="func-item">
+                            IoAllocateMdl
+                            <div class="func-file">Found in: FUN_14000453c.c, FUN_140003fa8.c, FUN_1400043c0.c</div>
+                        </div>
+<div style="color: #666; text-align: center; padding: 10px;">... and 3 more</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Full IOCTL Table -->
+        <div class="section">
+            <h2>Complete IOCTL Reference</h2>
+            <div class="card">
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>IOCTL Code</th>
+                                <th>Device Type</th>
+                                <th>Function</th>
+                                <th>Method</th>
+                                <th>Access</th>
+                                <th>Found In</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td><code>0x12A64799</code></td>
+                                <td>0x12A6</td>
+                                <td>0x1E6</td>
+                                <td>METHOD_IN_DIRECT</td>
+                                <td>FILE_READ_ACCESS</td>
+                                <td>FUN_1401325b3.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x133ECF0</code></td>
+                                <td>0x0133</td>
+                                <td>0xB3C</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_READ_WRITE_ACCESS</td>
+                                <td>FUN_14000d0a3.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x1FFFFF</code></td>
+                                <td>0x001F</td>
+                                <td>0xFFF</td>
+                                <td>METHOD_NEITHER</td>
+                                <td>FILE_READ_WRITE_ACCESS</td>
+                                <td>FUN_1400068c8.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x2FF38098</code></td>
+                                <td>0x2FF3</td>
+                                <td>0x026</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_WRITE_ACCESS</td>
+                                <td>FUN_14013246d.c, FUN_1401324b4.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x39AC0BEC</code></td>
+                                <td>0x39AC</td>
+                                <td>0x2FB</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_ANY_ACCESS</td>
+                                <td>FUN_140132344.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x3CFA8149</code></td>
+                                <td>0x3CFA</td>
+                                <td>0x052</td>
+                                <td>METHOD_IN_DIRECT</td>
+                                <td>FILE_WRITE_ACCESS</td>
+                                <td>FUN_140131fe4.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x3FFFFFE9</code></td>
+                                <td>0x3FFF</td>
+                                <td>0xFFA</td>
+                                <td>METHOD_IN_DIRECT</td>
+                                <td>FILE_READ_WRITE_ACCESS</td>
+                                <td>FUN_1400030b8.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x3FFFFFF3</code></td>
+                                <td>0x3FFF</td>
+                                <td>0xFFC</td>
+                                <td>METHOD_NEITHER</td>
+                                <td>FILE_READ_WRITE_ACCESS</td>
+                                <td>FUN_1400030b8.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x3FFFFFFC</code></td>
+                                <td>0x3FFF</td>
+                                <td>0xFFF</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_READ_WRITE_ACCESS</td>
+                                <td>FUN_140001b20.c, FUN_140006488.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x3FFFFFFF</code></td>
+                                <td>0x3FFF</td>
+                                <td>0xFFF</td>
+                                <td>METHOD_NEITHER</td>
+                                <td>FILE_READ_WRITE_ACCESS</td>
+                                <td>FUN_1400017fc.c, FUN_140004310.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x45145114</code></td>
+                                <td>0x4514</td>
+                                <td>0x445</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_READ_ACCESS</td>
+                                <td>FUN_14000d6e0.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x4746544D</code></td>
+                                <td>0x4746</td>
+                                <td>0x513</td>
+                                <td>METHOD_IN_DIRECT</td>
+                                <td>FILE_READ_ACCESS</td>
+                                <td>FUN_140003208.c, FUN_14000d6e0.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x7FFFFFFE</code></td>
+                                <td>0x7FFF</td>
+                                <td>0xFFF</td>
+                                <td>METHOD_OUT_DIRECT</td>
+                                <td>FILE_READ_WRITE_ACCESS</td>
+                                <td>RtlStringCchCatW.c, RtlStringCchCatW.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x7FFFFFFF</code></td>
+                                <td>0x7FFF</td>
+                                <td>0xFFF</td>
+                                <td>METHOD_NEITHER</td>
+                                <td>FILE_READ_WRITE_ACCESS</td>
+                                <td>FUN_140002eb0.c, FUN_140002eb0.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x80000005</code></td>
+                                <td>0x8000</td>
+                                <td>0x001</td>
+                                <td>METHOD_IN_DIRECT</td>
+                                <td>FILE_ANY_ACCESS</td>
+                                <td>RtlStringCchCatW.c, RtlStringCchCopyW.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0xBAEBAEEC</code></td>
+                                <td>0xBAEB</td>
+                                <td>0xBBB</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_WRITE_ACCESS</td>
+                                <td>FUN_14000d0a3.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0xC000000D</code></td>
+                                <td>0xC000</td>
+                                <td>0x003</td>
+                                <td>METHOD_IN_DIRECT</td>
+                                <td>FILE_ANY_ACCESS</td>
+                                <td>FUN_140002e2c.c, FUN_140002e2c.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0xCCFD593</code></td>
+                                <td>0x0CCF</td>
+                                <td>0x564</td>
+                                <td>METHOD_NEITHER</td>
+                                <td>FILE_READ_WRITE_ACCESS</td>
+                                <td>FUN_1401324eb.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0xE859B14D</code></td>
+                                <td>0xE859</td>
+                                <td>0xC53</td>
+                                <td>METHOD_IN_DIRECT</td>
+                                <td>FILE_WRITE_ACCESS</td>
+                                <td>FUN_140006408.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0xF8D50DB</code></td>
+                                <td>0x0F8D</td>
+                                <td>0x436</td>
+                                <td>METHOD_NEITHER</td>
+                                <td>FILE_READ_ACCESS</td>
+                                <td>FUN_140132344.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0xFFFCFFFF</code></td>
+                                <td>0xFFFC</td>
+                                <td>0xFFF</td>
+                                <td>METHOD_NEITHER</td>
+                                <td>FILE_READ_WRITE_ACCESS</td>
+                                <td>FUN_14000d6e0.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0xFFFFFFFD</code></td>
+                                <td>0xFFFF</td>
+                                <td>0xFFF</td>
+                                <td>METHOD_IN_DIRECT</td>
+                                <td>FILE_READ_WRITE_ACCESS</td>
+                                <td>FUN_1400050d0.c, FUN_140005998.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0xFFFFFFFE</code></td>
+                                <td>0xFFFF</td>
+                                <td>0xFFF</td>
+                                <td>METHOD_OUT_DIRECT</td>
+                                <td>FILE_READ_WRITE_ACCESS</td>
+                                <td>FUN_1400050d0.c, FUN_140005998.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0xFFFFFFFF</code></td>
+                                <td>0xFFFF</td>
+                                <td>0xFFF</td>
+                                <td>METHOD_NEITHER</td>
+                                <td>FILE_READ_WRITE_ACCESS</td>
+                                <td>FUN_1400035b0.c, FUN_140003614.c</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Generated by KernelHuntFramework on 2025-11-27 21:59:50</p>
+            <p>For security research purposes only</p>
+        </div>
+    </div>
+</body>
+</html>

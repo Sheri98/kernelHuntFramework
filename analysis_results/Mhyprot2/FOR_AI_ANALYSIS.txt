@@ -1,0 +1,165 @@
+================================================================================
+DRIVER IOCTL ANALYSIS - FOR AI
+================================================================================
+
+TASK: Analyze these decompiled functions and extract all IOCTL codes
+
+Look for:
+- Hex constants (0x...) that appear in comparisons
+- Switch/case statements with hex values
+- Function calls that check IRP control codes
+
+================================================================================
+
+
+================================================================================
+FILE: FxDriverEntryWorker.c
+================================================================================
+
+// Function: FxDriverEntryWorker
+// Address: 140001070
+// Decompiled by Ghidra
+
+
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+/* Library Function - Single Match
+
+    FxDriverEntryWorker
+
+   
+
+   Library: Visual Studio 2019 Release */
+
+
+
+ulonglong FxDriverEntryWorker(longlong param_1)
+
+
+
+{
+
+  uint uVar1;
+
+  ulonglong uVar2;
+
+  
+
+  if (param_1 == 0) {
+
+    uVar2 = FUN_14000e000();
+
+  }
+
+  else {
+
+    _DAT_14000b3ba = 0x208;
+
+    _DAT_14000b3b8 = 0;
+
+    _DAT_14000b3c0 = &DAT_14000b3f0;
+
+    _DAT_14000b3e0 = param_1;
+
+    RtlCopyUnicodeString(&DAT_14000b3b8);
+
+    uVar2 = WdfVersionBind(param_1,&DAT_14000b3b8,&DAT_14000a020,&DAT_14000b3d8);
+
+    if (-1 < (int)uVar2) {
+
+      uVar1 = FxStubBindClasses((_WDF_BIND_INFO *)&DAT_14000a020);
+
+      if (-1 < (int)uVar1) {
+
+        FxStubInitTypes();
+
+        uVar1 = FUN_14000e000();
+
+        if (-1 < (int)uVar1) {
+
+          if (*(char *)(DAT_14000b3d8 + 0x30) == '\0') {
+
+            if ((*(byte *)(DAT_14000b3d8 + 8) & 2) != 0) {
+
+              _DAT_14000b3d0 = DAT_14000ad98;
+
+              DAT_14000ad98 = FxStubDriverUnloadCommon;
+
+            }
+
+          }
+
+          else {
+
+            if (*(longlong *)(param_1 + 0x68) != 0) {
+
+              DAT_14000b3c8 = *(undefined8 *)(param_1 + 0x68);
+
+            }
+
+            *(code **)(param_1 + 0x68) = FxStubDriverUnload;
+
+          }
+
+          return 0;
+
+        }
+
+      }
+
+      FxStubDriverUnloadCommon();
+
+      uVar2 = (ulonglong)uVar1;
+
+    }
+
+  }
+
+  return uVar2;
+
+}
+
+
+
+
+
+
+================================================================================
+FILE: _guard_dispatch_icall.c
+================================================================================
+
+// Function: _guard_dispatch_icall
+// Address: 1400075b0
+// Decompiled by Ghidra
+
+
+
+/* WARNING: This is an inlined function */
+
+
+
+void _guard_dispatch_icall(void)
+
+
+
+{
+
+  code *UNRECOVERED_JUMPTABLE;
+
+  
+
+                    /* WARNING: Could not recover jumptable at 0x0001400075b0. Too many branches */
+
+                    /* WARNING: Treating indirect jump as call */
+
+  (*UNRECOVERED_JUMPTABLE)();
+
+  return;
+
+}
+
+
+
+
+

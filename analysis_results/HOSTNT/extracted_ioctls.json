@@ -1,0 +1,52 @@
+{
+  "total_ioctls": 3,
+  "total_raw_detections": 3,
+  "filtered_low_confidence": 0,
+  "ioctls": [
+    {
+      "code": "0x7FFFE000",
+      "decimal": 2147475456,
+      "device_type": "0x7FFF",
+      "function_code": "0x800",
+      "method": 0,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_00011144.c"
+      ],
+      "contexts": [
+        "ong uVar2;        *(undefined4 *)(param_2 + 0x30) = 0;    *(undefined8 *)(param_2 + 0x38) = 0;    if (**(char **)(param_2 + 0xb8) == '\\x0e') {      if (*(int *)(*(char **)(param_2 + 0xb8) + 0x18) == -"
+      ]
+    },
+    {
+      "code": "0xFFFFFFF0",
+      "decimal": 4294967280,
+      "device_type": "0xFFFF",
+      "function_code": "0xFFC",
+      "method": 0,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "__GSHandlerCheckCommon.c"
+      ],
+      "contexts": [
+        "ar1 = (ulonglong)*(uint *)(*(longlong *)(param_2 + 0x10) + 8) + *(longlong *)(param_2 + 8);    if ((*(byte *)(lVar1 + 3) & 0xf) != 0) {      param_1 = param_1 + (longlong)(int)(*(byte *)(lVar1 + 3) & "
+      ]
+    },
+    {
+      "code": "0xFFFFFFF8",
+      "decimal": 4294967288,
+      "device_type": "0xFFFF",
+      "function_code": "0xFFE",
+      "method": 0,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "__GSHandlerCheckCommon.c"
+      ],
+      "contexts": [
+        "+ 8);    if ((*(byte *)(lVar1 + 3) & 0xf) != 0) {      param_1 = param_1 + (longlong)(int)(*(byte *)(lVar1 + 3) & 0xfffffff0);    }    FUN_000114e0(param_1 ^ *(ulonglong *)((longlong)(int)(*param_3 & "
+      ]
+    }
+  ]
+}

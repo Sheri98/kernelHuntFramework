@@ -1,0 +1,84 @@
+{
+  "security_score": 54,
+  "risk_level": "HIGH",
+  "total": 34,
+  "by_severity": {
+    "low": {
+      "count": 23,
+      "functions": [
+        {
+          "name": "DbgPrint",
+          "files": [
+            "FUN_00011040.c",
+            "FUN_00011220.c",
+            "FUN_000114a0.c",
+            "FUN_00011820.c",
+            "FUN_00011120.c",
+            "DbgPrint.c",
+            "FUN_00011620.c"
+          ]
+        },
+        {
+          "name": "IofCompleteRequest",
+          "files": [
+            "FUN_00011d70.c"
+          ]
+        }
+      ]
+    },
+    "high": {
+      "count": 2,
+      "functions": [
+        {
+          "name": "IoCreateDevice",
+          "files": [
+            "entry.c"
+          ]
+        },
+        {
+          "name": "IoCreateSymbolicLink",
+          "files": [
+            "entry.c"
+          ]
+        }
+      ]
+    },
+    "critical": {
+      "count": 7,
+      "functions": [
+        {
+          "name": "rdmsr",
+          "files": [
+            "FUN_00011000.c",
+            "FUN_00011040.c",
+            "FUN_00011120.c"
+          ]
+        },
+        {
+          "name": "wrmsr",
+          "files": [
+            "FUN_00011040.c",
+            "FUN_00011120.c"
+          ]
+        },
+        {
+          "name": "ZwMapViewOfSection",
+          "files": [
+            "FUN_00011820.c"
+          ]
+        }
+      ]
+    },
+    "medium": {
+      "count": 2,
+      "functions": [
+        {
+          "name": "ObReferenceObjectByHandle",
+          "files": [
+            "FUN_00011820.c"
+          ]
+        }
+      ]
+    }
+  }
+}

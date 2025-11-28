@@ -1,0 +1,68 @@
+{
+  "security_score": 20,
+  "risk_level": "LOW",
+  "total": 63,
+  "by_severity": {
+    "low": {
+      "count": 59,
+      "functions": [
+        {
+          "name": "DbgPrint",
+          "files": [
+            "FUN_140001e04.c",
+            "FUN_140002068.c",
+            "FUN_140001188.c",
+            "FUN_140001860.c",
+            "FUN_140002234.c",
+            "DbgPrint.c"
+          ]
+        },
+        {
+          "name": "KeReleaseSpinLock",
+          "files": [
+            "FUN_140002930.c",
+            "FUN_140001468.c",
+            "FUN_140002960.c",
+            "FUN_140002990.c",
+            "FUN_1400029c0.c",
+            "FUN_1400029f0.c",
+            "FUN_1400013f4.c",
+            "FUN_140002a20.c",
+            "FUN_140001bf4.c",
+            "FUN_14000289c.c",
+            "FUN_140002458.c"
+          ]
+        },
+        {
+          "name": "IofCompleteRequest",
+          "files": [
+            "FUN_140002354.c",
+            "FUN_14000213c.c",
+            "FUN_140002188.c",
+            "FUN_140002234.c",
+            "FUN_1400019e4.c"
+          ]
+        }
+      ]
+    },
+    "high": {
+      "count": 4,
+      "functions": [
+        {
+          "name": "IoCreateDevice",
+          "files": [
+            "FUN_140001e04.c",
+            "FUN_140001188.c",
+            "FUN_140001860.c"
+          ]
+        },
+        {
+          "name": "IoCreateSymbolicLink",
+          "files": [
+            "FUN_140001860.c"
+          ]
+        }
+      ]
+    }
+  }
+}

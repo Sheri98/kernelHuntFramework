@@ -1,0 +1,56 @@
+{
+  "security_score": 52,
+  "risk_level": "HIGH",
+  "total": 17,
+  "by_severity": {
+    "high": {
+      "count": 15,
+      "functions": [
+        {
+          "name": "memcpy",
+          "files": [
+            "FUN_000151d4.c",
+            "FUN_00011170.c",
+            "FUN_00011008.c",
+            "memcpy.c",
+            "FUN_00015294.c"
+          ]
+        },
+        {
+          "name": "IoCreateDevice",
+          "files": [
+            "FUN_00011008.c"
+          ]
+        },
+        {
+          "name": "IoCreateSymbolicLink",
+          "files": [
+            "FUN_00011008.c"
+          ]
+        }
+      ]
+    },
+    "low": {
+      "count": 1,
+      "functions": [
+        {
+          "name": "IofCompleteRequest",
+          "files": [
+            "FUN_00011170.c"
+          ]
+        }
+      ]
+    },
+    "critical": {
+      "count": 1,
+      "functions": [
+        {
+          "name": "MmMapIoSpace",
+          "files": [
+            "FUN_00015100.c"
+          ]
+        }
+      ]
+    }
+  }
+}

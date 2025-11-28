@@ -1,0 +1,103 @@
+{
+  "security_score": 32,
+  "risk_level": "MEDIUM",
+  "total": 56,
+  "by_severity": {
+    "low": {
+      "count": 42,
+      "functions": [
+        {
+          "name": "DbgPrint",
+          "files": [
+            "FUN_00011e84.c",
+            "DbgPrint.c",
+            "FUN_00011dcc.c",
+            "FUN_000113f8.c",
+            "FUN_000112e0.c",
+            "FUN_000119f8.c",
+            "FUN_0001194c.c",
+            "FUN_00011088.c"
+          ]
+        },
+        {
+          "name": "IofCompleteRequest",
+          "files": [
+            "FUN_000113f8.c",
+            "FUN_000112e0.c"
+          ]
+        },
+        {
+          "name": "ExAcquireFastMutex",
+          "files": [
+            "FUN_0001194c.c",
+            "FUN_000113f8.c",
+            "FUN_000119f8.c"
+          ]
+        },
+        {
+          "name": "ExReleaseFastMutex",
+          "files": [
+            "FUN_0001194c.c",
+            "FUN_000113f8.c",
+            "FUN_000119f8.c"
+          ]
+        }
+      ]
+    },
+    "high": {
+      "count": 2,
+      "functions": [
+        {
+          "name": "IoCreateDevice",
+          "files": [
+            "FUN_00011088.c"
+          ]
+        },
+        {
+          "name": "IoCreateSymbolicLink",
+          "files": [
+            "FUN_00011088.c"
+          ]
+        }
+      ]
+    },
+    "medium": {
+      "count": 11,
+      "functions": [
+        {
+          "name": "ExFreePoolWithTag",
+          "files": [
+            "FUN_0001194c.c",
+            "FUN_00011e84.c",
+            "FUN_000113f8.c",
+            "FUN_000119f8.c"
+          ]
+        },
+        {
+          "name": "ExAllocatePoolWithTag",
+          "files": [
+            "FUN_00011e84.c",
+            "FUN_000119f8.c"
+          ]
+        },
+        {
+          "name": "PsLookupProcessByProcessId",
+          "files": [
+            "FUN_000119f8.c"
+          ]
+        }
+      ]
+    },
+    "critical": {
+      "count": 1,
+      "functions": [
+        {
+          "name": "ZwOpenProcess",
+          "files": [
+            "FUN_00011e84.c"
+          ]
+        }
+      ]
+    }
+  }
+}

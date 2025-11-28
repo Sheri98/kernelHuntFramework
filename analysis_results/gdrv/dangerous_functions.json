@@ -1,0 +1,137 @@
+{
+  "security_score": 62,
+  "risk_level": "HIGH",
+  "total": 64,
+  "by_severity": {
+    "low": {
+      "count": 48,
+      "functions": [
+        {
+          "name": "DbgPrint",
+          "files": [
+            "FUN_1400021c8.c",
+            "FUN_14000140c.c",
+            "FUN_140001820.c",
+            "FUN_140001a20.c",
+            "FUN_1400026f0.c",
+            "FUN_1400023e0.c",
+            "FUN_1400017dc.c",
+            "FUN_1400028d8.c",
+            "FUN_140001f88.c",
+            "FUN_1400029b4.c",
+            "FUN_140002a14.c",
+            "FUN_140002b4c.c",
+            "FUN_140001338.c",
+            "FUN_14000297c.c",
+            "DbgPrint.c",
+            "FUN_140001788.c",
+            "FUN_1400024d0.c",
+            "FUN_14000293c.c"
+          ]
+        },
+        {
+          "name": "IofCompleteRequest",
+          "files": [
+            "FUN_140001a20.c"
+          ]
+        }
+      ]
+    },
+    "critical": {
+      "count": 6,
+      "functions": [
+        {
+          "name": "rdmsr",
+          "files": [
+            "FUN_1400010c6.c"
+          ]
+        },
+        {
+          "name": "wrmsr",
+          "files": [
+            "FUN_1400010e3.c"
+          ]
+        },
+        {
+          "name": "MmMapIoSpace",
+          "files": [
+            "FUN_140001a20.c",
+            "FUN_140001f1c.c"
+          ]
+        },
+        {
+          "name": "MmMapLockedPages",
+          "files": [
+            "FUN_140001a20.c"
+          ]
+        },
+        {
+          "name": "ZwMapViewOfSection",
+          "files": [
+            "FUN_1400026f0.c"
+          ]
+        }
+      ]
+    },
+    "high": {
+      "count": 2,
+      "functions": [
+        {
+          "name": "IoCreateDevice",
+          "files": [
+            "FUN_14000197c.c"
+          ]
+        },
+        {
+          "name": "IoCreateSymbolicLink",
+          "files": [
+            "FUN_14000197c.c"
+          ]
+        }
+      ]
+    },
+    "medium": {
+      "count": 8,
+      "functions": [
+        {
+          "name": "ExAllocatePool",
+          "files": [
+            "FUN_140001a20.c"
+          ]
+        },
+        {
+          "name": "ExFreePoolWithTag",
+          "files": [
+            "FUN_140001a20.c",
+            "FUN_1400022c4.c"
+          ]
+        },
+        {
+          "name": "IoAllocateMdl",
+          "files": [
+            "FUN_140001a20.c"
+          ]
+        },
+        {
+          "name": "IoFreeMdl",
+          "files": [
+            "FUN_140001a20.c",
+            "FUN_1400022c4.c"
+          ]
+        },
+        {
+          "name": "MmBuildMdlForNonPagedPool",
+          "files": [
+            "FUN_140001a20.c"
+          ]
+        },
+        {
+          "name": "ObReferenceObjectByHandle",
+          "files": [
+            "FUN_1400026f0.c"
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "security_score": 100,
+  "risk_level": "CRITICAL",
+  "total": 34,
+  "by_severity": {
+    "low": {
+      "count": 3,
+      "functions": [
+        {
+          "name": "IofCompleteRequest",
+          "files": [
+            "FUN_00012174.c",
+            "FUN_0001106c.c",
+            "FUN_00011008.c"
+          ]
+        }
+      ]
+    },
+    "critical": {
+      "count": 18,
+      "functions": [
+        {
+          "name": "MmMapIoSpace",
+          "files": [
+            "FUN_00011f24.c",
+            "FUN_0001106c.c",
+            "FUN_000118e8.c"
+          ]
+        },
+        {
+          "name": "wrmsr",
+          "files": [
+            "FUN_0001106c.c",
+            "FUN_00011dc8.c",
+            "FUN_00011ce8.c"
+          ]
+        },
+        {
+          "name": "rdmsr",
+          "files": [
+            "FUN_0001106c.c",
+            "FUN_00011dc8.c",
+            "FUN_00011ce8.c"
+          ]
+        }
+      ]
+    },
+    "high": {
+      "count": 6,
+      "functions": [
+        {
+          "name": "memcpy",
+          "files": [
+            "FUN_00011f24.c",
+            "FUN_000118e8.c",
+            "memcpy.c"
+          ]
+        },
+        {
+          "name": "IoCreateDevice",
+          "files": [
+            "FUN_00016008.c"
+          ]
+        },
+        {
+          "name": "IoCreateSymbolicLink",
+          "files": [
+            "FUN_00016008.c"
+          ]
+        }
+      ]
+    },
+    "medium": {
+      "count": 7,
+      "functions": [
+        {
+          "name": "ExAllocatePoolWithTag",
+          "files": [
+            "FUN_000118e8.c",
+            "FUN_000122f4.c"
+          ]
+        },
+        {
+          "name": "ExFreePoolWithTag",
+          "files": [
+            "FUN_00012174.c",
+            "FUN_000118e8.c",
+            "FUN_000122f4.c"
+          ]
+        },
+        {
+          "name": "IoFreeMdl",
+          "files": [
+            "FUN_00012174.c"
+          ]
+        }
+      ]
+    }
+  }
+}

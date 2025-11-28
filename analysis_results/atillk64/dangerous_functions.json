@@ -1,0 +1,87 @@
+{
+  "security_score": 85,
+  "risk_level": "CRITICAL",
+  "total": 23,
+  "by_severity": {
+    "high": {
+      "count": 2,
+      "functions": [
+        {
+          "name": "IoCreateDevice",
+          "files": [
+            "FUN_00011008.c"
+          ]
+        },
+        {
+          "name": "IoCreateSymbolicLink",
+          "files": [
+            "FUN_00011008.c"
+          ]
+        }
+      ]
+    },
+    "low": {
+      "count": 1,
+      "functions": [
+        {
+          "name": "IofCompleteRequest",
+          "files": [
+            "FUN_000110e4.c"
+          ]
+        }
+      ]
+    },
+    "critical": {
+      "count": 13,
+      "functions": [
+        {
+          "name": "MmMapIoSpace",
+          "files": [
+            "FUN_00011150.c"
+          ]
+        },
+        {
+          "name": "MmMapLockedPages",
+          "files": [
+            "FUN_00011150.c"
+          ]
+        },
+        {
+          "name": "wrmsr",
+          "files": [
+            "FUN_00011150.c"
+          ]
+        },
+        {
+          "name": "rdmsr",
+          "files": [
+            "FUN_00011150.c"
+          ]
+        }
+      ]
+    },
+    "medium": {
+      "count": 7,
+      "functions": [
+        {
+          "name": "IoAllocateMdl",
+          "files": [
+            "FUN_00011150.c"
+          ]
+        },
+        {
+          "name": "IoFreeMdl",
+          "files": [
+            "FUN_00011150.c"
+          ]
+        },
+        {
+          "name": "MmBuildMdlForNonPagedPool",
+          "files": [
+            "FUN_00011150.c"
+          ]
+        }
+      ]
+    }
+  }
+}

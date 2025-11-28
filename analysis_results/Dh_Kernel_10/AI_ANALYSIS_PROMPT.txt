@@ -1,0 +1,29 @@
+================================================================================
+PROMPT FOR AI ANALYSIS
+================================================================================
+
+Copy this prompt and the relevant C files to Claude/ChatGPT:
+
+--------------------------------------------------------------------------------
+
+I have decompiled a Windows kernel driver and need help analyzing it to find IOCTL codes.
+
+Please analyze the following decompiled C code and:
+1. Identify all IOCTL codes (hex values like 0x9C402084)
+2. Explain what each IOCTL does
+3. Identify the dispatch function that handles IOCTLs
+4. Show the control flow for IOCTL handling
+
+Look for:
+- Comparisons with hex constants (likely IOCTL codes)
+- Switch/case statements with hex values
+- IRP_MJ_DEVICE_CONTROL dispatch handlers
+- CTL_CODE macro usage
+
+Here are the important files to analyze:
+
+*** _guard_dispatch_icall @ 1400020c0
+
+--------------------------------------------------------------------------------
+
+After reviewing the summary, attach the C files mentioned above.

@@ -1,0 +1,36 @@
+{
+  "security_score": 5,
+  "risk_level": "LOW",
+  "total": 4,
+  "by_severity": {
+    "high": {
+      "count": 2,
+      "functions": [
+        {
+          "name": "IoCreateDevice",
+          "files": [
+            "entry.c"
+          ]
+        },
+        {
+          "name": "IoCreateSymbolicLink",
+          "files": [
+            "entry.c"
+          ]
+        }
+      ]
+    },
+    "low": {
+      "count": 2,
+      "functions": [
+        {
+          "name": "IofCompleteRequest",
+          "files": [
+            "FUN_000104e4.c",
+            "FUN_00010590.c"
+          ]
+        }
+      ]
+    }
+  }
+}

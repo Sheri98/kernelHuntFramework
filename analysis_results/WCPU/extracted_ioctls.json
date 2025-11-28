@@ -1,0 +1,156 @@
+{
+  "total_ioctls": 9,
+  "total_raw_detections": 9,
+  "filtered_low_confidence": 0,
+  "ioctls": [
+    {
+      "code": "0x2927D984",
+      "decimal": 690477444,
+      "device_type": "0x2927",
+      "function_code": "0x661",
+      "method": 0,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_000110c8.c"
+      ],
+      "contexts": [
+        "T_00013120);            if (-1 < iVar2) {              memcpy(_Src,&DAT_00013120,_Size_00);              *(ulonglong *)(param_2 + 0x38) = _Size_00;            }          }          else if (iVar2 == -"
+      ]
+    },
+    {
+      "code": "0x2927D988",
+      "decimal": 690477448,
+      "device_type": "0x2927",
+      "function_code": "0x662",
+      "method": 0,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_000110c8.c"
+      ],
+      "contexts": [
+        "0)) || (iVar2 == -0x2927d98c)) {            uVar3 = FUN_00011338(*(undefined8 *)(param_1 + 0x40),param_2,(longlong)pcVar1,iVar2);            iVar2 = (int)uVar3;          }          else if (iVar2 == -"
+      ]
+    },
+    {
+      "code": "0x2927D98C",
+      "decimal": 690477452,
+      "device_type": "0x2927",
+      "function_code": "0x663",
+      "method": 0,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_000110c8.c",
+        "FUN_00011338.c",
+        "FUN_00011338.c",
+        "FUN_00011338.c"
+      ],
+      "contexts": [
+        "ocal_28;        local_c = local_1c;        FUN_00011670(&local_18);      }      else {        if (iVar2 != -0x2927d998) {          if (((iVar2 == -0x2927d994) || (iVar2 == -0x2927d990)) || (iVar2 == -",
+        "(uint **)(param_2 + 0x18);    if (param_4 == -0x2927d994) {      uVar5 = 1;    }    else if (param_4 == -0x2927d990) {      uVar5 = 2;    }    else {      uVar5 = local_res20[0];      if (param_4 == -",
+        "      goto LAB_00011432;      }      if (param_4 == -0x2927d990) {        uVar3 = in(uVar3);  LAB_00011425:        *(undefined2 *)puVar1 = uVar3;        goto LAB_00011432;      }      if (param_4 != -"
+      ]
+    },
+    {
+      "code": "0x2927D990",
+      "decimal": 690477456,
+      "device_type": "0x2927",
+      "function_code": "0x664",
+      "method": 0,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_000110c8.c",
+        "FUN_00011338.c",
+        "FUN_00011338.c",
+        "FUN_00011338.c"
+      ],
+      "contexts": [
+        "cal_20;        local_18 = local_28;        local_c = local_1c;        FUN_00011670(&local_18);      }      else {        if (iVar2 != -0x2927d998) {          if (((iVar2 == -0x2927d994) || (iVar2 == -",
+        " uint uVar4;    uint uVar5;    uint local_res10 [4];    uint local_res20 [2];        puVar1 = *(uint **)(param_2 + 0x18);    if (param_4 == -0x2927d994) {      uVar5 = 1;    }    else if (param_4 == -",
+        "3 = (undefined2)local_res10[0];      if (param_4 == -0x2927d994) {        uVar2 = in(uVar3);  LAB_00011430:        *(undefined1 *)puVar1 = uVar2;        goto LAB_00011432;      }      if (param_4 == -"
+      ]
+    },
+    {
+      "code": "0x2927D994",
+      "decimal": 690477460,
+      "device_type": "0x2927",
+      "function_code": "0x665",
+      "method": 0,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_000110c8.c",
+        "FUN_00011338.c",
+        "FUN_00011338.c"
+      ],
+      "contexts": [
+        "l_24;        local_10 = local_20;        local_18 = local_28;        local_c = local_1c;        FUN_00011670(&local_18);      }      else {        if (iVar2 != -0x2927d998) {          if (((iVar2 == -",
+        " uint *puVar1;    undefined1 uVar2;    undefined2 uVar3;    uint uVar4;    uint uVar5;    uint local_res10 [4];    uint local_res20 [2];        puVar1 = *(uint **)(param_2 + 0x18);    if (param_4 == -",
+        ";  LAB_00011425:        *(undefined2 *)puVar1 = uVar3;        goto LAB_00011432;      }      if (param_4 != -0x2927d98c) goto LAB_00011432;      uVar4 = in(uVar3);    }    else {      if (param_4 == -"
+      ]
+    },
+    {
+      "code": "0x2927D998",
+      "decimal": 690477464,
+      "device_type": "0x2927",
+      "function_code": "0x666",
+      "method": 0,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_000110c8.c"
+      ],
+      "contexts": [
+        "_28,_Src,_Size);        local_14 = local_24;        local_10 = local_20;        local_18 = local_28;        local_c = local_1c;        FUN_00011670(&local_18);      }      else {        if (iVar2 != -"
+      ]
+    },
+    {
+      "code": "0x2927D99C",
+      "decimal": 690477468,
+      "device_type": "0x2927",
+      "function_code": "0x667",
+      "method": 0,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_000110c8.c"
+      ],
+      "contexts": [
+        "uint *)(pcVar1 + 8);    iVar2 = -0x3ffffffe;    if ((*pcVar1 != '\\0') && (*pcVar1 != '\\x02')) {      if (*pcVar1 != '\\x0e') goto LAB_000112c6;      iVar2 = *(int *)(pcVar1 + 0x18);      if (iVar2 == -"
+      ]
+    },
+    {
+      "code": "0x3FFFFFF3",
+      "decimal": 1073741811,
+      "device_type": "0x3FFF",
+      "function_code": "0xFFC",
+      "method": 3,
+      "access": 3,
+      "confidence": 50.0,
+      "found_in": [
+        "FUN_000110c8.c"
+      ],
+      "contexts": [
+        "           memcpy(&DAT_00013120,_Src,_Size);            iVar2 = ZwUnmapViewOfSection(0xffffffffffffffff,DAT_00013138);            ZwClose(DAT_00013120);          }          else {            iVar2 = -"
+      ]
+    },
+    {
+      "code": "0x3FFFFFFE",
+      "decimal": 1073741822,
+      "device_type": "0x3FFF",
+      "function_code": "0xFFF",
+      "method": 2,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_000110c8.c"
+      ],
+      "contexts": [
+        " local_c;        pcVar1 = *(char **)(param_2 + 0xb8);    _Src = *(void **)(param_2 + 0x18);    _Size = (ulonglong)*(uint *)(pcVar1 + 0x10);    _Size_00 = (ulonglong)*(uint *)(pcVar1 + 8);    iVar2 = -"
+      ]
+    }
+  ]
+}

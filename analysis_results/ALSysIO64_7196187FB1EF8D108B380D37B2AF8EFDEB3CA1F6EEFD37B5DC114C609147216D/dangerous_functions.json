@@ -1,0 +1,119 @@
+{
+  "security_score": 80,
+  "risk_level": "CRITICAL",
+  "total": 58,
+  "by_severity": {
+    "low": {
+      "count": 38,
+      "functions": [
+        {
+          "name": "DbgPrint",
+          "files": [
+            "FUN_00012e30.c",
+            "FUN_00011b00.c",
+            "FUN_00012ff0.c",
+            "DbgPrint.c",
+            "FUN_00011d70.c",
+            "FUN_00011da0.c",
+            "FUN_00011bd0.c",
+            "FUN_00013550.c",
+            "FUN_000119e0.c",
+            "FUN_00011860.c",
+            "FUN_00012f50.c",
+            "FUN_00012c70.c",
+            "FUN_00013430.c",
+            "FUN_000116e0.c",
+            "FUN_000118e0.c",
+            "FUN_00013230.c",
+            "FUN_00012eb0.c",
+            "FUN_00011640.c",
+            "FUN_00011760.c",
+            "FUN_00011010.c",
+            "FUN_000115b0.c",
+            "FUN_00011170.c",
+            "FUN_000117e0.c",
+            "FUN_00011c90.c",
+            "FUN_00011960.c"
+          ]
+        },
+        {
+          "name": "IofCompleteRequest",
+          "files": [
+            "FUN_00011170.c"
+          ]
+        }
+      ]
+    },
+    "high": {
+      "count": 7,
+      "functions": [
+        {
+          "name": "IoCreateDevice",
+          "files": [
+            "FUN_00011010.c"
+          ]
+        },
+        {
+          "name": "IoCreateSymbolicLink",
+          "files": [
+            "FUN_00011010.c"
+          ]
+        },
+        {
+          "name": "memcpy",
+          "files": [
+            "FUN_00012f50.c",
+            "FUN_00011da0.c",
+            "FUN_00012eb0.c",
+            "memcpy.c"
+          ]
+        }
+      ]
+    },
+    "critical": {
+      "count": 6,
+      "functions": [
+        {
+          "name": "rdmsr",
+          "files": [
+            "FUN_00012e30.c",
+            "FUN_000115b0.c"
+          ]
+        },
+        {
+          "name": "wrmsr",
+          "files": [
+            "FUN_00011640.c"
+          ]
+        },
+        {
+          "name": "MmMapIoSpace",
+          "files": [
+            "FUN_00012f50.c",
+            "FUN_00012c70.c",
+            "FUN_00012eb0.c"
+          ]
+        }
+      ]
+    },
+    "medium": {
+      "count": 7,
+      "functions": [
+        {
+          "name": "ExAllocatePoolWithTag",
+          "files": [
+            "FUN_00012ff0.c",
+            "FUN_00013230.c"
+          ]
+        },
+        {
+          "name": "ExFreePoolWithTag",
+          "files": [
+            "FUN_00012ff0.c",
+            "FUN_00013230.c"
+          ]
+        }
+      ]
+    }
+  }
+}

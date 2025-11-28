@@ -1,0 +1,25 @@
+{
+  "start_time": "2025-11-27T22:19:35.624622",
+  "end_time": "2025-11-27T22:20:04.926107",
+  "duration_seconds": 29.301485,
+  "statistics": {
+    "total": 1,
+    "completed": 1,
+    "success": 1,
+    "partial": 0,
+    "failed": 0,
+    "timeout": 0,
+    "error": 0
+  },
+  "results": [
+    {
+      "driver": "GIO",
+      "path": "C:\\Users\\MalwareDevelopment\\Desktop\\kernelHuntFramework\\kernelHuntFramework-master\\New folder\\GIO.sys",
+      "index": 1,
+      "total": 1,
+      "status": "success",
+      "steps_completed": 4,
+      "errors": []
+    }
+  ]
+}

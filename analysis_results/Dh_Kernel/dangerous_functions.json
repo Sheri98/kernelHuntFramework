@@ -1,0 +1,134 @@
+{
+  "security_score": 46,
+  "risk_level": "MEDIUM",
+  "total": 47,
+  "by_severity": {
+    "low": {
+      "count": 8,
+      "functions": [
+        {
+          "name": "IofCompleteRequest",
+          "files": [
+            "FUN_140001bb0.c",
+            "FUN_140001c9c.c",
+            "FUN_140001320.c"
+          ]
+        },
+        {
+          "name": "DbgPrintEx",
+          "files": [
+            "FUN_140001b88.c",
+            "FUN_14000136c.c",
+            "FUN_140001bb0.c",
+            "FUN_1400016f8.c"
+          ]
+        }
+      ]
+    },
+    "high": {
+      "count": 7,
+      "functions": [
+        {
+          "name": "IoCreateDevice",
+          "files": [
+            "FUN_14000136c.c"
+          ]
+        },
+        {
+          "name": "IoCreateSymbolicLink",
+          "files": [
+            "FUN_14000136c.c"
+          ]
+        },
+        {
+          "name": "ProbeForRead",
+          "files": [
+            "FUN_1400019cc.c",
+            "FUN_140001d48.c",
+            "FUN_14000175c.c",
+            "FUN_14000182c.c"
+          ]
+        }
+      ]
+    },
+    "medium": {
+      "count": 31,
+      "functions": [
+        {
+          "name": "PsLookupProcessByProcessId",
+          "files": [
+            "FUN_1400019cc.c",
+            "FUN_14000175c.c",
+            "FUN_140001d48.c",
+            "FUN_1400015b8.c",
+            "FUN_14000182c.c"
+          ]
+        },
+        {
+          "name": "MmBuildMdlForNonPagedPool",
+          "files": [
+            "FUN_14000163c.c"
+          ]
+        },
+        {
+          "name": "IoFreeMdl",
+          "files": [
+            "FUN_1400016d8.c"
+          ]
+        },
+        {
+          "name": "KeStackAttachProcess",
+          "files": [
+            "FUN_1400019cc.c",
+            "FUN_140001d48.c",
+            "FUN_14000175c.c",
+            "FUN_14000182c.c"
+          ]
+        },
+        {
+          "name": "KeUnstackDetachProcess",
+          "files": [
+            "FUN_1400019cc.c",
+            "FUN_140001d48.c",
+            "FUN_14000175c.c",
+            "FUN_14000182c.c"
+          ]
+        },
+        {
+          "name": "ExAllocatePoolWithTag",
+          "files": [
+            "FUN_1400019cc.c",
+            "FUN_140001d48.c",
+            "FUN_14000182c.c"
+          ]
+        },
+        {
+          "name": "ExFreePoolWithTag",
+          "files": [
+            "FUN_1400019cc.c",
+            "FUN_140001d48.c",
+            "FUN_140001bb0.c",
+            "FUN_14000182c.c"
+          ]
+        },
+        {
+          "name": "ExAllocatePool",
+          "files": [
+            "FUN_1400019cc.c"
+          ]
+        }
+      ]
+    },
+    "critical": {
+      "count": 1,
+      "functions": [
+        {
+          "name": "MmMapLockedPages",
+          "files": [
+            "FUN_14000163c.c"
+          ]
+        }
+      ]
+    }
+  }
+}

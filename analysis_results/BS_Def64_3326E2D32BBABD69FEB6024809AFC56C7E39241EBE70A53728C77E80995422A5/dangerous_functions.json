@@ -1,0 +1,102 @@
+{
+  "security_score": 82,
+  "risk_level": "CRITICAL",
+  "total": 25,
+  "by_severity": {
+    "critical": {
+      "count": 10,
+      "functions": [
+        {
+          "name": "MmMapLockedPages",
+          "files": [
+            "FUN_00011090.c"
+          ]
+        },
+        {
+          "name": "MmMapIoSpace",
+          "files": [
+            "FUN_00011590.c",
+            "FUN_00012b80.c",
+            "FUN_00012230.c",
+            "FUN_00012050.c",
+            "FUN_00012760.c"
+          ]
+        },
+        {
+          "name": "ZwMapViewOfSection",
+          "files": [
+            "FUN_00011b90.c",
+            "FUN_00011dd0.c"
+          ]
+        }
+      ]
+    },
+    "medium": {
+      "count": 5,
+      "functions": [
+        {
+          "name": "IoAllocateMdl",
+          "files": [
+            "FUN_00011090.c"
+          ]
+        },
+        {
+          "name": "MmBuildMdlForNonPagedPool",
+          "files": [
+            "FUN_00011090.c"
+          ]
+        },
+        {
+          "name": "IoFreeMdl",
+          "files": [
+            "FUN_00011140.c"
+          ]
+        },
+        {
+          "name": "ObReferenceObjectByHandle",
+          "files": [
+            "FUN_00011b90.c",
+            "FUN_00011dd0.c"
+          ]
+        }
+      ]
+    },
+    "high": {
+      "count": 7,
+      "functions": [
+        {
+          "name": "IoCreateDevice",
+          "files": [
+            "FUN_00011980.c"
+          ]
+        },
+        {
+          "name": "IoCreateSymbolicLink",
+          "files": [
+            "FUN_00011980.c"
+          ]
+        },
+        {
+          "name": "strncpy",
+          "files": [
+            "FUN_00012760.c",
+            "FUN_00012050.c"
+          ]
+        }
+      ]
+    },
+    "low": {
+      "count": 3,
+      "functions": [
+        {
+          "name": "IofCompleteRequest",
+          "files": [
+            "FUN_00011a70.c",
+            "FUN_00012300.c",
+            "FUN_00012b80.c"
+          ]
+        }
+      ]
+    }
+  }
+}

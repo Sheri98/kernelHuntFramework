@@ -1,0 +1,289 @@
+{
+  "total_ioctls": 18,
+  "total_raw_detections": 18,
+  "filtered_low_confidence": 0,
+  "ioctls": [
+    {
+      "code": "0xC000000D",
+      "decimal": 3221225485,
+      "device_type": "0xC000",
+      "function_code": "0x003",
+      "method": 1,
+      "access": 0,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_000110d8.c",
+        "FUN_00011614.c"
+      ],
+      "contexts": [
+        "uVar4 + 2,                               puVar4[1],iVar11);            uVar12 = -(uint)(iVar8 != iVar11) & 0xe0000003;            goto LAB_00011423;          }        }  LAB_000111b1:        uVar12 = ",
+        "ar7;        if (param_2 < 0x10) {      return 0xc000000d;    }    uVar3 = *(int *)((longlong)param_1 + 0xc) * *(int *)(param_1 + 1);    if ((ulonglong)param_2 < (ulonglong)uVar3 + 0x10) {      return "
+      ]
+    },
+    {
+      "code": "0xC3502000",
+      "decimal": 3276808192,
+      "device_type": "0xC350",
+      "function_code": "0x800",
+      "method": 0,
+      "access": 0,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_000110d8.c"
+      ],
+      "contexts": [
+        "60d4) {            *puVar1 = 0;            goto LAB_000111b1;          }          uVar7 = in(uVar6);          *puVar3 = uVar7;        }        *puVar1 = uVar12;      }      else {        if (uVar9 == "
+      ]
+    },
+    {
+      "code": "0xC3502004",
+      "decimal": 3276808196,
+      "device_type": "0xC350",
+      "function_code": "0x801",
+      "method": 0,
+      "access": 0,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_000110d8.c"
+      ],
+      "contexts": [
+        "r3 = uVar7;        }        *puVar1 = uVar12;      }      else {        if (uVar9 == 0xc3502000) {          **(undefined4 **)(param_2 + 0x18) = 0x1000000;        }        else {          if (uVar9 != "
+      ]
+    },
+    {
+      "code": "0xC3502084",
+      "decimal": 3276808324,
+      "device_type": "0xC350",
+      "function_code": "0x821",
+      "method": 0,
+      "access": 0,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_000110d8.c"
+      ],
+      "contexts": [
+        "uVar12;      }      else {        if (uVar9 == 0xc3502000) {          **(undefined4 **)(param_2 + 0x18) = 0x1000000;        }        else {          if (uVar9 != 0xc3502004) {            if (uVar9 == "
+      ]
+    },
+    {
+      "code": "0xC3502088",
+      "decimal": 3276808328,
+      "device_type": "0xC350",
+      "function_code": "0x822",
+      "method": 0,
+      "access": 0,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_000110d8.c"
+      ],
+      "contexts": [
+        "(param_2 + 0x18),                                    (ulonglong)*(uint *)(pcVar2 + 8),puVar1);              uVar12 = (uint)uVar10;              goto LAB_00011423;            }            if (uVar9 == "
+      ]
+    },
+    {
+      "code": "0xC350208C",
+      "decimal": 3276808332,
+      "device_type": "0xC350",
+      "function_code": "0x823",
+      "method": 0,
+      "access": 0,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_000110d8.c"
+      ],
+      "contexts": [
+        " (uVar9 == 0xc3502088) {              uVar10 = FUN_000114c8(*(undefined4 **)(param_2 + 0x18));              uVar12 = (uint)uVar10;              goto LAB_00011423;            }            if (uVar9 == "
+      ]
+    },
+    {
+      "code": "0xC35060CC",
+      "decimal": 3276824780,
+      "device_type": "0xC350",
+      "function_code": "0x833",
+      "method": 0,
+      "access": 1,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_000110d8.c"
+      ],
+      "contexts": [
+        "   }      if (uVar9 == 0xc35060d4) {  LAB_00011189:        puVar3 = *(undefined4 **)(param_2 + 0x18);        uVar12 = *(uint *)(pcVar2 + 0x10);        uVar6 = (undefined2)*puVar3;        if (uVar9 == "
+      ]
+    },
+    {
+      "code": "0xC35060D0",
+      "decimal": 3276824784,
+      "device_type": "0xC350",
+      "function_code": "0x834",
+      "method": 0,
+      "access": 1,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_000110d8.c"
+      ],
+      "contexts": [
+        "= *(uint *)(pcVar2 + 0x10);        uVar6 = (undefined2)*puVar3;        if (uVar9 == 0xc35060cc) {          uVar5 = in(uVar6);          *(undefined1 *)puVar3 = uVar5;        }        else if (uVar9 == "
+      ]
+    },
+    {
+      "code": "0xC35060D4",
+      "decimal": 3276824788,
+      "device_type": "0xC350",
+      "function_code": "0x835",
+      "method": 0,
+      "access": 1,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_000110d8.c",
+        "FUN_000110d8.c",
+        "FUN_000110d8.c"
+      ],
+      "contexts": [
+        " '\\x02') {      if (DAT_00013110 != -1) {        DAT_00013110 = DAT_00013110 + -1;      }    }    else {      if (*pcVar2 != '\\x0e') goto LAB_00011423;      uVar9 = *(uint *)(pcVar2 + 0x18);      if (",
+        "        uVar12 = -(uint)(iVar8 != iVar11) & 0xe0000003;            goto LAB_00011423;          }        }  LAB_000111b1:        uVar12 = 0xc000000d;        goto LAB_00011423;      }      if (uVar9 == ",
+        "        *(undefined1 *)puVar3 = uVar5;        }        else if (uVar9 == 0xc35060d0) {          uVar6 = in(uVar6);          *(undefined2 *)puVar3 = uVar6;        }        else {          if (uVar9 != "
+      ]
+    },
+    {
+      "code": "0xC3506104",
+      "decimal": 3276824836,
+      "device_type": "0xC350",
+      "function_code": "0x841",
+      "method": 0,
+      "access": 1,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_000110d8.c"
+      ],
+      "contexts": [
+        "       DAT_00013110 = DAT_00013110 + -1;      }    }    else {      if (*pcVar2 != '\\x0e') goto LAB_00011423;      uVar9 = *(uint *)(pcVar2 + 0x18);      if (0xc35060d4 < uVar9) {        if (uVar9 == "
+      ]
+    },
+    {
+      "code": "0xC3506144",
+      "decimal": 3276824900,
+      "device_type": "0xC350",
+      "function_code": "0x851",
+      "method": 0,
+      "access": 1,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_000110d8.c"
+      ],
+      "contexts": [
+        "   (undefined4 *)*(longlong **)(param_2 + 0x18),*(uint *)(pcVar2 + 8),                                puVar1);          uVar12 = (uint)uVar10;          goto LAB_00011423;        }        if (uVar9 == "
+      ]
+    },
+    {
+      "code": "0xC350A0C8",
+      "decimal": 3276841160,
+      "device_type": "0xC350",
+      "function_code": "0x832",
+      "method": 0,
+      "access": 2,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_000110d8.c"
+      ],
+      "contexts": [
+        "0000004;            }            else {              uVar12 = 0xe0000002;            }            *puVar1 = 0;            goto LAB_00011423;          }        }        else {          if ((((uVar9 == "
+      ]
+    },
+    {
+      "code": "0xC350A0D8",
+      "decimal": 3276841176,
+      "device_type": "0xC350",
+      "function_code": "0x836",
+      "method": 0,
+      "access": 2,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_000110d8.c",
+        "FUN_000110d8.c"
+      ],
+      "contexts": [
+        "        else {              uVar12 = 0xe0000002;            }            *puVar1 = 0;            goto LAB_00011423;          }        }        else {          if ((((uVar9 == 0xc350a0c8) || (uVar9 == ",
+        "== 0xc350a0d8)) || (uVar9 == 0xc350a0dc)) ||             (uVar9 == 0xc350a0e0)) {            puVar3 = *(undefined4 **)(param_2 + 0x18);            uVar6 = (undefined2)*puVar3;            if (uVar9 == "
+      ]
+    },
+    {
+      "code": "0xC350A0DC",
+      "decimal": 3276841180,
+      "device_type": "0xC350",
+      "function_code": "0x837",
+      "method": 0,
+      "access": 2,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_000110d8.c",
+        "FUN_000110d8.c"
+      ],
+      "contexts": [
+        "  uVar12 = 0xe0000002;            }            *puVar1 = 0;            goto LAB_00011423;          }        }        else {          if ((((uVar9 == 0xc350a0c8) || (uVar9 == 0xc350a0d8)) || (uVar9 == ",
+        "ined4 **)(param_2 + 0x18);            uVar6 = (undefined2)*puVar3;            if (uVar9 == 0xc350a0d8) {              out(uVar6,*(undefined1 *)(puVar3 + 1));            }            else if (uVar9 == "
+      ]
+    },
+    {
+      "code": "0xC350A0E0",
+      "decimal": 3276841184,
+      "device_type": "0xC350",
+      "function_code": "0x838",
+      "method": 0,
+      "access": 2,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_000110d8.c",
+        "FUN_000110d8.c"
+      ],
+      "contexts": [
+        "         *puVar1 = 0;            goto LAB_00011423;          }        }        else {          if ((((uVar9 == 0xc350a0c8) || (uVar9 == 0xc350a0d8)) || (uVar9 == 0xc350a0dc)) ||             (uVar9 == ",
+        "ar6,*(undefined1 *)(puVar3 + 1));            }            else if (uVar9 == 0xc350a0dc) {              out(uVar6,*(undefined2 *)(puVar3 + 1));            }            else {              if (uVar9 != "
+      ]
+    },
+    {
+      "code": "0xC350A108",
+      "decimal": 3276841224,
+      "device_type": "0xC350",
+      "function_code": "0x842",
+      "method": 0,
+      "access": 2,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_000110d8.c"
+      ],
+      "contexts": [
+        "            }            else {              if (uVar9 != 0xc350a0e0) goto LAB_000111b1;              out(uVar6,puVar3[1]);            }            goto LAB_00011421;          }          if (uVar9 == "
+      ]
+    },
+    {
+      "code": "0xC350A148",
+      "decimal": 3276841288,
+      "device_type": "0xC350",
+      "function_code": "0x852",
+      "method": 0,
+      "access": 2,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_000110d8.c"
+      ],
+      "contexts": [
+        "fined8 **)(param_2 + 0x18),(ulonglong)*(uint *)(pcVar2 + 8),                                  puVar1);            uVar12 = (uint)uVar10;            goto LAB_00011423;          }          if (uVar9 != "
+      ]
+    },
+    {
+      "code": "0xE0000004",
+      "decimal": 3758096388,
+      "device_type": "0xE000",
+      "function_code": "0x001",
+      "method": 0,
+      "access": 0,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_000110d8.c"
+      ],
+      "contexts": [
+        "     }            else if ((uVar12 == 2) || (uVar9 != 2)) {              if (uVar12 == uVar9) {                *puVar1 = uVar12;                goto LAB_00011421;              }              uVar12 = "
+      ]
+    }
+  ]
+}

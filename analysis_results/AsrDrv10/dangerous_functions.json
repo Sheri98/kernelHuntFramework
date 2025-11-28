@@ -1,0 +1,101 @@
+{
+  "security_score": 100,
+  "risk_level": "CRITICAL",
+  "total": 35,
+  "by_severity": {
+    "low": {
+      "count": 3,
+      "functions": [
+        {
+          "name": "IofCompleteRequest",
+          "files": [
+            "FUN_000110a8.c",
+            "FUN_00011008.c",
+            "FUN_00012208.c"
+          ]
+        }
+      ]
+    },
+    "medium": {
+      "count": 8,
+      "functions": [
+        {
+          "name": "ExFreePoolWithTag",
+          "files": [
+            "FUN_00012388.c",
+            "FUN_00011030.c",
+            "FUN_00011984.c",
+            "FUN_00012208.c"
+          ]
+        },
+        {
+          "name": "ExAllocatePoolWithTag",
+          "files": [
+            "FUN_00012388.c",
+            "FUN_00011984.c"
+          ]
+        },
+        {
+          "name": "IoFreeMdl",
+          "files": [
+            "FUN_00012208.c"
+          ]
+        }
+      ]
+    },
+    "critical": {
+      "count": 18,
+      "functions": [
+        {
+          "name": "MmMapIoSpace",
+          "files": [
+            "FUN_000110a8.c",
+            "FUN_00011984.c",
+            "FUN_00011fbc.c"
+          ]
+        },
+        {
+          "name": "wrmsr",
+          "files": [
+            "FUN_00011d84.c",
+            "FUN_000110a8.c",
+            "FUN_00011e64.c"
+          ]
+        },
+        {
+          "name": "rdmsr",
+          "files": [
+            "FUN_00011d84.c",
+            "FUN_000110a8.c",
+            "FUN_00011e64.c"
+          ]
+        }
+      ]
+    },
+    "high": {
+      "count": 6,
+      "functions": [
+        {
+          "name": "memcpy",
+          "files": [
+            "memcpy.c",
+            "FUN_00011984.c",
+            "FUN_00011fbc.c"
+          ]
+        },
+        {
+          "name": "IoCreateDevice",
+          "files": [
+            "FUN_00016008.c"
+          ]
+        },
+        {
+          "name": "IoCreateSymbolicLink",
+          "files": [
+            "FUN_00016008.c"
+          ]
+        }
+      ]
+    }
+  }
+}

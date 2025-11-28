@@ -1,0 +1,16 @@
+# Driver Loader - Example File
+# One driver path per line
+# Lines starting with # or ; are comments
+# Empty lines are ignored
+
+# Example 1: Absolute path
+C:\Drivers\MyDriver.sys
+
+# Example 2: Relative path (if running from same directory)
+.\test_drivers\vulnerable.sys
+
+# Example 3: Network path (if accessible)
+\\server\share\drivers\ioctl_driver.sys
+
+# Add your driver paths below:
+

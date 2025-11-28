@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Report - Agent64_6948480954137987a0be626c24cf594390960242cd75f094cd6aaa5c2e7a54fa</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .header .subtitle {
+            color: #888;
+            font-size: 1.1rem;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-card {
+            text-align: center;
+        }
+
+        .stat-card .value {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .stat-card .label {
+            color: #888;
+            margin-top: 5px;
+            font-size: 0.9rem;
+        }
+
+        .score-card {
+            background: linear-gradient(135deg, #dc354522, #dc354511);
+            border-color: #dc354544;
+        }
+
+        .score-card .value {
+            color: #dc3545;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section h2::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 24px;
+            background: #667eea;
+            border-radius: 2px;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .category-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .category-header {
+            background: rgba(102, 126, 234, 0.2);
+            padding: 15px 20px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .category-count {
+            background: #667eea;
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .category-content {
+            padding: 15px 20px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .ioctl-item {
+            padding: 10px;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            border-left: 3px solid #667eea;
+        }
+
+        .ioctl-code {
+            font-family: 'Consolas', monospace;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .ioctl-details {
+            font-size: 0.85rem;
+            color: #888;
+            margin-top: 5px;
+        }
+
+        .danger-card {
+            border-left-color: #dc3545;
+        }
+
+        .danger-card .category-header {
+            background: rgba(220, 53, 69, 0.2);
+        }
+
+        .danger-card .category-count {
+            background: #dc3545;
+        }
+
+        .warning-card {
+            border-left-color: #fd7e14;
+        }
+
+        .warning-card .category-header {
+            background: rgba(253, 126, 20, 0.2);
+        }
+
+        .warning-card .category-count {
+            background: #fd7e14;
+        }
+
+        .func-item {
+            padding: 8px 12px;
+            margin-bottom: 8px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 6px;
+            font-family: 'Consolas', monospace;
+            font-size: 0.9rem;
+        }
+
+        .func-file {
+            color: #666;
+            font-size: 0.8rem;
+            margin-top: 3px;
+        }
+
+        .method-buffered { border-left-color: #28a745; }
+        .method-in-direct { border-left-color: #17a2b8; }
+        .method-out-direct { border-left-color: #ffc107; }
+        .method-neither { border-left-color: #dc3545; }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        th {
+            background: rgba(102, 126, 234, 0.2);
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-critical { background: #dc3545; color: #fff; }
+        .badge-high { background: #fd7e14; color: #fff; }
+        .badge-medium { background: #ffc107; color: #000; }
+        .badge-low { background: #28a745; color: #fff; }
+
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .dashboard {
+                grid-template-columns: 1fr 1fr;
+            }
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Security Analysis Report</h1>
+            <p class="subtitle">Agent64_6948480954137987a0be626c24cf594390960242cd75f094cd6aaa5c2e7a54fa</p>
+        </div>
+
+        <!-- Dashboard Stats -->
+        <div class="dashboard">
+            <div class="card stat-card score-card">
+                <div class="value">73/100</div>
+                <div class="label">Security Score (CRITICAL)</div>
+            </div>
+            <div class="card stat-card">
+                <div class="value">49</div>
+                <div class="label">IOCTL Codes Found</div>
+            </div>
+            <div class="card stat-card">
+                <div class="value">24</div>
+                <div class="label">Dangerous Functions</div>
+            </div>
+            <div class="card stat-card">
+                <div class="value">7</div>
+                <div class="label">Critical Issues</div>
+            </div>
+            <div class="card stat-card">
+                <div class="value">60</div>
+                <div class="label">Total Functions</div>
+            </div>
+        </div>
+
+        <!-- IOCTLs by Method -->
+        <div class="section">
+            <h2>IOCTLs by Transfer Method</h2>
+            <div class="category-grid">
+
+                <div class="category-card method-buffered">
+                    <div class="category-header">
+                        <span>METHOD_BUFFERED</span>
+                        <span class="category-count">40</span>
+                    </div>
+                    <div class="category-content">
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x7FFFFFFC</div>
+                            <div class="ioctl-details">
+                                Device: 0x7FFF | Func: 0xFFF |
+                                FILE_READ_WRITE_ACCESS
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x80000004</div>
+                            <div class="ioctl-details">
+                                Device: 0x8000 | Func: 0x001 |
+                                FILE_ANY_ACCESS
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x8000000C</div>
+                            <div class="ioctl-details">
+                                Device: 0x8000 | Func: 0x003 |
+                                FILE_ANY_ACCESS
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x80002008</div>
+                            <div class="ioctl-details">
+                                Device: 0x8000 | Func: 0x802 |
+                                FILE_ANY_ACCESS
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x8000200C</div>
+                            <div class="ioctl-details">
+                                Device: 0x8000 | Func: 0x803 |
+                                FILE_ANY_ACCESS
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x80002010</div>
+                            <div class="ioctl-details">
+                                Device: 0x8000 | Func: 0x804 |
+                                FILE_ANY_ACCESS
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x80002014</div>
+                            <div class="ioctl-details">
+                                Device: 0x8000 | Func: 0x805 |
+                                FILE_ANY_ACCESS
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x80002018</div>
+                            <div class="ioctl-details">
+                                Device: 0x8000 | Func: 0x806 |
+                                FILE_ANY_ACCESS
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x8000201C</div>
+                            <div class="ioctl-details">
+                                Device: 0x8000 | Func: 0x807 |
+                                FILE_ANY_ACCESS
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x80002020</div>
+                            <div class="ioctl-details">
+                                Device: 0x8000 | Func: 0x808 |
+                                FILE_ANY_ACCESS
+                            </div>
+                        </div>
+<div style="color: #666; text-align: center; padding: 10px;">... and 30 more</div>
+                    </div>
+                </div>
+
+                <div class="category-card method-in-direct">
+                    <div class="category-header">
+                        <span>METHOD_IN_DIRECT</span>
+                        <span class="category-count">4</span>
+                    </div>
+                    <div class="category-content">
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x7FFFFFFD</div>
+                            <div class="ioctl-details">
+                                Device: 0x7FFF | Func: 0xFFF |
+                                FILE_READ_WRITE_ACCESS
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x80002029</div>
+                            <div class="ioctl-details">
+                                Device: 0x8000 | Func: 0x80A |
+                                FILE_ANY_ACCESS
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x80002085</div>
+                            <div class="ioctl-details">
+                                Device: 0x8000 | Func: 0x821 |
+                                FILE_ANY_ACCESS
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0xC000000D</div>
+                            <div class="ioctl-details">
+                                Device: 0xC000 | Func: 0x003 |
+                                FILE_ANY_ACCESS
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="category-card method-neither">
+                    <div class="category-header">
+                        <span>METHOD_NEITHER</span>
+                        <span class="category-count">4</span>
+                    </div>
+                    <div class="category-content">
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x3FFFFFFF</div>
+                            <div class="ioctl-details">
+                                Device: 0x3FFF | Func: 0xFFF |
+                                FILE_READ_WRITE_ACCESS
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x7FFFDF17</div>
+                            <div class="ioctl-details">
+                                Device: 0x7FFF | Func: 0x7C5 |
+                                FILE_READ_WRITE_ACCESS
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0xFFFFFF</div>
+                            <div class="ioctl-details">
+                                Device: 0x00FF | Func: 0xFFF |
+                                FILE_READ_WRITE_ACCESS
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0xFFFFFFFF</div>
+                            <div class="ioctl-details">
+                                Device: 0xFFFF | Func: 0xFFF |
+                                FILE_READ_WRITE_ACCESS
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="category-card method-out-direct">
+                    <div class="category-header">
+                        <span>METHOD_OUT_DIRECT</span>
+                        <span class="category-count">1</span>
+                    </div>
+                    <div class="category-content">
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x7FFFFFFE</div>
+                            <div class="ioctl-details">
+                                Device: 0x7FFF | Func: 0xFFF |
+                                FILE_READ_WRITE_ACCESS
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- IOCTLs by Device Type -->
+        <div class="section">
+            <h2>IOCTLs by Device Type</h2>
+            <div class="category-grid">
+
+                <div class="category-card">
+                    <div class="category-header">
+                        <span>Device Type 0x00FF</span>
+                        <span class="category-count">1</span>
+                    </div>
+                    <div class="category-content">
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0xFFFFFF</div>
+                            <div class="ioctl-details">
+                                Method: METHOD_NEITHER |
+                                Func: 0xFFF
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-header">
+                        <span>Device Type 0x3FFF</span>
+                        <span class="category-count">1</span>
+                    </div>
+                    <div class="category-content">
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x3FFFFFFF</div>
+                            <div class="ioctl-details">
+                                Method: METHOD_NEITHER |
+                                Func: 0xFFF
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-header">
+                        <span>Device Type 0x7FFF</span>
+                        <span class="category-count">4</span>
+                    </div>
+                    <div class="category-content">
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x7FFFDF17</div>
+                            <div class="ioctl-details">
+                                Method: METHOD_NEITHER |
+                                Func: 0x7C5
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x7FFFFFFC</div>
+                            <div class="ioctl-details">
+                                Method: METHOD_BUFFERED |
+                                Func: 0xFFF
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x7FFFFFFD</div>
+                            <div class="ioctl-details">
+                                Method: METHOD_IN_DIRECT |
+                                Func: 0xFFF
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x7FFFFFFE</div>
+                            <div class="ioctl-details">
+                                Method: METHOD_OUT_DIRECT |
+                                Func: 0xFFF
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-header">
+                        <span>Device Type 0x8000</span>
+                        <span class="category-count">39</span>
+                    </div>
+                    <div class="category-content">
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x80000004</div>
+                            <div class="ioctl-details">
+                                Method: METHOD_BUFFERED |
+                                Func: 0x001
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x8000000C</div>
+                            <div class="ioctl-details">
+                                Method: METHOD_BUFFERED |
+                                Func: 0x003
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x80002008</div>
+                            <div class="ioctl-details">
+                                Method: METHOD_BUFFERED |
+                                Func: 0x802
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x8000200C</div>
+                            <div class="ioctl-details">
+                                Method: METHOD_BUFFERED |
+                                Func: 0x803
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x80002010</div>
+                            <div class="ioctl-details">
+                                Method: METHOD_BUFFERED |
+                                Func: 0x804
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x80002014</div>
+                            <div class="ioctl-details">
+                                Method: METHOD_BUFFERED |
+                                Func: 0x805
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x80002018</div>
+                            <div class="ioctl-details">
+                                Method: METHOD_BUFFERED |
+                                Func: 0x806
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0x8000201C</div>
+                            <div class="ioctl-details">
+                                Method: METHOD_BUFFERED |
+                                Func: 0x807
+                            </div>
+                        </div>
+<div style="color: #666; text-align: center; padding: 10px;">... and 31 more</div>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-header">
+                        <span>Device Type 0xC000</span>
+                        <span class="category-count">1</span>
+                    </div>
+                    <div class="category-content">
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0xC000000D</div>
+                            <div class="ioctl-details">
+                                Method: METHOD_IN_DIRECT |
+                                Func: 0x003
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-header">
+                        <span>Device Type 0xFFFF</span>
+                        <span class="category-count">3</span>
+                    </div>
+                    <div class="category-content">
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0xFFFFFFF0</div>
+                            <div class="ioctl-details">
+                                Method: METHOD_BUFFERED |
+                                Func: 0xFFC
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0xFFFFFFF8</div>
+                            <div class="ioctl-details">
+                                Method: METHOD_BUFFERED |
+                                Func: 0xFFE
+                            </div>
+                        </div>
+
+                        <div class="ioctl-item">
+                            <div class="ioctl-code">0xFFFFFFFF</div>
+                            <div class="ioctl-details">
+                                Method: METHOD_NEITHER |
+                                Func: 0xFFF
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Dangerous Functions -->
+        <div class="section">
+            <h2>Dangerous Functions Detected</h2>
+            <div class="category-grid">
+
+                <div class="category-card danger-card">
+                    <div class="category-header">
+                        <span>CRITICAL</span>
+                        <span class="category-count">7</span>
+                    </div>
+                    <div class="category-content">
+
+                        <div class="func-item">
+                            wrmsr
+                            <div class="func-file">Found in: FUN_00011284.c</div>
+                        </div>
+
+                        <div class="func-item">
+                            rdmsr
+                            <div class="func-file">Found in: FUN_00011284.c</div>
+                        </div>
+
+                        <div class="func-item">
+                            ZwMapViewOfSection
+                            <div class="func-file">Found in: FUN_0001242c.c</div>
+                        </div>
+
+                        <div class="func-item">
+                            MmMapLockedPages
+                            <div class="func-file">Found in: FUN_00012654.c</div>
+                        </div>
+
+                        <div class="func-item">
+                            MmMapLockedPagesSpecifyCache
+                            <div class="func-file">Found in: FUN_00012654.c</div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="category-card warning-card">
+                    <div class="category-header">
+                        <span>HIGH SEVERITY</span>
+                        <span class="category-count">2</span>
+                    </div>
+                    <div class="category-content">
+
+                        <div class="func-item">
+                            IoCreateDevice
+                            <div class="func-file">Found in: FUN_00011008.c</div>
+                        </div>
+
+                        <div class="func-item">
+                            IoCreateSymbolicLink
+                            <div class="func-file">Found in: FUN_00011008.c</div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-header">
+                        <span>MEDIUM SEVERITY</span>
+                        <span class="category-count">13</span>
+                    </div>
+                    <div class="category-content">
+
+                        <div class="func-item">
+                            ExFreePoolWithTag
+                            <div class="func-file">Found in: FUN_00011c0c.c, FUN_00011284.c</div>
+                        </div>
+
+                        <div class="func-item">
+                            IoFreeMdl
+                            <div class="func-file">Found in: FUN_00011284.c, FUN_00012654.c</div>
+                        </div>
+
+                        <div class="func-item">
+                            ExAllocatePool
+                            <div class="func-file">Found in: FUN_00011c0c.c, FUN_00011b34.c</div>
+                        </div>
+
+                        <div class="func-item">
+                            IoAllocateMdl
+                            <div class="func-file">Found in: FUN_00012700.c, FUN_00011c0c.c</div>
+                        </div>
+
+                        <div class="func-item">
+                            ObReferenceObjectByHandle
+                            <div class="func-file">Found in: FUN_0001242c.c</div>
+                        </div>
+
+                        <div class="func-item">
+                            MmBuildMdlForNonPagedPool
+                            <div class="func-file">Found in: FUN_00012654.c</div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Full IOCTL Table -->
+        <div class="section">
+            <h2>Complete IOCTL Reference</h2>
+            <div class="card">
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>IOCTL Code</th>
+                                <th>Device Type</th>
+                                <th>Function</th>
+                                <th>Method</th>
+                                <th>Access</th>
+                                <th>Found In</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td><code>0x3FFFFFFF</code></td>
+                                <td>0x3FFF</td>
+                                <td>0xFFF</td>
+                                <td>METHOD_NEITHER</td>
+                                <td>FILE_READ_WRITE_ACCESS</td>
+                                <td>FUN_0001242c.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x7FFFDF17</code></td>
+                                <td>0x7FFF</td>
+                                <td>0x7C5</td>
+                                <td>METHOD_NEITHER</td>
+                                <td>FILE_READ_WRITE_ACCESS</td>
+                                <td>FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x7FFFFFFC</code></td>
+                                <td>0x7FFF</td>
+                                <td>0xFFF</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_READ_WRITE_ACCESS</td>
+                                <td>FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x7FFFFFFD</code></td>
+                                <td>0x7FFF</td>
+                                <td>0xFFF</td>
+                                <td>METHOD_IN_DIRECT</td>
+                                <td>FILE_READ_WRITE_ACCESS</td>
+                                <td>FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x7FFFFFFE</code></td>
+                                <td>0x7FFF</td>
+                                <td>0xFFF</td>
+                                <td>METHOD_OUT_DIRECT</td>
+                                <td>FILE_READ_WRITE_ACCESS</td>
+                                <td>FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x80000004</code></td>
+                                <td>0x8000</td>
+                                <td>0x001</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_ANY_ACCESS</td>
+                                <td>FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x8000000C</code></td>
+                                <td>0x8000</td>
+                                <td>0x003</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_ANY_ACCESS</td>
+                                <td>FUN_000119a0.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x80002008</code></td>
+                                <td>0x8000</td>
+                                <td>0x802</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_ANY_ACCESS</td>
+                                <td>FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x8000200C</code></td>
+                                <td>0x8000</td>
+                                <td>0x803</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_ANY_ACCESS</td>
+                                <td>FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x80002010</code></td>
+                                <td>0x8000</td>
+                                <td>0x804</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_ANY_ACCESS</td>
+                                <td>FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x80002014</code></td>
+                                <td>0x8000</td>
+                                <td>0x805</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_ANY_ACCESS</td>
+                                <td>FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x80002018</code></td>
+                                <td>0x8000</td>
+                                <td>0x806</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_ANY_ACCESS</td>
+                                <td>FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x8000201C</code></td>
+                                <td>0x8000</td>
+                                <td>0x807</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_ANY_ACCESS</td>
+                                <td>FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x80002020</code></td>
+                                <td>0x8000</td>
+                                <td>0x808</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_ANY_ACCESS</td>
+                                <td>FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x80002024</code></td>
+                                <td>0x8000</td>
+                                <td>0x809</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_ANY_ACCESS</td>
+                                <td>FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x80002028</code></td>
+                                <td>0x8000</td>
+                                <td>0x80A</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_ANY_ACCESS</td>
+                                <td>FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x80002029</code></td>
+                                <td>0x8000</td>
+                                <td>0x80A</td>
+                                <td>METHOD_IN_DIRECT</td>
+                                <td>FILE_ANY_ACCESS</td>
+                                <td>FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x8000202C</code></td>
+                                <td>0x8000</td>
+                                <td>0x80B</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_ANY_ACCESS</td>
+                                <td>FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x80002030</code></td>
+                                <td>0x8000</td>
+                                <td>0x80C</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_ANY_ACCESS</td>
+                                <td>FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x80002034</code></td>
+                                <td>0x8000</td>
+                                <td>0x80D</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_ANY_ACCESS</td>
+                                <td>FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x80002038</code></td>
+                                <td>0x8000</td>
+                                <td>0x80E</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_ANY_ACCESS</td>
+                                <td>FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x8000203C</code></td>
+                                <td>0x8000</td>
+                                <td>0x80F</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_ANY_ACCESS</td>
+                                <td>FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x80002040</code></td>
+                                <td>0x8000</td>
+                                <td>0x810</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_ANY_ACCESS</td>
+                                <td>FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x80002044</code></td>
+                                <td>0x8000</td>
+                                <td>0x811</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_ANY_ACCESS</td>
+                                <td>FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x80002048</code></td>
+                                <td>0x8000</td>
+                                <td>0x812</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_ANY_ACCESS</td>
+                                <td>FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x8000204C</code></td>
+                                <td>0x8000</td>
+                                <td>0x813</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_ANY_ACCESS</td>
+                                <td>FUN_00011284.c, FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x80002050</code></td>
+                                <td>0x8000</td>
+                                <td>0x814</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_ANY_ACCESS</td>
+                                <td>FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x80002054</code></td>
+                                <td>0x8000</td>
+                                <td>0x815</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_ANY_ACCESS</td>
+                                <td>FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x80002064</code></td>
+                                <td>0x8000</td>
+                                <td>0x819</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_ANY_ACCESS</td>
+                                <td>FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x80002068</code></td>
+                                <td>0x8000</td>
+                                <td>0x81A</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_ANY_ACCESS</td>
+                                <td>FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x8000206C</code></td>
+                                <td>0x8000</td>
+                                <td>0x81B</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_ANY_ACCESS</td>
+                                <td>FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x80002070</code></td>
+                                <td>0x8000</td>
+                                <td>0x81C</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_ANY_ACCESS</td>
+                                <td>FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x80002074</code></td>
+                                <td>0x8000</td>
+                                <td>0x81D</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_ANY_ACCESS</td>
+                                <td>FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x8000207C</code></td>
+                                <td>0x8000</td>
+                                <td>0x81F</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_ANY_ACCESS</td>
+                                <td>FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x80002084</code></td>
+                                <td>0x8000</td>
+                                <td>0x821</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_ANY_ACCESS</td>
+                                <td>FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x80002085</code></td>
+                                <td>0x8000</td>
+                                <td>0x821</td>
+                                <td>METHOD_IN_DIRECT</td>
+                                <td>FILE_ANY_ACCESS</td>
+                                <td>FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x80002088</code></td>
+                                <td>0x8000</td>
+                                <td>0x822</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_ANY_ACCESS</td>
+                                <td>FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x8000208C</code></td>
+                                <td>0x8000</td>
+                                <td>0x823</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_ANY_ACCESS</td>
+                                <td>FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x800020A0</code></td>
+                                <td>0x8000</td>
+                                <td>0x828</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_ANY_ACCESS</td>
+                                <td>FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x800020A4</code></td>
+                                <td>0x8000</td>
+                                <td>0x829</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_ANY_ACCESS</td>
+                                <td>FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x800020E8</code></td>
+                                <td>0x8000</td>
+                                <td>0x83A</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_ANY_ACCESS</td>
+                                <td>FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x800020EC</code></td>
+                                <td>0x8000</td>
+                                <td>0x83B</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_ANY_ACCESS</td>
+                                <td>FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x800020F0</code></td>
+                                <td>0x8000</td>
+                                <td>0x83C</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_ANY_ACCESS</td>
+                                <td>FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0x800020F4</code></td>
+                                <td>0x8000</td>
+                                <td>0x83D</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_ANY_ACCESS</td>
+                                <td>FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0xC000000D</code></td>
+                                <td>0xC000</td>
+                                <td>0x003</td>
+                                <td>METHOD_IN_DIRECT</td>
+                                <td>FILE_ANY_ACCESS</td>
+                                <td>FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0xFFFFFF</code></td>
+                                <td>0x00FF</td>
+                                <td>0xFFF</td>
+                                <td>METHOD_NEITHER</td>
+                                <td>FILE_READ_WRITE_ACCESS</td>
+                                <td>FUN_00011284.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0xFFFFFFF0</code></td>
+                                <td>0xFFFF</td>
+                                <td>0xFFC</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_READ_WRITE_ACCESS</td>
+                                <td>__GSHandlerCheckCommon.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0xFFFFFFF8</code></td>
+                                <td>0xFFFF</td>
+                                <td>0xFFE</td>
+                                <td>METHOD_BUFFERED</td>
+                                <td>FILE_READ_WRITE_ACCESS</td>
+                                <td>__GSHandlerCheckCommon.c</td>
+                            </tr>
+
+                            <tr>
+                                <td><code>0xFFFFFFFF</code></td>
+                                <td>0xFFFF</td>
+                                <td>0xFFF</td>
+                                <td>METHOD_NEITHER</td>
+                                <td>FILE_READ_WRITE_ACCESS</td>
+                                <td>FUN_00011284.c, FUN_0001242c.c</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Generated by KernelHuntFramework on 2025-11-27 21:52:03</p>
+            <p>For security research purposes only</p>
+        </div>
+    </div>
+</body>
+</html>

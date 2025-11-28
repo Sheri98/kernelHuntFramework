@@ -1,0 +1,417 @@
+{
+  "total_ioctls": 24,
+  "total_raw_detections": 24,
+  "filtered_low_confidence": 0,
+  "ioctls": [
+    {
+      "code": "0x12A64799",
+      "decimal": 312887193,
+      "device_type": "0x12A6",
+      "function_code": "0x1E6",
+      "method": 1,
+      "access": 1,
+      "confidence": 50.0,
+      "found_in": [
+        "FUN_1401325b3.c"
+      ],
+      "contexts": [
+        "ined1 in_AL;    undefined7 in_register_00000001;    uint unaff_ESI;        *(undefined8 *)((ulonglong)unaff_ESI - 8) = 0xffffffffffffff88;    pbVar1 = (byte *)(CONCAT71(in_register_00000001,in_AL) + -"
+      ]
+    },
+    {
+      "code": "0x133ECF0",
+      "decimal": 20180208,
+      "device_type": "0x0133",
+      "function_code": "0xB3C",
+      "method": 0,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_14000d0a3.c"
+      ],
+      "contexts": [
+        "bVar3 = FUN_1400035b0(*param_6,param_2,param_3,param_4);            uVar4 = (uint)CONCAT71(extraout_var,bVar3);            goto LAB_14000d2e9;          }          *(undefined4 *)(unaff_RBP + 0x200) = "
+      ]
+    },
+    {
+      "code": "0x1FFFFF",
+      "decimal": 2097151,
+      "device_type": "0x001F",
+      "function_code": "0xFFF",
+      "method": 3,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_1400068c8.c"
+      ],
+      "contexts": [
+        "t iVar2;    longlong *plVar3;    undefined8 local_res10;    longlong local_res18 [2];        local_res18[0] = 0;    local_res10 = 0;    iVar2 = ObOpenObjectByPointer                      (param_1,0,0,"
+      ]
+    },
+    {
+      "code": "0x2FF38098",
+      "decimal": 804487320,
+      "device_type": "0x2FF3",
+      "function_code": "0x026",
+      "method": 0,
+      "access": 2,
+      "confidence": 50.0,
+      "found_in": [
+        "FUN_14013246d.c",
+        "FUN_1401324b4.c",
+        "FUN_1401324b4.c"
+      ],
+      "contexts": [
+        "ffffffff) / (longlong)unaff_EDI;    pcVar5 = (char *)(uVar2 & 0xffffffff);    FUN_14005a2bc();    cVar4 = (char)((ulonglong)lVar3 >> 8) >> 6;    piVar1 = (int *)(CONCAT44(unaff_0000003c,unaff_EDI) + -",
+        "nglong unaff_RDI;        cVar3 = (char)((ulonglong)param_1 >> 8);    uVar2 = FUN_1400a7de0();    pcVar4 = (char *)(ulonglong)uVar2;    FUN_14005a2bc();    cVar3 = cVar3 >> 6;    *(int *)(unaff_RDI + -",
+        "ar)((ulonglong)param_1 >> 8);    uVar2 = FUN_1400a7de0();    pcVar4 = (char *)(ulonglong)uVar2;    FUN_14005a2bc();    cVar3 = cVar3 >> 6;    *(int *)(unaff_RDI + -0x2ff38098) = *(int *)(unaff_RDI + -"
+      ]
+    },
+    {
+      "code": "0x39AC0BEC",
+      "decimal": 967576556,
+      "device_type": "0x39AC",
+      "function_code": "0x2FB",
+      "method": 0,
+      "access": 0,
+      "confidence": 50.0,
+      "found_in": [
+        "FUN_140132344.c"
+      ],
+      "contexts": [
+        "   code *pcVar1;    longlong in_RAX;    byte in_CF;        *(int *)(in_RAX + -0xf8d50db) =         (*(int *)(in_RAX + -0xf8d50db) - (int)&stack0x00000000) - (uint)in_CF;    out(param_2,(uint)in_RAX | "
+      ]
+    },
+    {
+      "code": "0x3CFA8149",
+      "decimal": 1023050057,
+      "device_type": "0x3CFA",
+      "function_code": "0x052",
+      "method": 1,
+      "access": 2,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_140131fe4.c"
+      ],
+      "contexts": [
+        "d8 in_stack_00000030;    char *pcVar4;        uVar1 = in((short)param_2);    *unaff_RDI = uVar1;    uVar2 = in((short)param_2);    pcVar4 = (char *)(ulonglong)uVar2;    bVar5 = (byte)param_2 & pcVar4["
+      ]
+    },
+    {
+      "code": "0x3FFFFFE9",
+      "decimal": 1073741801,
+      "device_type": "0x3FFF",
+      "function_code": "0xFFA",
+      "method": 1,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_1400030b8.c"
+      ],
+      "contexts": [
+        "ined8 *)ExAllocatePoolWithTag(1);        if (puVar4 == (undefined8 *)0x0) {  LAB_1400031d2:          *(undefined8 *)(puVar5 + -8) = 0x1400031dc;          FUN_140003208('\\0',param_1);          return -"
+      ]
+    },
+    {
+      "code": "0x3FFFFFF3",
+      "decimal": 1073741811,
+      "device_type": "0x3FFF",
+      "function_code": "0xFFC",
+      "method": 3,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_1400030b8.c"
+      ],
+      "contexts": [
+        "{        return iVar3;      }      local_60 = &local_res10;      local_68 = 0x30;      iVar3 = ZwQueryVirtualMemory(0xffffffffffffffff,param_2,0,&local_58);      if (iVar3 < 0) {        if (iVar3 != -"
+      ]
+    },
+    {
+      "code": "0x3FFFFFFC",
+      "decimal": 1073741820,
+      "device_type": "0x3FFF",
+      "function_code": "0xFFF",
+      "method": 0,
+      "access": 3,
+      "confidence": 63.3,
+      "found_in": [
+        "FUN_140001b20.c",
+        "FUN_140006488.c",
+        "FxStubBindClasses.c"
+      ],
+      "contexts": [
+        "48 [4];    undefined8 *local_40;    undefined1 local_38 [16];        uVar6 = 0;    local_res18[0] = 0;    _Dst = (uint *)ZwQuerySystemInformation(0xb,local_res18,0,local_res18);    if (((int)_Dst == -",
+        "ocal_40);    uVar8 = 0xffffffff;    if (lVar5 != 0) {      local_res20[0] = 0;      iVar4 = (*(code *)PTR__guard_dispatch_icall_140008328)(5,0,0,local_res20);      uVar8 = uVar7;      if (((iVar4 == -",
+        "e {        iVar1 = (**(code **)(piVar2 + 0xe))(WdfVersionBindClass,param_1,DAT_14000b3d8,piVar2);      }      if (iVar1 < 0) {        return iVar1;      }      piVar2 = piVar2 + 0x14;    }    return -"
+      ]
+    },
+    {
+      "code": "0x3FFFFFFF",
+      "decimal": 1073741823,
+      "device_type": "0x3FFF",
+      "function_code": "0xFFF",
+      "method": 3,
+      "access": 3,
+      "confidence": 65.0,
+      "found_in": [
+        "FUN_1400017fc.c",
+        "FUN_140004310.c",
+        "FUN_140004310.c",
+        "FUN_140004310.c"
+      ],
+      "contexts": [
+        "ct(*(undefined8 *)(puVar6 + 1000));            }          }        }      }      *(undefined8 *)(puVar6 + -8) = 0x1400018e5;      ZwClose(*(undefined8 *)(puVar6 + 0x48));    }    else {      iVar3 = -",
+        "es8 [2];    undefined8 local_res18;    undefined8 local_res20;        local_res8[0] = 0;    local_res20 = 0;    local_res18 = 0;    uVar1 = FUN_1400043c0(*param_1,local_res8);    if ((((int)uVar1 != -",
+        "0;    local_res20 = 0;    local_res18 = 0;    uVar1 = FUN_1400043c0(*param_1,local_res8);    if ((((int)uVar1 != -0x3fffffff) &&        (uVar1 = FUN_14000453c(param_1[2],&local_res18), (int)uVar1 != -"
+      ]
+    },
+    {
+      "code": "0x45145114",
+      "decimal": 1158959380,
+      "device_type": "0x4514",
+      "function_code": "0x445",
+      "method": 0,
+      "access": 1,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_14000d6e0.c"
+      ],
+      "contexts": [
+        "        if (uVar2 == 0x10) {                    puVar8[1] = puVar8[1] ^ 0xebbaaef4fff89042;                    *puVar8 = *puVar8 ^ puVar8[1];                    if (*(int *)((longlong)puVar8 + 4) == -"
+      ]
+    },
+    {
+      "code": "0x4746544D",
+      "decimal": 1195791437,
+      "device_type": "0x4746",
+      "function_code": "0x513",
+      "method": 1,
+      "access": 1,
+      "confidence": 60.0,
+      "found_in": [
+        "FUN_140003208.c",
+        "FUN_14000d6e0.c",
+        "FUN_14000d6e0.c",
+        "FUN_14000d6e0.c"
+      ],
+      "contexts": [
+        "   (*pcVar2)(3);          pcVar2 = (code *)swi(3);          (*pcVar2)();          return;        }        *param_2 = lVar3;        *(longlong **)(lVar3 + 8) = param_2;        ExFreePoolWithTag(plVar4,",
+        "     if (iVar7 == -0x7df8c000) {              if (((uVar2 < 4) || (uVar1 < 0x38)) || (puVar8 == (ulonglong *)0x0)) goto LAB_14000da4f;              puVar5 = (ulonglong *)ExAllocatePoolWithTag(1,uVar6,",
+        ";              }              if (((uVar2 < 0x28) || (uVar1 < 0x20)) || (puVar8 == (ulonglong *)0x0))              goto LAB_14000da4f;              puVar5 = (ulonglong *)ExAllocatePoolWithTag(1,uVar6,"
+      ]
+    },
+    {
+      "code": "0x7FFFFFFE",
+      "decimal": 2147483646,
+      "device_type": "0x7FFF",
+      "function_code": "0xFFF",
+      "method": 2,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "RtlStringCchCatW.c",
+        "RtlStringCchCatW.c",
+        "RtlStringCchCopyW.c",
+        "RtlStringCchCopyW.c"
+      ],
+      "contexts": [
+        "3)    {    short sVar1;    short *psVar2;    short *psVar3;    longlong lVar4;    ulonglong uVar5;    ulonglong uVar6;    longlong lVar7;    longlong lVar8;        uVar5 = 0;    uVar6 = uVar5;    if (",
+        "     if (lVar4 != 0) {        uVar5 = param_2 - lVar4;      }    }    if (-1 < (int)uVar6) {      psVar2 = param_1 + uVar5;      lVar4 = param_2 - uVar5;      if (lVar4 != 0) {        lVar7 = uVar5 + ",
+        "ase */    uint RtlStringCchCopyW(short *param_1,longlong param_2,longlong param_3)    {    short sVar1;    short *psVar2;    longlong lVar3;    uint uVar4;    longlong lVar5;        uVar4 = 0;    if ("
+      ]
+    },
+    {
+      "code": "0x7FFFFFFF",
+      "decimal": 2147483647,
+      "device_type": "0x7FFF",
+      "function_code": "0xFFF",
+      "method": 3,
+      "access": 3,
+      "confidence": 50.0,
+      "found_in": [
+        "FUN_140002eb0.c",
+        "FUN_140002eb0.c",
+        "FUN_140002eb0.c"
+      ],
+      "contexts": [
+        "_1[1];      if (0x137 < iVar4) {        lVar3 = 0;        lVar6 = 0x4e0;        do {          lVar1 = *param_1;          uVar5 = (ulonglong)(*(uint *)(lVar3 + 8 + lVar1) ^ *(uint *)(lVar3 + lVar1)) & ",
+        " uVar5 >> 1;          lVar3 = lVar3 + 8;        } while (lVar3 < 0x4e0);        do {          lVar3 = *param_1;          uVar5 = (ulonglong)(*(uint *)(lVar6 + 8 + lVar3) ^ *(uint *)(lVar6 + lVar3)) & ",
+        "(ulonglong *)(lVar6 + -0x4e0 + lVar3) ^ uVar5 >> 1;          lVar6 = lVar6 + 8;        } while (lVar6 < 0x9b8);        puVar2 = (uint *)*param_1;        uVar5 = (ulonglong)(puVar2[0x26e] ^ *puVar2) & "
+      ]
+    },
+    {
+      "code": "0x80000005",
+      "decimal": 2147483653,
+      "device_type": "0x8000",
+      "function_code": "0x001",
+      "method": 1,
+      "access": 0,
+      "confidence": 70.0,
+      "found_in": [
+        "RtlStringCchCatW.c",
+        "RtlStringCchCopyW.c"
+      ],
+      "contexts": [
+        " + 1;          lVar4 = lVar4 + -1;        } while (lVar4 != 0);      }      psVar3 = psVar2 + -1;      if (lVar4 != 0) {        psVar3 = psVar2;      }      uVar6 = (ulonglong)(~-(uint)(lVar4 != 0) & ",
+        " + 1;          param_2 = param_2 + -1;        } while (param_2 != 0);      }      psVar2 = param_1 + -1;      if (param_2 != 0) {        psVar2 = param_1;      }      uVar4 = ~-(uint)(param_2 != 0) & "
+      ]
+    },
+    {
+      "code": "0xBAEBAEEC",
+      "decimal": 3136007916,
+      "device_type": "0xBAEB",
+      "function_code": "0xBBB",
+      "method": 0,
+      "access": 2,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_14000d0a3.c"
+      ],
+      "contexts": [
+        "FUN_1400061bc(param_6,(uint)&stack0x00000070);      }      else {        if (unaff_EBX != 0x82064000) {          if (unaff_EBX == 0x82114000) {            puVar7 = param_6;            if ((*param_6 ^ "
+      ]
+    },
+    {
+      "code": "0xC000000D",
+      "decimal": 3221225485,
+      "device_type": "0xC000",
+      "function_code": "0x003",
+      "method": 1,
+      "access": 0,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_140002e2c.c",
+        "FUN_140002e2c.c",
+        "RtlStringCchCatW.c",
+        "RtlStringCchCatW.c",
+        "RtlStringCchCopyW.c"
+      ],
+      "contexts": [
+        " lVar4 = 0x7fff;      psVar3 = param_2;      do {        if (*psVar3 == 0) break;        psVar3 = psVar3 + 1;        lVar4 = lVar4 + -1;      } while (lVar4 != 0);      uVar2 = ~-(uint)(lVar4 != 0) & ",
+        "sVar3 = psVar3 + 1;        lVar4 = lVar4 + -1;      } while (lVar4 != 0);      uVar2 = ~-(uint)(lVar4 != 0) & 0xc000000d;      if (lVar4 != 0) {        if (param_1 == (short *)0x0) {          uVar2 = ",
+        "   short *psVar3;    longlong lVar4;    ulonglong uVar5;    ulonglong uVar6;    longlong lVar7;    longlong lVar8;        uVar5 = 0;    uVar6 = uVar5;    if (0x7ffffffe < param_2 - 1U) {      uVar6 = "
+      ]
+    },
+    {
+      "code": "0xCCFD593",
+      "decimal": 214947219,
+      "device_type": "0x0CCF",
+      "function_code": "0x564",
+      "method": 3,
+      "access": 3,
+      "confidence": 50.0,
+      "found_in": [
+        "FUN_1401324eb.c"
+      ],
+      "contexts": [
+        "Control flow encountered bad instruction data */    void FUN_1401324eb(undefined8 param_1)    {    longlong lVar1;    int unaff_ESI;    undefined4 unaff_00000034;        lVar1 = (longlong)unaff_ESI * "
+      ]
+    },
+    {
+      "code": "0xE859B14D",
+      "decimal": 3898192205,
+      "device_type": "0xE859",
+      "function_code": "0xC53",
+      "method": 1,
+      "access": 2,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_140006408.c"
+      ],
+      "contexts": [
+        "    FUN_140108673();    FUN_1400896ed(puVar3,param_2,CONCAT44(in_register_00000084,uVar4));    pcVar1 = (char *)FUN_14003609e();    if (puVar3 + -1 == (undefined *)0x0 || cVar5 == '\\0') {      return "
+      ]
+    },
+    {
+      "code": "0xF8D50DB",
+      "decimal": 260919515,
+      "device_type": "0x0F8D",
+      "function_code": "0x436",
+      "method": 3,
+      "access": 1,
+      "confidence": 50.0,
+      "found_in": [
+        "FUN_140132344.c"
+      ],
+      "contexts": [
+        "iled by Ghidra    void FUN_140132344(undefined8 param_1,undefined2 param_2)    {    code *pcVar1;    longlong in_RAX;    byte in_CF;        *(int *)(in_RAX + -0xf8d50db) =         (*(int *)(in_RAX + -"
+      ]
+    },
+    {
+      "code": "0xFFFCFFFF",
+      "decimal": 4294770687,
+      "device_type": "0xFFFC",
+      "function_code": "0xFFF",
+      "method": 3,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_14000d6e0.c"
+      ],
+      "contexts": [
+        "fc000) {      uVar3 = FUN_1400021ec((longlong)puVar8,uVar2);      _DAT_14000a110 = (int)uVar3;      *(uint *)puVar8 = -(uint)(_DAT_14000a110 != 0) & 1;    }    else {      if (((iVar7 + 0x7feec000U & "
+      ]
+    },
+    {
+      "code": "0xFFFFFFFD",
+      "decimal": 4294967293,
+      "device_type": "0xFFFF",
+      "function_code": "0xFFF",
+      "method": 1,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_1400050d0.c",
+        "FUN_140005998.c",
+        "FUN_140006654.c"
+      ],
+      "contexts": [
+        "        _Str1 = (char *)PsGetProcessImageFileName(lVar2);            iVar1 = strcmp(_Str1,\"csrss.exe\");            if (iVar1 != 0) {              **(uint **)(param_2 + 8) = **(uint **)(param_2 + 8) & ",
+        ") ||       (((DAT_14000a748 - 0x3eU < 2 || (DAT_14000a748 == 100)) &&        (uVar1 = FUN_140005b74(uVar1), uVar1 == 0)))) {      return 0;    }    local_160 = -4;    local_15c = 0xd1;    local_158 = ",
+        "hreadId(param_1,&local_res18);    if (iVar3 == 0) {      if (local_res18 == 0) {        lVar5 = 0;      }      else {        lVar5 = PsGetThreadProcess();      }      if (lVar5 == 0) {        uVar4 = "
+      ]
+    },
+    {
+      "code": "0xFFFFFFFE",
+      "decimal": 4294967294,
+      "device_type": "0xFFFF",
+      "function_code": "0xFFF",
+      "method": 2,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_1400050d0.c",
+        "FUN_140005998.c",
+        "FUN_140005998.c"
+      ],
+      "contexts": [
+        "eObject(local_res10[0]);      }      if ((local_res10[0] != 0) && (lVar2 == local_res10[0])) {        puVar3 = *(uint **)(param_2 + 8);        if ((puVar3[1] & 1) != 0) {          *puVar3 = *puVar3 & ",
+        "        (uVar1 = FUN_140005b74(uVar1), uVar1 == 0)))) {      return 0;    }    local_160 = -4;    local_15c = 0xd1;    local_158 = 0xfffffffd;    local_154 = 0x48;    local_14c = 0x8b;    local_150 = ",
+        "24;    local_1b8 = 0xfffffffd;    local_1b4 = 0x48;    local_1b0 = 0xfffffffe;    local_1ac = 0x8b;    local_1a8 = 0xffffffff;    local_1a4 = 5;    local_1f8 = -3;    local_1f4 = 0x48;    local_1f0 = "
+      ]
+    },
+    {
+      "code": "0xFFFFFFFF",
+      "decimal": 4294967295,
+      "device_type": "0xFFFF",
+      "function_code": "0xFFF",
+      "method": 3,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_1400035b0.c",
+        "FUN_140003614.c",
+        "FUN_140005998.c",
+        "FUN_140005998.c",
+        "FUN_140005eb0.c",
+        "FUN_14000d6e0.c"
+      ],
+      "contexts": [
+        "d8 param_2,undefined8 param_3,undefined8 param_4)    {    int iVar1;    ulonglong local_res10 [3];        local_res10[0] = 0;    iVar1 = PsLookupProcessByProcessId(param_1,local_res10,param_3,param_4,",
+        "glong uVar2;    longlong lVar3;    longlong local_res10;        local_res10 = 0;    iVar1 = PsLookupProcessByProcessId(param_1,&local_res10,param_3,param_4,1);    if (local_res10 == 0) {      uVar2 = ",
+        ";    local_1cc = 0x8b;    local_1c8 = 0xffffffff;    local_1c4 = 5;    local_1bc = 0x24;    local_1b8 = 0xfffffffd;    local_1b4 = 0x48;    local_1b0 = 0xfffffffe;    local_1ac = 0x8b;    local_1a8 = "
+      ]
+    }
+  ]
+}

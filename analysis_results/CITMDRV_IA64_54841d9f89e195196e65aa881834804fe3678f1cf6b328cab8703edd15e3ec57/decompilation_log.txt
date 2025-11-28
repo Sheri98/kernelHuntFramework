@@ -1,0 +1,116 @@
+INFO  Using log config file: jar:file:/C:/ghidra_11.0_PUBLIC/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml (LoggingInitialization)  
+INFO  Using log file: C:\Users\MalwareDevelopment\AppData\Roaming\ghidra\ghidra_11.4.2_PUBLIC\application.log (LoggingInitialization)  
+INFO  Loading user preferences: C:\Users\MalwareDevelopment\AppData\Roaming\ghidra\ghidra_11.4.2_PUBLIC\preferences (Preferences)  
+INFO  Searching for classes... (ClassSearcher)  
+INFO  Class search complete (3248 ms) (ClassSearcher)  
+INFO  Initializing SSL Context (SSLContextInitializer)  
+INFO  Initializing Random Number Generator... (SecureRandomFactory)  
+INFO  Random Number Generator initialization complete: SHA1PRNG (SecureRandomFactory)  
+INFO  Trust manager disabled, cacerts have not been set (ApplicationTrustManagerFactory)  
+INFO  Headless startup complete (17366 ms) (AnalyzeHeadless)  
+INFO  Class searcher loaded 58 extension points (18 false positives) (ClassSearcher)  
+INFO  HEADLESS Script Paths:
+    C:\ghidra_11.0_PUBLIC\Ghidra\Features\Decompiler\ghidra_scripts
+    C:\ghidra_11.0_PUBLIC\Ghidra\Features\BytePatterns\ghidra_scripts
+    C:\ghidra_11.0_PUBLIC\Ghidra\Features\WildcardAssembler\ghidra_scripts
+    C:\ghidra_11.0_PUBLIC\Ghidra\Features\Base\ghidra_scripts
+    C:\ghidra_11.0_PUBLIC\Ghidra\Features\SystemEmulation\ghidra_scripts
+    C:\ghidra_11.0_PUBLIC\Ghidra\Processors\Atmel\ghidra_scripts
+    C:\ghidra_11.0_PUBLIC\Ghidra\Processors\PIC\ghidra_scripts
+    C:\Users\MalwareDevelopment\AppData\Roaming\ghidra\ghidra_11.4.2_PUBLIC\Extensions\retsync\ghidra_scripts
+    C:\ghidra_11.0_PUBLIC\Ghidra\Features\Jython\ghidra_scripts
+    C:\ghidra_11.0_PUBLIC\Ghidra\Debug\Debugger-rmi-trace\ghidra_scripts
+    C:\ghidra_11.0_PUBLIC\Ghidra\Features\FileFormats\ghidra_scripts
+    C:\ghidra_11.0_PUBLIC\Ghidra\Features\DecompilerDependent\ghidra_scripts
+    C:\ghidra_11.0_PUBLIC\Ghidra\Features\BSim\ghidra_scripts
+    C:\ghidra_11.0_PUBLIC\Ghidra\Features\SwiftDemangler\ghidra_scripts
+    C:\ghidra_11.0_PUBLIC\Ghidra\Processors\JVM\ghidra_scripts
+    C:\ghidra_11.0_PUBLIC\Ghidra\Features\PDB\ghidra_scripts
+    C:\ghidra_11.0_PUBLIC\Ghidra\Processors\DATA\ghidra_scripts
+    C:\ghidra_11.0_PUBLIC\Ghidra\Features\FunctionID\ghidra_scripts
+    C:\ghidra_11.0_PUBLIC\Ghidra\Processors\8051\ghidra_scripts
+    C:\ghidra_11.0_PUBLIC\Ghidra\Features\VersionTracking\ghidra_scripts
+    C:\ghidra_11.0_PUBLIC\Ghidra\Debug\Debugger\ghidra_scripts
+    C:\ghidra_11.0_PUBLIC\Ghidra\Features\PyGhidra\ghidra_scripts
+    C:\Users\MalwareDevelopment\AppData\Local\Temp\ghidra_decompile_3bm2616s
+    C:\ghidra_11.0_PUBLIC\Ghidra\Features\MicrosoftCodeAnalyzer\ghidra_scripts
+    C:\ghidra_11.0_PUBLIC\Ghidra\Features\GnuDemangler\ghidra_scripts (HeadlessAnalyzer)  
+INFO  HEADLESS: execution starts (HeadlessAnalyzer)  
+INFO  Creating temporary project: C:\Users\MALWAR~1\AppData\Local\Temp\ghidra_decompile_3bm2616s\decompile_project (HeadlessAnalyzer)  
+INFO  Creating project: C:\Users\MALWAR~1\AppData\Local\Temp\ghidra_decompile_3bm2616s\decompile_project (DefaultProject)  
+INFO  REPORT: Processing input files:  (HeadlessAnalyzer)  
+INFO       project: C:\Users\MALWAR~1\AppData\Local\Temp\ghidra_decompile_3bm2616s\decompile_project (HeadlessAnalyzer)  
+INFO  IMPORTING: file:///C:/Users/MalwareDevelopment/Desktop/Malware/physmem_drivers-master/physmem_drivers-master/CITMDRV_IA64_54841d9f89e195196e65aa881834804fe3678f1cf6b328cab8703edd15e3ec57.sys (HeadlessAnalyzer)  
+INFO  Using Loader: Old-style DOS Executable (MZ) (AutoImporter)  
+INFO  Using Language/Compiler: x86:LE:16:Real Mode:default (AutoImporter)  
+INFO  Using Library Search Path: [., C:\Windows\SysWOW64, C:\Program Files\Eclipse Adoptium\jdk-25.0.0.36-hotspot\bin, C:\Windows\Sun\Java\bin, C:\Windows\system32, C:\Windows, C:\Windows\System32\Wbem, C:\Windows\System32\WindowsPowerShell\v1.0\, C:\Windows\System32\OpenSSH\, C:\Program Files\dotnet\, C:\Program Files (x86)\Incredibuild, C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\, C:\Program Files\Git\cmd, C:\Users\MalwareDevelopment\AppData\Local\Programs\Python\Python313, C:\Users\MalwareDevelopment\AppData\Local\Microsoft\WindowsApps, C:\Users\MalwareDevelopment\.dotnet\tools, C:\Users\MalwareDevelopment\Desktop\kernelHuntFramework-master\kernelHuntFramework-master\x64\Release] (AutoImporter)  
+INFO  Additional info:
+Loading file:///C:/Users/MalwareDevelopment/Desktop/Malware/physmem_drivers-master/physmem_drivers-master/CITMDRV_IA64_54841d9f89e195196e65aa881834804fe3678f1cf6b328cab8703edd15e3ec57.sys?MD5=839cbbc86453960e9eb6db814b776a40...
+File contains 0x5528 extra bytes starting at file offset 0x490
+------------------------------------------------
+
+ (AutoImporter)  
+INFO  IMPORTING: Loaded 0 additional files (HeadlessAnalyzer)  
+INFO  ANALYZING all memory and code: file:///C:/Users/MalwareDevelopment/Desktop/Malware/physmem_drivers-master/physmem_drivers-master/CITMDRV_IA64_54841d9f89e195196e65aa881834804fe3678f1cf6b328cab8703edd15e3ec57.sys (HeadlessAnalyzer)  
+INFO  Packed database cache: C:\Users\MalwareDevelopment\AppData\Local\ghidra\packed-db-cache (PackedDatabaseCache)  
+INFO  Applied data type archive: generic_clib (ApplyDataArchiveAnalyzer)  
+INFO  -----------------------------------------------------
+    ASCII Strings                              1.033 secs
+    Apply Data Archives                        3.039 secs
+    Call-Fixup Installer                       0.001 secs
+    Create Function                            0.001 secs
+    Data Reference                             0.001 secs
+    Decompiler Switch Analysis                 0.002 secs
+    Demangler GNU                              0.171 secs
+    Disassemble Entry Points                   0.757 secs
+    Embedded Media                             0.007 secs
+    External Entry References                  0.008 secs
+    Function Start Search                      0.115 secs
+    Non-Returning Functions - Discovered       0.001 secs
+    Reference                                  0.001 secs
+    Segmented X86 Calling Conventions          0.001 secs
+    Shared Return Calls                        0.006 secs
+    Stack                                      0.073 secs
+    Subroutine References                      0.006 secs
+    X86 Function Callee Purge                  0.016 secs
+    x86 Constant Reference Analyzer            0.453 secs
+-----------------------------------------------------
+     Total Time   5 secs
+-----------------------------------------------------
+ (AutoAnalysisManager)  
+INFO  REPORT: Analysis succeeded for file: file:///C:/Users/MalwareDevelopment/Desktop/Malware/physmem_drivers-master/physmem_drivers-master/CITMDRV_IA64_54841d9f89e195196e65aa881834804fe3678f1cf6b328cab8703edd15e3ec57.sys (HeadlessAnalyzer)  
+INFO  SCRIPT: C:\Users\MalwareDevelopment\AppData\Local\Temp\ghidra_decompile_3bm2616s\DecompileDriver.py (HeadlessAnalyzer)  
+================================================================================
+DRIVER DECOMPILER (Python)
+================================================================================
+Driver: CITMDRV_IA64_54841d9f89e195196e65aa881834804fe3678f1cf6b328cab8703edd15e3ec57.sys
+Output: C:/Users/MalwareDevelopment/Desktop/kernelHuntFramework/kernelHuntFramework-master/analysis_results/CITMDRV_IA64_54841d9f89e195196e65aa881834804fe3678f1cf6b328cab8703edd15e3ec57
+
+[*] Decompiling 1 functions...
+WARN  Decompiling 1000:0000, pcode error at 1000:e46a: Could not follow disassembly flow into non-existing memory at 1000:e46a (DecompileCallback)  
+WARN  Decompiling 1000:0000, pcode error at 1000:03d6: Unable to resolve constructor at 1000:03d6 (DecompileCallback)  
+WARN  Decompiling 1000:0000, pcode error at 1000:0427: Unable to resolve constructor at 1000:0427 (DecompileCallback)  
+    Decompiled 1 functions
+
+[*] Creating summary...
+    Summary saved!
+
+================================================================================
+DECOMPILATION COMPLETE
+================================================================================
+INFO  ANALYZING changes made by post scripts: file:///C:/Users/MalwareDevelopment/Desktop/Malware/physmem_drivers-master/physmem_drivers-master/CITMDRV_IA64_54841d9f89e195196e65aa881834804fe3678f1cf6b328cab8703edd15e3ec57.sys (HeadlessAnalyzer)  
+INFO  REPORT: Post-analysis succeeded for file: file:///C:/Users/MalwareDevelopment/Desktop/Malware/physmem_drivers-master/physmem_drivers-master/CITMDRV_IA64_54841d9f89e195196e65aa881834804fe3678f1cf6b328cab8703edd15e3ec57.sys (HeadlessAnalyzer)  
+INFO  REPORT: Save succeeded for: /CITMDRV_IA64_54841d9f89e195196e65aa881834804fe3678f1cf6b328cab8703edd15e3ec57.sys (decompile_project:/CITMDRV_IA64_54841d9f89e195196e65aa881834804fe3678f1cf6b328cab8703edd15e3ec57.sys) (HeadlessAnalyzer)  
+INFO  REPORT: Import succeeded (HeadlessAnalyzer)  
+
+
+=== STDERR ===
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldOffset has been called by org.apache.felix.framework.util.SecureAction (file:/C:/ghidra_11.0_PUBLIC/Ghidra/Features/Base/lib/org.apache.felix.framework-7.0.5.jar)
+WARNING: Please consider reporting this to the maintainers of class org.apache.felix.framework.util.SecureAction
+WARNING: sun.misc.Unsafe::staticFieldOffset will be removed in a future release
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.kenai.jffi.internal.StubLoader in an unnamed module (file:/C:/ghidra_11.0_PUBLIC/Ghidra/Features/Jython/lib/jython-standalone-2.7.4.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+

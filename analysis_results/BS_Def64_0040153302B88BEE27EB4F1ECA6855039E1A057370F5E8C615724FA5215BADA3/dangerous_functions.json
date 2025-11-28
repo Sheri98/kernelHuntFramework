@@ -1,0 +1,103 @@
+{
+  "security_score": 87,
+  "risk_level": "CRITICAL",
+  "total": 26,
+  "by_severity": {
+    "critical": {
+      "count": 11,
+      "functions": [
+        {
+          "name": "MmMapLockedPages",
+          "files": [
+            "FUN_00011090.c"
+          ]
+        },
+        {
+          "name": "MmMapIoSpace",
+          "files": [
+            "FUN_00011580.c",
+            "FUN_00012850.c",
+            "FUN_00012370.c",
+            "FUN_00012040.c",
+            "FUN_00012c70.c",
+            "FUN_00012220.c"
+          ]
+        },
+        {
+          "name": "ZwMapViewOfSection",
+          "files": [
+            "FUN_00011dc0.c",
+            "FUN_00011b80.c"
+          ]
+        }
+      ]
+    },
+    "medium": {
+      "count": 5,
+      "functions": [
+        {
+          "name": "IoAllocateMdl",
+          "files": [
+            "FUN_00011090.c"
+          ]
+        },
+        {
+          "name": "MmBuildMdlForNonPagedPool",
+          "files": [
+            "FUN_00011090.c"
+          ]
+        },
+        {
+          "name": "IoFreeMdl",
+          "files": [
+            "FUN_00011140.c"
+          ]
+        },
+        {
+          "name": "ObReferenceObjectByHandle",
+          "files": [
+            "FUN_00011dc0.c",
+            "FUN_00011b80.c"
+          ]
+        }
+      ]
+    },
+    "high": {
+      "count": 7,
+      "functions": [
+        {
+          "name": "IoCreateDevice",
+          "files": [
+            "FUN_00011970.c"
+          ]
+        },
+        {
+          "name": "IoCreateSymbolicLink",
+          "files": [
+            "FUN_00011970.c"
+          ]
+        },
+        {
+          "name": "strncpy",
+          "files": [
+            "FUN_00012040.c",
+            "FUN_00012850.c"
+          ]
+        }
+      ]
+    },
+    "low": {
+      "count": 3,
+      "functions": [
+        {
+          "name": "IofCompleteRequest",
+          "files": [
+            "FUN_00012c70.c",
+            "FUN_00012440.c",
+            "FUN_00011a60.c"
+          ]
+        }
+      ]
+    }
+  }
+}

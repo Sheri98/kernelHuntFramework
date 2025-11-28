@@ -1,0 +1,94 @@
+{
+  "security_score": 28,
+  "risk_level": "LOW",
+  "total": 47,
+  "by_severity": {
+    "low": {
+      "count": 37,
+      "functions": [
+        {
+          "name": "DbgPrint",
+          "files": [
+            "DbgPrint.c",
+            "FUN_00011010.c",
+            "FUN_00011410.c",
+            "FUN_00011540.c",
+            "FUN_00011c80.c",
+            "FUN_000111e0.c",
+            "FUN_00011290.c",
+            "FUN_00011b30.c"
+          ]
+        },
+        {
+          "name": "IofCompleteRequest",
+          "files": [
+            "FUN_00011b30.c"
+          ]
+        }
+      ]
+    },
+    "high": {
+      "count": 5,
+      "functions": [
+        {
+          "name": "vsprintf",
+          "files": [
+            "FUN_00011010.c"
+          ]
+        },
+        {
+          "name": "ZwCreateFile",
+          "files": [
+            "FUN_00011010.c"
+          ]
+        },
+        {
+          "name": "ZwWriteFile",
+          "files": [
+            "FUN_00011010.c"
+          ]
+        },
+        {
+          "name": "IoCreateDevice",
+          "files": [
+            "FUN_00011c80.c"
+          ]
+        },
+        {
+          "name": "IoCreateSymbolicLink",
+          "files": [
+            "FUN_00011c80.c"
+          ]
+        }
+      ]
+    },
+    "critical": {
+      "count": 3,
+      "functions": [
+        {
+          "name": "ZwMapViewOfSection",
+          "files": [
+            "FUN_00011290.c"
+          ]
+        }
+      ]
+    },
+    "medium": {
+      "count": 2,
+      "functions": [
+        {
+          "name": "IoAllocateMdl",
+          "files": [
+            "FUN_00011540.c"
+          ]
+        },
+        {
+          "name": "IoFreeMdl",
+          "files": [
+            "FUN_00011540.c"
+          ]
+        }
+      ]
+    }
+  }
+}

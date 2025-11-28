@@ -1,0 +1,82 @@
+{
+  "total_ioctls": 5,
+  "total_raw_detections": 5,
+  "filtered_low_confidence": 0,
+  "ioctls": [
+    {
+      "code": "0x3FFFFFE8",
+      "decimal": 1073741800,
+      "device_type": "0x3FFF",
+      "function_code": "0xFFA",
+      "method": 0,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_00011090.c"
+      ],
+      "contexts": [
+        "80 = local_88;          iVar3 = ZwMapViewOfSection(*param_4,0xffffffffffffffff,&local_98,0,local_res10[0],&local_80,                                     local_res10,1,0,0x204);          if (iVar3 == -"
+      ]
+    },
+    {
+      "code": "0x7FEFDFAC",
+      "decimal": 2146426796,
+      "device_type": "0x7FEF",
+      "function_code": "0x7EB",
+      "method": 0,
+      "access": 3,
+      "confidence": 100.0,
+      "found_in": [
+        "FUN_000113f0.c"
+      ],
+      "contexts": [
+        "    else {                *puVar3 = local_res12;                *(undefined8 *)(param_2 + 0x38) = 4;              }              goto LAB_0001167f;            }          }          else if (iVar7 == -"
+      ]
+    },
+    {
+      "code": "0x7FEFDFB0",
+      "decimal": 2146426800,
+      "device_type": "0x7FEF",
+      "function_code": "0x7EC",
+      "method": 0,
+      "access": 3,
+      "confidence": 100.0,
+      "found_in": [
+        "FUN_000113f0.c"
+      ],
+      "contexts": [
+        ");              iVar7 = FUN_00011360(local_38,local_30,local_28[0]);              *(int *)(param_2 + 0x30) = iVar7;              goto LAB_0001167f;            }          }          else if (iVar7 == -"
+      ]
+    },
+    {
+      "code": "0x7FEFDFBC",
+      "decimal": 2146426812,
+      "device_type": "0x7FEF",
+      "function_code": "0x7EF",
+      "method": 0,
+      "access": 3,
+      "confidence": 100.0,
+      "found_in": [
+        "FUN_000113f0.c"
+      ],
+      "contexts": [
+        "              *(ulonglong *)(param_2 + 0x38) = uVar9;              }              *(int *)(param_2 + 0x30) = iVar7;              goto LAB_0001167f;            }          }          else if (iVar7 == -"
+      ]
+    },
+    {
+      "code": "0x7FEFDFC0",
+      "decimal": 2146426816,
+      "device_type": "0x7FEF",
+      "function_code": "0x7F0",
+      "method": 0,
+      "access": 3,
+      "confidence": 100.0,
+      "found_in": [
+        "FUN_000113f0.c"
+      ],
+      "contexts": [
+        " \"IRP_MJ_CREATE\";    }    else {      if (cVar1 != '\\x02') {        if (cVar1 == '\\x0e') {          DbgPrint(\"IRP_MJ_DEVICE_CONTROL\");          iVar7 = *(int *)(pcVar8 + 0x18);          if (iVar7 == -"
+      ]
+    }
+  ]
+}

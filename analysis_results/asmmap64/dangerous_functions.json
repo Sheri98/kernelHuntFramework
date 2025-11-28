@@ -1,0 +1,90 @@
+{
+  "security_score": 19,
+  "risk_level": "LOW",
+  "total": 31,
+  "by_severity": {
+    "low": {
+      "count": 23,
+      "functions": [
+        {
+          "name": "DbgPrint",
+          "files": [
+            "FUN_00011640.c",
+            "FUN_000110e4.c",
+            "DbgPrint.c",
+            "FUN_00011344.c"
+          ]
+        },
+        {
+          "name": "IofCompleteRequest",
+          "files": [
+            "FUN_000110e4.c"
+          ]
+        }
+      ]
+    },
+    "high": {
+      "count": 2,
+      "functions": [
+        {
+          "name": "IoCreateDevice",
+          "files": [
+            "FUN_00011008.c"
+          ]
+        },
+        {
+          "name": "IoCreateSymbolicLink",
+          "files": [
+            "FUN_00011008.c"
+          ]
+        }
+      ]
+    },
+    "medium": {
+      "count": 4,
+      "functions": [
+        {
+          "name": "IoFreeMdl",
+          "files": [
+            "FUN_000110e4.c"
+          ]
+        },
+        {
+          "name": "ObReferenceObjectByHandle",
+          "files": [
+            "FUN_00011344.c"
+          ]
+        },
+        {
+          "name": "IoAllocateMdl",
+          "files": [
+            "FUN_00011640.c"
+          ]
+        },
+        {
+          "name": "MmBuildMdlForNonPagedPool",
+          "files": [
+            "FUN_00011640.c"
+          ]
+        }
+      ]
+    },
+    "critical": {
+      "count": 2,
+      "functions": [
+        {
+          "name": "ZwMapViewOfSection",
+          "files": [
+            "FUN_00011344.c"
+          ]
+        },
+        {
+          "name": "MmMapLockedPages",
+          "files": [
+            "FUN_00011640.c"
+          ]
+        }
+      ]
+    }
+  }
+}

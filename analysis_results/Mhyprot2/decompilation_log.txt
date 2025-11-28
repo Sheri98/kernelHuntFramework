@@ -1,0 +1,243 @@
+INFO  Using log config file: jar:file:/C:/ghidra_11.0_PUBLIC/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml (LoggingInitialization)  
+INFO  Using log file: C:\Users\MalwareDevelopment\AppData\Roaming\ghidra\ghidra_11.4.2_PUBLIC\application.log (LoggingInitialization)  
+INFO  Loading user preferences: C:\Users\MalwareDevelopment\AppData\Roaming\ghidra\ghidra_11.4.2_PUBLIC\preferences (Preferences)  
+INFO  Searching for classes... (ClassSearcher)  
+INFO  Class search complete (2568 ms) (ClassSearcher)  
+INFO  Initializing SSL Context (SSLContextInitializer)  
+INFO  Initializing Random Number Generator... (SecureRandomFactory)  
+INFO  Random Number Generator initialization complete: SHA1PRNG (SecureRandomFactory)  
+INFO  Trust manager disabled, cacerts have not been set (ApplicationTrustManagerFactory)  
+INFO  Headless startup complete (10278 ms) (AnalyzeHeadless)  
+INFO  Class searcher loaded 58 extension points (18 false positives) (ClassSearcher)  
+INFO  HEADLESS Script Paths:
+    C:\ghidra_11.0_PUBLIC\Ghidra\Features\Decompiler\ghidra_scripts
+    C:\ghidra_11.0_PUBLIC\Ghidra\Features\BytePatterns\ghidra_scripts
+    C:\ghidra_11.0_PUBLIC\Ghidra\Features\WildcardAssembler\ghidra_scripts
+    C:\Users\MalwareDevelopment\AppData\Local\Temp\ghidra_decompile_4z827_va
+    C:\ghidra_11.0_PUBLIC\Ghidra\Features\Base\ghidra_scripts
+    C:\ghidra_11.0_PUBLIC\Ghidra\Features\SystemEmulation\ghidra_scripts
+    C:\ghidra_11.0_PUBLIC\Ghidra\Processors\Atmel\ghidra_scripts
+    C:\ghidra_11.0_PUBLIC\Ghidra\Processors\PIC\ghidra_scripts
+    C:\Users\MalwareDevelopment\AppData\Roaming\ghidra\ghidra_11.4.2_PUBLIC\Extensions\retsync\ghidra_scripts
+    C:\ghidra_11.0_PUBLIC\Ghidra\Features\Jython\ghidra_scripts
+    C:\ghidra_11.0_PUBLIC\Ghidra\Debug\Debugger-rmi-trace\ghidra_scripts
+    C:\ghidra_11.0_PUBLIC\Ghidra\Features\FileFormats\ghidra_scripts
+    C:\ghidra_11.0_PUBLIC\Ghidra\Features\DecompilerDependent\ghidra_scripts
+    C:\ghidra_11.0_PUBLIC\Ghidra\Features\BSim\ghidra_scripts
+    C:\ghidra_11.0_PUBLIC\Ghidra\Features\SwiftDemangler\ghidra_scripts
+    C:\ghidra_11.0_PUBLIC\Ghidra\Processors\JVM\ghidra_scripts
+    C:\ghidra_11.0_PUBLIC\Ghidra\Features\PDB\ghidra_scripts
+    C:\ghidra_11.0_PUBLIC\Ghidra\Processors\DATA\ghidra_scripts
+    C:\ghidra_11.0_PUBLIC\Ghidra\Features\FunctionID\ghidra_scripts
+    C:\ghidra_11.0_PUBLIC\Ghidra\Processors\8051\ghidra_scripts
+    C:\ghidra_11.0_PUBLIC\Ghidra\Features\VersionTracking\ghidra_scripts
+    C:\ghidra_11.0_PUBLIC\Ghidra\Debug\Debugger\ghidra_scripts
+    C:\ghidra_11.0_PUBLIC\Ghidra\Features\PyGhidra\ghidra_scripts
+    C:\ghidra_11.0_PUBLIC\Ghidra\Features\MicrosoftCodeAnalyzer\ghidra_scripts
+    C:\ghidra_11.0_PUBLIC\Ghidra\Features\GnuDemangler\ghidra_scripts (HeadlessAnalyzer)  
+INFO  HEADLESS: execution starts (HeadlessAnalyzer)  
+INFO  Creating temporary project: C:\Users\MALWAR~1\AppData\Local\Temp\ghidra_decompile_4z827_va\decompile_project (HeadlessAnalyzer)  
+INFO  Creating project: C:\Users\MALWAR~1\AppData\Local\Temp\ghidra_decompile_4z827_va\decompile_project (DefaultProject)  
+INFO  REPORT: Processing input files:  (HeadlessAnalyzer)  
+INFO       project: C:\Users\MALWAR~1\AppData\Local\Temp\ghidra_decompile_4z827_va\decompile_project (HeadlessAnalyzer)  
+INFO  IMPORTING: file:///C:/Users/MalwareDevelopment/Desktop/Malware/physmem_drivers-master/physmem_drivers-master/Mhyprot2.sys (HeadlessAnalyzer)  
+INFO  Using Loader: Portable Executable (PE) (AutoImporter)  
+INFO  Using Language/Compiler: x86:LE:64:default:windows (AutoImporter)  
+INFO  Using Library Search Path: [., C:\Windows\SysWOW64, C:\Program Files\Eclipse Adoptium\jdk-25.0.0.36-hotspot\bin, C:\Windows\Sun\Java\bin, C:\Windows\system32, C:\Windows, C:\Windows\System32\Wbem, C:\Windows\System32\WindowsPowerShell\v1.0\, C:\Windows\System32\OpenSSH\, C:\Program Files\dotnet\, C:\Program Files (x86)\Incredibuild, C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\, C:\Program Files\Git\cmd, C:\Users\MalwareDevelopment\AppData\Local\Programs\Python\Python313, C:\Users\MalwareDevelopment\AppData\Local\Microsoft\WindowsApps, C:\Users\MalwareDevelopment\.dotnet\tools, C:\Users\MalwareDevelopment\Desktop\kernelHuntFramework-master\kernelHuntFramework-master\x64\Release] (AutoImporter)  
+INFO  Removing 15 unused filesystems from cache (FileSystemInstanceManager)  
+INFO  Additional info:
+Loading file:///C:/Users/MalwareDevelopment/Desktop/Malware/physmem_drivers-master/physmem_drivers-master/Mhyprot2.sys?MD5=4b817d0e7714b9d43db43ae4a22a161e...
+------------------------------------------------
+
+Searching 15 paths for library NTOSKRNL.EXE...
+Loading file:///C:/Windows/System32/ntoskrnl.exe?MD5=124a75e2d0291a533a5ae197e165adc2...
+Using existing exports file: C:\Users\MalwareDevelopment\AppData\Roaming\ghidra\ghidra_11.4.2_PUBLIC\symbols\win64\ntoskrnl.exports
+Library not saved to project.
+------------------------------------------------
+
+Searching 15 paths for library WDFLDR.SYS...
+Library not found.
+------------------------------------------------
+
+Applying C:\Users\MalwareDevelopment\AppData\Roaming\ghidra\ghidra_11.4.2_PUBLIC\symbols\win64\ntoskrnl.exports
+Applying C:\Users\MalwareDevelopment\AppData\Roaming\ghidra\ghidra_11.4.2_PUBLIC\symbols\win64\wdfldr.exports
+Linking the External Programs of 'Mhyprot2.sys' to imported libraries...
+  [NTOSKRNL.EXE] -> not found in project
+  [WDFLDR.SYS] -> not found in project
+------------------------------------------------
+
+ (AutoImporter)  
+INFO  IMPORTING: Loaded 0 additional files (HeadlessAnalyzer)  
+INFO  ANALYZING all memory and code: file:///C:/Users/MalwareDevelopment/Desktop/Malware/physmem_drivers-master/physmem_drivers-master/Mhyprot2.sys (HeadlessAnalyzer)  
+INFO  Skipping PDB processing: missing PDB information in program metadata (PdbUniversalAnalyzer)  
+INFO  Packed database cache: C:\Users\MalwareDevelopment\AppData\Local\ghidra\packed-db-cache (PackedDatabaseCache)  
+INFO  Applied data type archive: windows_vs12_64 (ApplyDataArchiveAnalyzer)  
+WARN  ghidra.app.script.GhidraScriptLoadException: The class could not be found. It must be the public class of the .java file: WindowsResourceReference (java file: WindowsResourceReference)  
+WARN  Decompiling 140131f29, pcode error at 140131f2c: Unable to resolve constructor at 140131f2c (DecompileCallback)  
+WARN  Decompiling 140132427, pcode error at 14013242a: Unable to resolve constructor at 14013242a (DecompileCallback)  
+WARN  Decompiling 14013246d, pcode error at 140132472: Unable to resolve constructor at 140132472 (DecompileCallback)  
+WARN  Decompiling 14013277d, pcode error at 14013278a: Unable to resolve constructor at 14013278a (DecompileCallback)  
+WARN  Decompiling 140132061, pcode error at 14013206c: Unable to resolve constructor at 14013206c (DecompileCallback)  
+WARN  Decompiling 14013246d, pcode error at 912f682f: Could not follow disassembly flow into non-existing memory at 912f682f (DecompileCallback)  
+WARN  Decompiling 14013227e, pcode error at 140132288: Unable to resolve constructor at 140132288 (DecompileCallback)  
+WARN  Decompiling 140132196, pcode error at 140132196: Unable to resolve constructor at 140132196 (DecompileCallback)  
+WARN  Decompiling 1401324a4, pcode error at 1401324b0: Unable to resolve constructor at 1401324b0 (DecompileCallback)  
+WARN  Decompiling 1401324a4, pcode error at 140132434: Unable to resolve constructor at 140132434 (DecompileCallback)  
+WARN  Decompiling 1401323af, pcode error at 1401323a6: Unable to resolve constructor at 1401323a6 (DecompileCallback)  
+WARN  Decompiling 14000da80, pcode error at 14013273a: Unable to resolve constructor at 14013273a (DecompileCallback)  
+WARN  Decompiling 140005fa0, pcode error at 1401323fb: Unable to resolve constructor at 1401323fb (DecompileCallback)  
+WARN  Decompiling 1401326d9, pcode error at 1401326df: Unable to resolve constructor at 1401326df (DecompileCallback)  
+WARN  Decompiling 1401324eb, pcode error at 912f682f: Could not follow disassembly flow into non-existing memory at 912f682f (DecompileCallback)  
+WARN  Decompiling 140131fe4, pcode error at 140131faf: Unable to resolve constructor at 140131faf (DecompileCallback)  
+WARN  Decompiling 1400021ec, pcode error at f30a50e8: Could not follow disassembly flow into non-existing memory at f30a50e8 (DecompileCallback)  
+WARN  Decompiling 1401326e0, pcode error at 1401326ea: Unable to resolve constructor at 1401326ea (DecompileCallback)  
+WARN  Decompiling 1401323ba, pcode error at 14013242e: Unable to resolve constructor at 14013242e (DecompileCallback)  
+WARN  Decompiling 140132170, pcode error at f30a50e8: Could not follow disassembly flow into non-existing memory at f30a50e8 (DecompileCallback)  
+WARN  Decompiling 140132713, pcode error at 14013273a: Unable to resolve constructor at 14013273a (DecompileCallback)  
+WARN  Decompiling 1401324b4, pcode error at 912f682f: Could not follow disassembly flow into non-existing memory at 912f682f (DecompileCallback)  
+WARN  Decompiling 1401323e6, pcode error at 1401323fb: Unable to resolve constructor at 1401323fb (DecompileCallback)  
+WARN  Decompiling 140132302, pcode error at 14013232b: Unable to resolve constructor at 14013232b (DecompileCallback)  
+WARN  Decompiling 140132302, pcode error at 140132399: Unable to resolve constructor at 140132399 (DecompileCallback)  
+WARN  Decompiling 140132302, pcode error at 1401323fb: Unable to resolve constructor at 1401323fb (DecompileCallback)  
+WARN  Decompiling 140132302, pcode error at 1401323ed: Unable to resolve constructor at 1401323ed (DecompileCallback)  
+WARN  Decompiling 140132363, pcode error at 140132399: Unable to resolve constructor at 140132399 (DecompileCallback)  
+WARN  Decompiling 140131fb8, pcode error at 9e15e8aa: Could not follow disassembly flow into non-existing memory at 9e15e8aa (DecompileCallback)  
+WARN  Decompiling 140132363, pcode error at 1401323fb: Unable to resolve constructor at 1401323fb (DecompileCallback)  
+WARN  Decompiling 140132363, pcode error at 1401323ed: Unable to resolve constructor at 1401323ed (DecompileCallback)  
+WARN  Decompiling 140131fb8, pcode error at 140131faf: Unable to resolve constructor at 140131faf (DecompileCallback)  
+INFO  -----------------------------------------------------
+    ASCII Strings                              0.707 secs
+    Apply Data Archives                        1.387 secs
+    Call Convention ID                         0.006 secs
+    Call-Fixup Installer                       0.031 secs
+    Create Address Tables                      0.469 secs
+    Create Function                            0.138 secs
+    Data Reference                             0.054 secs
+    Decompiler Parameter ID                   14.870 secs
+    Decompiler Switch Analysis                 8.117 secs
+    Demangler Microsoft                        0.025 secs
+    Disassemble Entry Points                   1.804 secs
+    Embedded Media                             0.018 secs
+    External Entry References                  0.000 secs
+    Function ID                                0.578 secs
+    Function Start Search                      0.022 secs
+    Non-Returning Functions - Discovered       0.121 secs
+    Non-Returning Functions - Known            0.006 secs
+    PDB Universal                              0.003 secs
+    Reference                                  0.066 secs
+    Scalar Operand References                  0.172 secs
+    Shared Return Calls                        0.080 secs
+    Stack                                      1.972 secs
+    Subroutine References                      0.044 secs
+    Subroutine References - One Time           0.009 secs
+    Windows x86 PE Exception Handling          0.059 secs
+    Windows x86 PE RTTI Analyzer               0.020 secs
+    Windows x86 Thread Environment Block (TEB) Analyzer     0.052 secs
+    WindowsResourceReference                   2.455 secs
+    x86 Constant Reference Analyzer            1.179 secs
+-----------------------------------------------------
+     Total Time   34 secs
+-----------------------------------------------------
+ (AutoAnalysisManager)  
+INFO  REPORT: Analysis succeeded for file: file:///C:/Users/MalwareDevelopment/Desktop/Malware/physmem_drivers-master/physmem_drivers-master/Mhyprot2.sys (HeadlessAnalyzer)  
+INFO  SCRIPT: C:\Users\MalwareDevelopment\AppData\Local\Temp\ghidra_decompile_4z827_va\DecompileDriver.py (HeadlessAnalyzer)  
+================================================================================
+DRIVER DECOMPILER (Python)
+================================================================================
+Driver: Mhyprot2.sys
+Output: C:/Users/MalwareDevelopment/Desktop/kernelHuntFramework/kernelHuntFramework-master/analysis_results/Mhyprot2
+
+[*] Decompiling 371 functions...
+WARN  Decompiling 1400021ec, pcode error at f30a50e8: Could not follow disassembly flow into non-existing memory at f30a50e8 (DecompileCallback)  
+    Progress: 50/371
+    Progress: 100/371
+WARN  Decompiling 140005fa0, pcode error at 1401323fb: Unable to resolve constructor at 1401323fb (DecompileCallback)  
+    Progress: 150/371
+WARN  Decompiling 14000da80, pcode error at 14013273a: Unable to resolve constructor at 14013273a (DecompileCallback)  
+    Progress: 200/371
+WARN  Decompiling 140131f29, pcode error at 140131f2c: Unable to resolve constructor at 140131f2c (DecompileCallback)  
+WARN  Decompiling 140131fb1, pcode error at 9ad77607: Could not follow disassembly flow into non-existing memory at 9ad77607 (DecompileCallback)  
+    Progress: 250/371
+WARN  Decompiling 140131fb8, pcode error at 9e15e8aa: Could not follow disassembly flow into non-existing memory at 9e15e8aa (DecompileCallback)  
+WARN  Decompiling 140131fb8, pcode error at 140131faf: Unable to resolve constructor at 140131faf (DecompileCallback)  
+WARN  Decompiling 140131fe4, pcode error at 140131faf: Unable to resolve constructor at 140131faf (DecompileCallback)  
+WARN  Decompiling 140132061, pcode error at 14013206c: Unable to resolve constructor at 14013206c (DecompileCallback)  
+WARN  Decompiling 140132170, pcode error at f30a50e8: Could not follow disassembly flow into non-existing memory at f30a50e8 (DecompileCallback)  
+WARN  Decompiling 140132196, pcode error at 140132196: Unable to resolve constructor at 140132196 (DecompileCallback)  
+WARN  Decompiling 14013227e, pcode error at 140132288: Unable to resolve constructor at 140132288 (DecompileCallback)  
+WARN  Decompiling 140132302, pcode error at 14013232b: Unable to resolve constructor at 14013232b (DecompileCallback)  
+WARN  Decompiling 140132302, pcode error at 140132399: Unable to resolve constructor at 140132399 (DecompileCallback)  
+WARN  Decompiling 140132302, pcode error at 1401323fb: Unable to resolve constructor at 1401323fb (DecompileCallback)  
+WARN  Decompiling 140132302, pcode error at 1401323ed: Unable to resolve constructor at 1401323ed (DecompileCallback)  
+WARN  Decompiling 140132363, pcode error at 140132399: Unable to resolve constructor at 140132399 (DecompileCallback)  
+WARN  Decompiling 140132363, pcode error at 1401323fb: Unable to resolve constructor at 1401323fb (DecompileCallback)  
+WARN  Decompiling 140132363, pcode error at 1401323ed: Unable to resolve constructor at 1401323ed (DecompileCallback)  
+WARN  Decompiling 1401323af, pcode error at 1401323a6: Unable to resolve constructor at 1401323a6 (DecompileCallback)  
+WARN  Decompiling 1401323ba, pcode error at 14013242e: Unable to resolve constructor at 14013242e (DecompileCallback)  
+WARN  Decompiling 1401323e6, pcode error at 1401323fb: Unable to resolve constructor at 1401323fb (DecompileCallback)  
+WARN  Decompiling 140132427, pcode error at 14013242a: Unable to resolve constructor at 14013242a (DecompileCallback)  
+WARN  Decompiling 14013246d, pcode error at 140132472: Unable to resolve constructor at 140132472 (DecompileCallback)  
+WARN  Decompiling 14013246d, pcode error at 912f682f: Could not follow disassembly flow into non-existing memory at 912f682f (DecompileCallback)  
+WARN  Decompiling 1401324a4, pcode error at 1401324b0: Unable to resolve constructor at 1401324b0 (DecompileCallback)  
+WARN  Decompiling 1401324a4, pcode error at 140132434: Unable to resolve constructor at 140132434 (DecompileCallback)  
+WARN  Decompiling 1401324b4, pcode error at 912f682f: Could not follow disassembly flow into non-existing memory at 912f682f (DecompileCallback)  
+WARN  Decompiling 1401324eb, pcode error at 912f682f: Could not follow disassembly flow into non-existing memory at 912f682f (DecompileCallback)  
+WARN  Decompiling 1401326d9, pcode error at 1401326df: Unable to resolve constructor at 1401326df (DecompileCallback)  
+WARN  Decompiling 1401326e0, pcode error at 1401326ea: Unable to resolve constructor at 1401326ea (DecompileCallback)  
+WARN  Decompiling 1401326f6, pcode error at 30e0010b: Could not follow disassembly flow into non-existing memory at 30e0010b (DecompileCallback)  
+WARN  Decompiling 140132713, pcode error at 14013273a: Unable to resolve constructor at 14013273a (DecompileCallback)  
+WARN  Decompiling 14013277d, pcode error at 14013278a: Unable to resolve constructor at 14013278a (DecompileCallback)  
+    Decompiled 286 functions
+
+[*] Creating summary...
+    Summary saved!
+
+================================================================================
+DECOMPILATION COMPLETE
+================================================================================
+INFO  ANALYZING changes made by post scripts: file:///C:/Users/MalwareDevelopment/Desktop/Malware/physmem_drivers-master/physmem_drivers-master/Mhyprot2.sys (HeadlessAnalyzer)  
+INFO  REPORT: Post-analysis succeeded for file: file:///C:/Users/MalwareDevelopment/Desktop/Malware/physmem_drivers-master/physmem_drivers-master/Mhyprot2.sys (HeadlessAnalyzer)  
+INFO  REPORT: Save succeeded for: /Mhyprot2.sys (decompile_project:/Mhyprot2.sys) (HeadlessAnalyzer)  
+INFO  REPORT: Import succeeded (HeadlessAnalyzer)  
+
+
+=== STDERR ===
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldOffset has been called by org.apache.felix.framework.util.SecureAction (file:/C:/ghidra_11.0_PUBLIC/Ghidra/Features/Base/lib/org.apache.felix.framework-7.0.5.jar)
+WARNING: Please consider reporting this to the maintainers of class org.apache.felix.framework.util.SecureAction
+WARNING: sun.misc.Unsafe::staticFieldOffset will be removed in a future release
+ghidra.app.script.GhidraScriptLoadException: The class could not be found. It must be the public class of the .java file: WindowsResourceReference
+	at ghidra.app.script.JavaScriptProvider.getScriptInstance(JavaScriptProvider.java:110)
+	at ghidra.app.plugin.prototype.MicrosoftCodeAnalyzerPlugin.WindowsResourceReferenceAnalyzer.runScript(WindowsResourceReferenceAnalyzer.java:97)
+	at ghidra.app.plugin.prototype.MicrosoftCodeAnalyzerPlugin.WindowsResourceReferenceAnalyzer.added(WindowsResourceReferenceAnalyzer.java:72)
+	at ghidra.app.plugin.core.analysis.AnalysisScheduler.runAnalyzer(AnalysisScheduler.java:186)
+	at ghidra.app.plugin.core.analysis.AnalysisTask.applyTo(AnalysisTask.java:37)
+	at ghidra.app.plugin.core.analysis.AnalysisTask.applyTo(AnalysisTask.java:24)
+	at ghidra.app.plugin.core.analysis.AutoAnalysisManager$AnalysisTaskWrapper.run(AutoAnalysisManager.java:660)
+	at ghidra.app.plugin.core.analysis.AutoAnalysisManager.startAnalysis(AutoAnalysisManager.java:760)
+	at ghidra.app.plugin.core.analysis.AutoAnalysisManager.startAnalysis(AutoAnalysisManager.java:639)
+	at ghidra.app.plugin.core.analysis.AutoAnalysisManager.startAnalysis(AutoAnalysisManager.java:604)
+	at ghidra.app.util.headless.HeadlessAnalyzer.analyzeProgram(HeadlessAnalyzer.java:1033)
+	at ghidra.app.util.headless.HeadlessAnalyzer.processFileWithImport(HeadlessAnalyzer.java:1563)
+	at ghidra.app.util.headless.HeadlessAnalyzer.processWithLoader(HeadlessAnalyzer.java:1745)
+	at ghidra.app.util.headless.HeadlessAnalyzer.processWithImport(HeadlessAnalyzer.java:1686)
+	at ghidra.app.util.headless.HeadlessAnalyzer.processWithImport(HeadlessAnalyzer.java:1770)
+	at ghidra.app.util.headless.HeadlessAnalyzer.processLocal(HeadlessAnalyzer.java:457)
+	at ghidra.app.util.headless.AnalyzeHeadless.launch(AnalyzeHeadless.java:198)
+	at ghidra.GhidraLauncher.launch(GhidraLauncher.java:81)
+	at ghidra.Ghidra.main(Ghidra.java:54)
+Caused by: java.lang.ClassNotFoundException: WindowsResourceReference
+	at org.apache.felix.framework.Felix.loadBundleClass(Felix.java:2102)
+	at org.apache.felix.framework.BundleImpl.loadClass(BundleImpl.java:986)
+	at ghidra.app.script.JavaScriptProvider.loadClass(JavaScriptProvider.java:161)
+	at ghidra.app.script.JavaScriptProvider.getScriptInstance(JavaScriptProvider.java:96)
+	... 18 more
+Caused by: org.osgi.framework.BundleException: Unable to resolve 5e09dc9d [1](R 1.0): missing requirement [5e09dc9d [1](R 1.0)] osgi.ee; (osgi.ee=UNKNOWN) Unresolved requirements: [[5e09dc9d [1](R 1.0)] osgi.ee; (osgi.ee=UNKNOWN)]
+	at org.apache.felix.framework.Felix.resolveBundleRevision(Felix.java:4398)
+	at org.apache.felix.framework.Felix.loadBundleClass(Felix.java:2095)
+	... 21 more
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.kenai.jffi.internal.StubLoader in an unnamed module (file:/C:/ghidra_11.0_PUBLIC/Ghidra/Features/Jython/lib/jython-standalone-2.7.4.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+

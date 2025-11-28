@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Report - CITMDRV_IA64_54841d9f89e195196e65aa881834804fe3678f1cf6b328cab8703edd15e3ec57</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .header .subtitle {
+            color: #888;
+            font-size: 1.1rem;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-card {
+            text-align: center;
+        }
+
+        .stat-card .value {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .stat-card .label {
+            color: #888;
+            margin-top: 5px;
+            font-size: 0.9rem;
+        }
+
+        .score-card {
+            background: linear-gradient(135deg, #28a74522, #28a74511);
+            border-color: #28a74544;
+        }
+
+        .score-card .value {
+            color: #28a745;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section h2::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 24px;
+            background: #667eea;
+            border-radius: 2px;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .category-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .category-header {
+            background: rgba(102, 126, 234, 0.2);
+            padding: 15px 20px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .category-count {
+            background: #667eea;
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .category-content {
+            padding: 15px 20px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .ioctl-item {
+            padding: 10px;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            border-left: 3px solid #667eea;
+        }
+
+        .ioctl-code {
+            font-family: 'Consolas', monospace;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .ioctl-details {
+            font-size: 0.85rem;
+            color: #888;
+            margin-top: 5px;
+        }
+
+        .danger-card {
+            border-left-color: #dc3545;
+        }
+
+        .danger-card .category-header {
+            background: rgba(220, 53, 69, 0.2);
+        }
+
+        .danger-card .category-count {
+            background: #dc3545;
+        }
+
+        .warning-card {
+            border-left-color: #fd7e14;
+        }
+
+        .warning-card .category-header {
+            background: rgba(253, 126, 20, 0.2);
+        }
+
+        .warning-card .category-count {
+            background: #fd7e14;
+        }
+
+        .func-item {
+            padding: 8px 12px;
+            margin-bottom: 8px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 6px;
+            font-family: 'Consolas', monospace;
+            font-size: 0.9rem;
+        }
+
+        .func-file {
+            color: #666;
+            font-size: 0.8rem;
+            margin-top: 3px;
+        }
+
+        .method-buffered { border-left-color: #28a745; }
+        .method-in-direct { border-left-color: #17a2b8; }
+        .method-out-direct { border-left-color: #ffc107; }
+        .method-neither { border-left-color: #dc3545; }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        th {
+            background: rgba(102, 126, 234, 0.2);
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-critical { background: #dc3545; color: #fff; }
+        .badge-high { background: #fd7e14; color: #fff; }
+        .badge-medium { background: #ffc107; color: #000; }
+        .badge-low { background: #28a745; color: #fff; }
+
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .dashboard {
+                grid-template-columns: 1fr 1fr;
+            }
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Security Analysis Report</h1>
+            <p class="subtitle">CITMDRV_IA64_54841d9f89e195196e65aa881834804fe3678f1cf6b328cab8703edd15e3ec57</p>
+        </div>
+
+        <!-- Dashboard Stats -->
+        <div class="dashboard">
+            <div class="card stat-card score-card">
+                <div class="value">0/100</div>
+                <div class="label">Security Score (LOW)</div>
+            </div>
+            <div class="card stat-card">
+                <div class="value">0</div>
+                <div class="label">IOCTL Codes Found</div>
+            </div>
+            <div class="card stat-card">
+                <div class="value">0</div>
+                <div class="label">Dangerous Functions</div>
+            </div>
+            <div class="card stat-card">
+                <div class="value">0</div>
+                <div class="label">Critical Issues</div>
+            </div>
+            <div class="card stat-card">
+                <div class="value">1</div>
+                <div class="label">Total Functions</div>
+            </div>
+        </div>
+
+        <!-- IOCTLs by Method -->
+        <div class="section">
+            <h2>IOCTLs by Transfer Method</h2>
+            <div class="category-grid">
+
+            </div>
+        </div>
+
+        <!-- IOCTLs by Device Type -->
+        <div class="section">
+            <h2>IOCTLs by Device Type</h2>
+            <div class="category-grid">
+
+            </div>
+        </div>
+
+        <!-- Dangerous Functions -->
+        <div class="section">
+            <h2>Dangerous Functions Detected</h2>
+            <div class="category-grid">
+
+            </div>
+        </div>
+
+        <!-- Full IOCTL Table -->
+        <div class="section">
+            <h2>Complete IOCTL Reference</h2>
+            <div class="card">
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>IOCTL Code</th>
+                                <th>Device Type</th>
+                                <th>Function</th>
+                                <th>Method</th>
+                                <th>Access</th>
+                                <th>Found In</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Generated by KernelHuntFramework on 2025-11-27 21:57:01</p>
+            <p>For security research purposes only</p>
+        </div>
+    </div>
+</body>
+</html>

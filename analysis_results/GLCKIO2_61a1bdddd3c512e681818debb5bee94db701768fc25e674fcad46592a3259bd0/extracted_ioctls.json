@@ -1,0 +1,249 @@
+{
+  "total_ioctls": 16,
+  "total_raw_detections": 16,
+  "filtered_low_confidence": 0,
+  "ioctls": [
+    {
+      "code": "0x16157EAA",
+      "decimal": 370507434,
+      "device_type": "0x1615",
+      "function_code": "0xFAA",
+      "method": 2,
+      "access": 1,
+      "confidence": 50.0,
+      "found_in": [
+        "FUN_1400015ac.c"
+      ],
+      "contexts": [
+        "8 [192];    undefined4 local_28;    undefined4 local_24;    undefined4 local_20;    undefined4 local_1c;    ulonglong local_18;        local_18 = DAT_140004000 ^ (ulonglong)auStack_108;    local_28 = "
+      ]
+    },
+    {
+      "code": "0x3C4FCF09",
+      "decimal": 1011863305,
+      "device_type": "0x3C4F",
+      "function_code": "0x3C2",
+      "method": 1,
+      "access": 3,
+      "confidence": 50.0,
+      "found_in": [
+        "FUN_1400015ac.c"
+      ],
+      "contexts": [
+        "0;    undefined4 local_1c;    ulonglong local_18;        local_18 = DAT_140004000 ^ (ulonglong)auStack_108;    local_28 = 0x16157eaa;    local_24 = 0xa6d2ae28;    local_20 = 0x8815f7ab;    local_1c = "
+      ]
+    },
+    {
+      "code": "0x3FFFFFE8",
+      "decimal": 1073741800,
+      "device_type": "0x3FFF",
+      "function_code": "0xFFA",
+      "method": 0,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_1400017a8.c"
+      ],
+      "contexts": [
+        "      local_78 = local_80;      iVar3 = ZwMapViewOfSection(*param_4,0xffffffffffffffff,&local_70,0,local_res10[0],&local_78,                                 local_res10,1,0,0x204);      if (iVar3 == -"
+      ]
+    },
+    {
+      "code": "0x3FFFFFF3",
+      "decimal": 1073741811,
+      "device_type": "0x3FFF",
+      "function_code": "0xFFC",
+      "method": 3,
+      "access": 3,
+      "confidence": 50.0,
+      "found_in": [
+        "FUN_140001b14.c"
+      ],
+      "contexts": [
+        " *puVar5 = (int)uVar10;          puVar5[1] = (int)((ulonglong)uVar10 >> 0x20);          *(undefined8 *)(param_2 + 0x38) = 8;          goto LAB_140001c83;        }      }  LAB_140001c7e:      iVar8 = -"
+      ]
+    },
+    {
+      "code": "0x7FEFDFA0",
+      "decimal": 2146426784,
+      "device_type": "0x7FEF",
+      "function_code": "0x7E8",
+      "method": 0,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_140001b14.c"
+      ],
+      "contexts": [
+        "();            if ((int)uVar9 < 0) goto LAB_140001c7e;            uVar10 = FUN_140001df8(param_2,(longlong)pcVar3);            iVar8 = (int)uVar10;          }          else {            if (iVar2 != -"
+      ]
+    },
+    {
+      "code": "0x7FEFDFA4",
+      "decimal": 2146426788,
+      "device_type": "0x7FEF",
+      "function_code": "0x7E9",
+      "method": 0,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_140001b14.c"
+      ],
+      "contexts": [
+        "        else if (local_52 == '\\x04') {            out(local_58,local_56);          }          goto LAB_140001d86;        }      }      else {        if (iVar2 != -0x7fefdfa8) {          if (iVar2 == -"
+      ]
+    },
+    {
+      "code": "0x7FEFDFA8",
+      "decimal": 2146426792,
+      "device_type": "0x7FEF",
+      "function_code": "0x7EA",
+      "method": 0,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_140001b14.c"
+      ],
+      "contexts": [
+        "8,(undefined2)local_56);          }          else if (local_52 == '\\x04') {            out(local_58,local_56);          }          goto LAB_140001d86;        }      }      else {        if (iVar2 != -"
+      ]
+    },
+    {
+      "code": "0x7FEFDFAC",
+      "decimal": 2146426796,
+      "device_type": "0x7FEF",
+      "function_code": "0x7EB",
+      "method": 0,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_140001b14.c"
+      ],
+      "contexts": [
+        "\\x04') {            local_56 = in(local_58);          }          *puVar4 = local_56;          *(undefined8 *)(param_2 + 0x38) = 4;          goto LAB_140001d86;        }      }      else if (iVar2 == -"
+      ]
+    },
+    {
+      "code": "0x7FEFDFB0",
+      "decimal": 2146426800,
+      "device_type": "0x7FEF",
+      "function_code": "0x7EC",
+      "method": 0,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_140001b14.c"
+      ],
+      "contexts": [
+        "!= 0)) {          FUN_140001f80(&local_50,(undefined8 *)puVar4,uVar9);          iVar8 = FUN_140001ac8(local_40,local_38,local_30);          goto LAB_140001c83;        }      }      else if (iVar2 == -"
+      ]
+    },
+    {
+      "code": "0x7FEFDFBC",
+      "decimal": 2146426812,
+      "device_type": "0x7FEF",
+      "function_code": "0x7EF",
+      "method": 0,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_140001b14.c"
+      ],
+      "contexts": [
+        "cal_38,&local_40,&local_30);      if (-1 < iVar8) {        FUN_140001f80((undefined8 *)puVar4,&local_50,uVar9);        *(ulonglong *)(param_2 + 0x38) = uVar9;      }    }    else {      if (iVar2 == -"
+      ]
+    },
+    {
+      "code": "0x7FEFDFC0",
+      "decimal": 2146426816,
+      "device_type": "0x7FEF",
+      "function_code": "0x7F0",
+      "method": 0,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_140001b14.c"
+      ],
+      "contexts": [
+        " = (ulonglong)uVar1;    if (*pcVar3 == '\\x02') {      FUN_140001a74();      goto LAB_140001d86;    }    if (*pcVar3 != '\\x0e') goto LAB_140001d86;    iVar2 = *(int *)(pcVar3 + 0x18);    if (iVar2 == -"
+      ]
+    },
+    {
+      "code": "0x8815F7AB",
+      "decimal": 2283141035,
+      "device_type": "0x8815",
+      "function_code": "0xDEA",
+      "method": 3,
+      "access": 3,
+      "confidence": 50.0,
+      "found_in": [
+        "FUN_1400015ac.c"
+      ],
+      "contexts": [
+        "_24;    undefined4 local_20;    undefined4 local_1c;    ulonglong local_18;        local_18 = DAT_140004000 ^ (ulonglong)auStack_108;    local_28 = 0x16157eaa;    local_24 = 0xa6d2ae28;    local_20 = "
+      ]
+    },
+    {
+      "code": "0xC000000D",
+      "decimal": 3221225485,
+      "device_type": "0xC000",
+      "function_code": "0x003",
+      "method": 1,
+      "access": 0,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_140001b14.c"
+      ],
+      "contexts": [
+        "     uVar10 = FUN_140001df8(param_2,(longlong)pcVar3);            iVar8 = (int)uVar10;          }          else {            if (iVar2 != -0x7fefdfa0) {              *(undefined4 *)(param_2 + 0x30) = "
+      ]
+    },
+    {
+      "code": "0xFFFFFFF0",
+      "decimal": 4294967280,
+      "device_type": "0xFFFF",
+      "function_code": "0xFFC",
+      "method": 0,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_140001ec8.c"
+      ],
+      "contexts": [
+        "   }    bVar1 = *(byte *)((ulonglong)*(uint *)(*(longlong *)(param_2 + 0x10) + 8) + 3 +                     *(longlong *)(param_2 + 8));    if ((bVar1 & 0xf) != 0) {      param_1 = param_1 + (bVar1 & "
+      ]
+    },
+    {
+      "code": "0xFFFFFFF8",
+      "decimal": 4294967288,
+      "device_type": "0xFFFF",
+      "function_code": "0xFFE",
+      "method": 0,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_140001ec8.c"
+      ],
+      "contexts": [
+        "                     *(longlong *)(param_2 + 8));    if ((bVar1 & 0xf) != 0) {      param_1 = param_1 + (bVar1 & 0xfffffff0);    }    FUN_140001e60(param_1 ^ *(ulonglong *)((longlong)(int)(*param_3 & "
+      ]
+    },
+    {
+      "code": "0xFFFFFFFF",
+      "decimal": 4294967295,
+      "device_type": "0xFFFF",
+      "function_code": "0xFFF",
+      "method": 3,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_1400016e8.c",
+        "FUN_140001a74.c"
+      ],
+      "contexts": [
+        "210 == (code *)0x0) {        return 0xc0000001;      }    }    uVar1 = (*DAT_140004210)(0xffffffffffffffff,0,local_38,0x30,0);    if (-1 < (int)uVar1) {      *param_1 = local_18;      uVar1 = uVar1 & ",
+        "r4 = 0;      do {        if (*plVar2 == local_res8[0]) {          (&DAT_140004010)[iVar4] = 0;          return 0;        }        iVar4 = iVar4 + 1;        plVar2 = plVar2 + 1;        uVar3 = uVar1 & "
+      ]
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "total_ioctls": 9,
+  "total_raw_detections": 9,
+  "filtered_low_confidence": 0,
+  "ioctls": [
+    {
+      "code": "0x3FFFFFFF",
+      "decimal": 1073741823,
+      "device_type": "0x3FFF",
+      "function_code": "0xFFF",
+      "method": 3,
+      "access": 3,
+      "confidence": 100.0,
+      "found_in": [
+        "FUN_000112f0.c"
+      ],
+      "contexts": [
+        ") && (uVar2 != 0)) {        uVar7 = in(*(undefined2 *)puVar5);        *(undefined1 *)puVar5 = uVar7;      }      *(undefined8 *)(param_2 + 0x38) = 1;      goto LAB_000114ac;    default:      iVar6 = -"
+      ]
+    },
+    {
+      "code": "0x9C402004",
+      "decimal": 2621448196,
+      "device_type": "0x9C40",
+      "function_code": "0x801",
+      "method": 0,
+      "access": 0,
+      "confidence": 100.0,
+      "found_in": [
+        "FUN_000112f0.c"
+      ],
+      "contexts": [
+        "4 + 8);    uVar3 = *(uint *)(lVar4 + 0x10);    uVar12 = (ulonglong)uVar3;    puVar5 = *(undefined8 **)(param_2 + 0x18);    iVar10 = 0;    iVar6 = 0;    switch(*(undefined4 *)(lVar4 + 0x18)) {    case "
+      ]
+    },
+    {
+      "code": "0x9C402008",
+      "decimal": 2621448200,
+      "device_type": "0x9C40",
+      "function_code": "0x802",
+      "method": 0,
+      "access": 0,
+      "confidence": 95.0,
+      "found_in": [
+        "FUN_000112f0.c"
+      ],
+      "contexts": [
+        "7 = in(*(undefined2 *)puVar5);        *(undefined1 *)puVar5 = uVar7;      }      *(undefined8 *)(param_2 + 0x38) = 1;      goto LAB_000114ac;    default:      iVar6 = -0x3fffffff;      break;    case "
+      ]
+    },
+    {
+      "code": "0x9C40200C",
+      "decimal": 2621448204,
+      "device_type": "0x9C40",
+      "function_code": "0x803",
+      "method": 0,
+      "access": 0,
+      "confidence": 95.0,
+      "found_in": [
+        "FUN_000112f0.c"
+      ],
+      "contexts": [
+        "*(undefined2 *)puVar5;        uVar7 = *(undefined1 *)((longlong)puVar5 + 2);        *(undefined8 *)(param_2 + 0x38) = 10;        out(uVar8,uVar7);        goto LAB_000114ac;      }      break;    case "
+      ]
+    },
+    {
+      "code": "0x9C402010",
+      "decimal": 2621448208,
+      "device_type": "0x9C40",
+      "function_code": "0x804",
+      "method": 0,
+      "access": 0,
+      "confidence": 95.0,
+      "found_in": [
+        "FUN_000112f0.c"
+      ],
+      "contexts": [
+        "     if ((1 < uVar3) && (1 < uVar2)) {        uVar8 = in(*(undefined2 *)puVar5);        *(undefined2 *)puVar5 = uVar8;      }      *(undefined8 *)(param_2 + 0x38) = 2;      goto LAB_000114ac;    case "
+      ]
+    },
+    {
+      "code": "0x9C402014",
+      "decimal": 2621448212,
+      "device_type": "0x9C40",
+      "function_code": "0x805",
+      "method": 0,
+      "access": 0,
+      "confidence": 95.0,
+      "found_in": [
+        "FUN_000112f0.c"
+      ],
+      "contexts": [
+        "*(undefined2 *)puVar5;        uVar1 = *(undefined2 *)((longlong)puVar5 + 2);        *(undefined8 *)(param_2 + 0x38) = 10;        out(uVar8,uVar1);        goto LAB_000114ac;      }      break;    case "
+      ]
+    },
+    {
+      "code": "0x9C402018",
+      "decimal": 2621448216,
+      "device_type": "0x9C40",
+      "function_code": "0x806",
+      "method": 0,
+      "access": 0,
+      "confidence": 95.0,
+      "found_in": [
+        "FUN_000112f0.c"
+      ],
+      "contexts": [
+        "     if ((3 < uVar3) && (3 < uVar2)) {        uVar9 = in(*(undefined2 *)puVar5);        *(undefined4 *)puVar5 = uVar9;      }      *(undefined8 *)(param_2 + 0x38) = 4;      goto LAB_000114ac;    case "
+      ]
+    },
+    {
+      "code": "0x9C40201C",
+      "decimal": 2621448220,
+      "device_type": "0x9C40",
+      "function_code": "0x807",
+      "method": 0,
+      "access": 0,
+      "confidence": 100.0,
+      "found_in": [
+        "FUN_000112f0.c"
+      ],
+      "contexts": [
+        " (7 < uVar3) {        uVar9 = *(undefined4 *)((longlong)puVar5 + 4);        *(undefined8 *)(param_2 + 0x38) = 10;        out((short)puVar5,uVar9);        goto LAB_000114ac;      }      break;    case "
+      ]
+    },
+    {
+      "code": "0x9C402020",
+      "decimal": 2621448224,
+      "device_type": "0x9C40",
+      "function_code": "0x808",
+      "method": 0,
+      "access": 0,
+      "confidence": 100.0,
+      "found_in": [
+        "FUN_000112f0.c"
+      ],
+      "contexts": [
+        "00116b0(puVar5,&local_38,uVar12);          *(ulonglong *)(param_2 + 0x38) = uVar12;        }        *(int *)(param_2 + 0x30) = iVar10;        goto LAB_000114ac;      }      goto LAB_0001149a;    case "
+      ]
+    }
+  ]
+}

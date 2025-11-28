@@ -1,0 +1,187 @@
+{
+  "total_ioctls": 12,
+  "total_raw_detections": 12,
+  "filtered_low_confidence": 0,
+  "ioctls": [
+    {
+      "code": "0x3FFFFFFF",
+      "decimal": 1073741823,
+      "device_type": "0x3FFF",
+      "function_code": "0xFFF",
+      "method": 3,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_0001112c.c"
+      ],
+      "contexts": [
+        "        *(ulonglong *)(param_2 + 0x38) = uVar10;            }          }          else {            if (iVar1 != -0x63bfdfe0) {              *(undefined8 *)(param_2 + 0x38) = 0;              iVar8 = -"
+      ]
+    },
+    {
+      "code": "0x63BFDFE0",
+      "decimal": 1673519072,
+      "device_type": "0x63BF",
+      "function_code": "0x7F8",
+      "method": 0,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_0001112c.c"
+      ],
+      "contexts": [
+        "           if (-1 < iVar8) {              FUN_000115d0(puVar5,&local_28,uVar10);              *(ulonglong *)(param_2 + 0x38) = uVar10;            }          }          else {            if (iVar1 != -"
+      ]
+    },
+    {
+      "code": "0x63BFDFE4",
+      "decimal": 1673519076,
+      "device_type": "0x63BF",
+      "function_code": "0x7F9",
+      "method": 0,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_0001112c.c"
+      ],
+      "contexts": [
+        "ar5);            *(undefined4 *)puVar5 = uVar9;          }          *(undefined8 *)(param_2 + 0x38) = 4;          goto LAB_000112e3;        }        if (iVar1 != -0x63bfdfe8) {          if (iVar1 == -"
+      ]
+    },
+    {
+      "code": "0x63BFDFE8",
+      "decimal": 1673519080,
+      "device_type": "0x63BF",
+      "function_code": "0x7FA",
+      "method": 0,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_0001112c.c"
+      ],
+      "contexts": [
+        "        uVar9 = in(*(undefined2 *)puVar5);            *(undefined4 *)puVar5 = uVar9;          }          *(undefined8 *)(param_2 + 0x38) = 4;          goto LAB_000112e3;        }        if (iVar1 != -"
+      ]
+    },
+    {
+      "code": "0x63BFDFEC",
+      "decimal": 1673519084,
+      "device_type": "0x63BF",
+      "function_code": "0x7FB",
+      "method": 0,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_0001112c.c"
+      ],
+      "contexts": [
+        "12e3;      }      if (iVar1 == -0x63bfdff0) {        if (uVar2 < 4) goto LAB_000112c4;        out(*(undefined2 *)puVar5,*(undefined2 *)((longlong)puVar5 + 2));      }      else {        if (iVar1 == -"
+      ]
+    },
+    {
+      "code": "0x63BFDFF0",
+      "decimal": 1673519088,
+      "device_type": "0x63BF",
+      "function_code": "0x7FC",
+      "method": 0,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_0001112c.c"
+      ],
+      "contexts": [
+        " uVar3)) {          uVar7 = in(*(undefined2 *)puVar5);          *(undefined2 *)puVar5 = uVar7;        }        *(undefined8 *)(param_2 + 0x38) = 2;        goto LAB_000112e3;      }      if (iVar1 == -"
+      ]
+    },
+    {
+      "code": "0x63BFDFF4",
+      "decimal": 1673519092,
+      "device_type": "0x63BF",
+      "function_code": "0x7FD",
+      "method": 0,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_0001112c.c"
+      ],
+      "contexts": [
+        "  *(undefined8 *)(param_2 + 0x38) = 0;        iVar8 = iVar11;        goto LAB_000112e3;      }      out(*(undefined2 *)puVar5,*(undefined1 *)((longlong)puVar5 + 2));    }    else {      if (iVar1 == -"
+      ]
+    },
+    {
+      "code": "0x63BFDFF8",
+      "decimal": 1673519096,
+      "device_type": "0x63BF",
+      "function_code": "0x7FE",
+      "method": 0,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_0001112c.c"
+      ],
+      "contexts": [
+        "Var2) && (uVar3 != 0)) {        uVar6 = in(*(undefined2 *)puVar5);        *(undefined1 *)puVar5 = uVar6;      }      *(undefined8 *)(param_2 + 0x38) = 1;      goto LAB_000112e3;    }    if (iVar1 == -"
+      ]
+    },
+    {
+      "code": "0x63BFDFFC",
+      "decimal": 1673519100,
+      "device_type": "0x63BF",
+      "function_code": "0x7FF",
+      "method": 0,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_0001112c.c"
+      ],
+      "contexts": [
+        "*)(param_2 + 0x18);    iVar1 = *(int *)(lVar4 + 0x18);    uVar2 = *(uint *)(lVar4 + 0x10);    uVar10 = (ulonglong)uVar2;    uVar3 = *(uint *)(lVar4 + 8);    iVar11 = 0;    iVar8 = 0;    if (iVar1 == -"
+      ]
+    },
+    {
+      "code": "0xC000000D",
+      "decimal": 3221225485,
+      "device_type": "0xC000",
+      "function_code": "0x003",
+      "method": 1,
+      "access": 0,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_0001112c.c"
+      ],
+      "contexts": [
+        "         goto LAB_000112e3;        }        if (iVar1 != -0x63bfdfe8) {          if (iVar1 == -0x63bfdfe4) {            if (uVar2 == 0) {  LAB_0001124c:              *(undefined4 *)(param_2 + 0x30) = "
+      ]
+    },
+    {
+      "code": "0xFFFFFFF0",
+      "decimal": 4294967280,
+      "device_type": "0xFFFF",
+      "function_code": "0xFFC",
+      "method": 0,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "__GSHandlerCheckCommon.c"
+      ],
+      "contexts": [
+        "ar1 = (ulonglong)*(uint *)(*(longlong *)(param_2 + 0x10) + 8) + *(longlong *)(param_2 + 8);    if ((*(byte *)(lVar1 + 3) & 0xf) != 0) {      param_1 = param_1 + (longlong)(int)(*(byte *)(lVar1 + 3) & "
+      ]
+    },
+    {
+      "code": "0xFFFFFFF8",
+      "decimal": 4294967288,
+      "device_type": "0xFFFF",
+      "function_code": "0xFFE",
+      "method": 0,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "__GSHandlerCheckCommon.c"
+      ],
+      "contexts": [
+        "+ 8);    if ((*(byte *)(lVar1 + 3) & 0xf) != 0) {      param_1 = param_1 + (longlong)(int)(*(byte *)(lVar1 + 3) & 0xfffffff0);    }    FUN_00011570(param_1 ^ *(ulonglong *)((longlong)(int)(*param_3 & "
+      ]
+    }
+  ]
+}

@@ -1,0 +1,236 @@
+{
+  "security_score": 100,
+  "risk_level": "CRITICAL",
+  "total": 125,
+  "by_severity": {
+    "low": {
+      "count": 8,
+      "functions": [
+        {
+          "name": "DbgPrint",
+          "files": [
+            "DbgPrint.c",
+            "FUN_140006a80.c"
+          ]
+        },
+        {
+          "name": "ExAcquireFastMutex",
+          "files": [
+            "FUN_14000141c.c",
+            "FUN_1400014e0.c"
+          ]
+        },
+        {
+          "name": "ExReleaseFastMutex",
+          "files": [
+            "FUN_14000141c.c",
+            "FUN_14000150f.c"
+          ]
+        },
+        {
+          "name": "IofCompleteRequest",
+          "files": [
+            "FUN_14000d6e0.c"
+          ]
+        }
+      ]
+    },
+    "medium": {
+      "count": 108,
+      "functions": [
+        {
+          "name": "ExAllocatePool",
+          "files": [
+            "FUN_140003acc.c",
+            "FUN_140003874.c",
+            "FUN_14000556c.c",
+            "FUN_1400054c4.c",
+            "FUN_14000d0a3.c",
+            "FUN_140001b20.c",
+            "FUN_14000252c.c",
+            "FUN_1400017fc.c",
+            "FUN_14000260c.c",
+            "FUN_140003974.c",
+            "FUN_14000589c.c",
+            "FUN_14000301c.c",
+            "FUN_140001524.c",
+            "FUN_14000453c.c",
+            "FUN_140006488.c",
+            "FUN_140002384.c",
+            "FUN_1400043c0.c",
+            "FUN_140004250.c",
+            "FUN_14013207c.c",
+            "FUN_140001cd4.c",
+            "FUN_1401321b1.c",
+            "FUN_1400057bc.c"
+          ]
+        },
+        {
+          "name": "ExFreePoolWithTag",
+          "files": [
+            "FUN_140003208.c",
+            "FUN_140003974.c",
+            "FUN_140006038.c",
+            "FUN_140002384.c",
+            "FUN_1400032b0.c",
+            "FUN_140001b20.c",
+            "FUN_140003acc.c",
+            "FUN_140006488.c",
+            "FUN_140003874.c",
+            "FUN_14000556c.c",
+            "FUN_140001cd4.c",
+            "FUN_140005d58.c",
+            "FUN_1400054c4.c",
+            "FUN_14000377c.c",
+            "FUN_14000d6e0.c",
+            "FUN_14000d0a3.c"
+          ]
+        },
+        {
+          "name": "PsLookupProcessByProcessId",
+          "files": [
+            "FUN_140131fe8.c",
+            "FUN_1400032b0.c",
+            "FUN_140003d44.c",
+            "FUN_1400050d0.c",
+            "FUN_140003468.c",
+            "FUN_14000274c.c",
+            "FUN_140003f2c.c",
+            "FUN_140131fe4.c",
+            "thunk_FUN_1400036b0.c",
+            "FUN_1400036b0.c",
+            "FUN_1400026d0.c",
+            "FUN_140131fb8.c",
+            "PsLookupProcessByProcessId.c",
+            "FUN_140002354.c",
+            "FUN_140003614.c",
+            "FUN_1400070cc.c",
+            "FUN_140003bfc.c",
+            "FUN_1400035b0.c"
+          ]
+        },
+        {
+          "name": "KeStackAttachProcess",
+          "files": [
+            "FUN_1400032b0.c",
+            "KeStackAttachProcess.c",
+            "FUN_140002a94.c",
+            "FUN_140002d4c.c",
+            "FUN_140006654.c",
+            "FUN_1400027d4.c"
+          ]
+        },
+        {
+          "name": "KeUnstackDetachProcess",
+          "files": [
+            "FUN_1400032b0.c",
+            "KeUnstackDetachProcess.c",
+            "FUN_140002a94.c",
+            "FUN_140002d4c.c",
+            "FUN_140006654.c",
+            "FUN_1400027d4.c"
+          ]
+        },
+        {
+          "name": "ExAllocatePoolWithTag",
+          "files": [
+            "FUN_14000d6e0.c",
+            "FUN_1400030b8.c"
+          ]
+        },
+        {
+          "name": "IoFreeMdl",
+          "files": [
+            "FUN_140003208.c",
+            "FUN_140003fa8.c"
+          ]
+        },
+        {
+          "name": "IoAllocateMdl",
+          "files": [
+            "FUN_14000453c.c",
+            "FUN_140003fa8.c",
+            "FUN_1400043c0.c",
+            "FUN_140004250.c"
+          ]
+        },
+        {
+          "name": "MmBuildMdlForNonPagedPool",
+          "files": [
+            "FUN_14000453c.c",
+            "FUN_140003fa8.c",
+            "FUN_1400043c0.c",
+            "FUN_140004250.c"
+          ]
+        },
+        {
+          "name": "ObReferenceObjectByHandle",
+          "files": [
+            "FUN_14000453c.c",
+            "FUN_140004310.c",
+            "FUN_1400043c0.c",
+            "FUN_140004250.c"
+          ]
+        },
+        {
+          "name": "PsLookupThreadByThreadId",
+          "files": [
+            "FUN_140006488.c",
+            "PsLookupThreadByThreadId.c",
+            "FUN_140006834.c",
+            "FUN_140006a00.c",
+            "FUN_140006654.c"
+          ]
+        }
+      ]
+    },
+    "critical": {
+      "count": 5,
+      "functions": [
+        {
+          "name": "MmMapLockedPagesSpecifyCache",
+          "files": [
+            "FUN_140003fa8.c"
+          ]
+        },
+        {
+          "name": "MmMapLockedPages",
+          "files": [
+            "FUN_14000453c.c",
+            "FUN_1400043c0.c",
+            "FUN_140004250.c"
+          ]
+        }
+      ]
+    },
+    "high": {
+      "count": 4,
+      "functions": [
+        {
+          "name": "ZwCreateFile",
+          "files": [
+            "FUN_140005c0c.c"
+          ]
+        },
+        {
+          "name": "ZwWriteFile",
+          "files": [
+            "FUN_140005c0c.c"
+          ]
+        },
+        {
+          "name": "IoCreateDevice",
+          "files": [
+            "FUN_14013278d.c"
+          ]
+        },
+        {
+          "name": "IoCreateSymbolicLink",
+          "files": [
+            "FUN_14013278d.c"
+          ]
+        }
+      ]
+    }
+  }
+}

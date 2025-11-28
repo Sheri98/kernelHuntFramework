@@ -1,0 +1,58 @@
+{
+  "security_score": 43,
+  "risk_level": "MEDIUM",
+  "total": 8,
+  "by_severity": {
+    "high": {
+      "count": 2,
+      "functions": [
+        {
+          "name": "IoCreateDevice",
+          "files": [
+            "entry.c"
+          ]
+        },
+        {
+          "name": "IoCreateSymbolicLink",
+          "files": [
+            "entry.c"
+          ]
+        }
+      ]
+    },
+    "critical": {
+      "count": 5,
+      "functions": [
+        {
+          "name": "MmMapIoSpace",
+          "files": [
+            "FUN_00011000.c"
+          ]
+        },
+        {
+          "name": "wrmsr",
+          "files": [
+            "FUN_00011000.c"
+          ]
+        },
+        {
+          "name": "rdmsr",
+          "files": [
+            "FUN_00011000.c"
+          ]
+        }
+      ]
+    },
+    "low": {
+      "count": 1,
+      "functions": [
+        {
+          "name": "IofCompleteRequest",
+          "files": [
+            "FUN_00011000.c"
+          ]
+        }
+      ]
+    }
+  }
+}

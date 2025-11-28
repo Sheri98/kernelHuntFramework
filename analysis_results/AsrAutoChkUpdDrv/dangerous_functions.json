@@ -1,0 +1,102 @@
+{
+  "security_score": 100,
+  "risk_level": "CRITICAL",
+  "total": 36,
+  "by_severity": {
+    "low": {
+      "count": 3,
+      "functions": [
+        {
+          "name": "IofCompleteRequest",
+          "files": [
+            "FUN_00012320.c",
+            "FUN_00011008.c",
+            "FUN_000110a8.c"
+          ]
+        }
+      ]
+    },
+    "medium": {
+      "count": 8,
+      "functions": [
+        {
+          "name": "ExFreePoolWithTag",
+          "files": [
+            "FUN_00012320.c",
+            "FUN_000124a0.c",
+            "FUN_000119b4.c",
+            "FUN_00011030.c"
+          ]
+        },
+        {
+          "name": "ExAllocatePoolWithTag",
+          "files": [
+            "FUN_000124a0.c",
+            "FUN_000119b4.c"
+          ]
+        },
+        {
+          "name": "IoFreeMdl",
+          "files": [
+            "FUN_00012320.c"
+          ]
+        }
+      ]
+    },
+    "critical": {
+      "count": 19,
+      "functions": [
+        {
+          "name": "MmMapIoSpace",
+          "files": [
+            "FUN_00011db4.c",
+            "FUN_000119b4.c",
+            "FUN_000120d4.c",
+            "FUN_000110a8.c"
+          ]
+        },
+        {
+          "name": "wrmsr",
+          "files": [
+            "FUN_00011f7c.c",
+            "FUN_00011e9c.c",
+            "FUN_000110a8.c"
+          ]
+        },
+        {
+          "name": "rdmsr",
+          "files": [
+            "FUN_00011f7c.c",
+            "FUN_00011e9c.c",
+            "FUN_000110a8.c"
+          ]
+        }
+      ]
+    },
+    "high": {
+      "count": 6,
+      "functions": [
+        {
+          "name": "memcpy",
+          "files": [
+            "FUN_000119b4.c",
+            "FUN_000120d4.c",
+            "memcpy.c"
+          ]
+        },
+        {
+          "name": "IoCreateDevice",
+          "files": [
+            "FUN_00016008.c"
+          ]
+        },
+        {
+          "name": "IoCreateSymbolicLink",
+          "files": [
+            "FUN_00016008.c"
+          ]
+        }
+      ]
+    }
+  }
+}

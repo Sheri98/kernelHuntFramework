@@ -1,0 +1,70 @@
+{
+  "security_score": 41,
+  "risk_level": "MEDIUM",
+  "total": 9,
+  "by_severity": {
+    "high": {
+      "count": 2,
+      "functions": [
+        {
+          "name": "IoCreateDevice",
+          "files": [
+            "FUN_140001628.c"
+          ]
+        },
+        {
+          "name": "IoCreateSymbolicLink",
+          "files": [
+            "FUN_140001628.c"
+          ]
+        }
+      ]
+    },
+    "critical": {
+      "count": 5,
+      "functions": [
+        {
+          "name": "ZwMapViewOfSection",
+          "files": [
+            "FUN_1400017a8.c"
+          ]
+        },
+        {
+          "name": "rdmsr",
+          "files": [
+            "FUN_140001ac0.c",
+            "FUN_140001da0.c"
+          ]
+        },
+        {
+          "name": "wrmsr",
+          "files": [
+            "FUN_140001da0.c"
+          ]
+        }
+      ]
+    },
+    "medium": {
+      "count": 1,
+      "functions": [
+        {
+          "name": "ObReferenceObjectByHandle",
+          "files": [
+            "FUN_1400017a8.c"
+          ]
+        }
+      ]
+    },
+    "low": {
+      "count": 1,
+      "functions": [
+        {
+          "name": "IofCompleteRequest",
+          "files": [
+            "FUN_140001ac0.c"
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "security_score": 40,
+  "risk_level": "MEDIUM",
+  "total": 14,
+  "by_severity": {
+    "high": {
+      "count": 9,
+      "functions": [
+        {
+          "name": "IoCreateDevice",
+          "files": [
+            "FUN_00011008.c"
+          ]
+        },
+        {
+          "name": "IoCreateSymbolicLink",
+          "files": [
+            "FUN_00011008.c"
+          ]
+        },
+        {
+          "name": "memcpy",
+          "files": [
+            "memcpy.c",
+            "FUN_000110c8.c"
+          ]
+        }
+      ]
+    },
+    "low": {
+      "count": 1,
+      "functions": [
+        {
+          "name": "IofCompleteRequest",
+          "files": [
+            "FUN_000110c8.c"
+          ]
+        }
+      ]
+    },
+    "critical": {
+      "count": 3,
+      "functions": [
+        {
+          "name": "ZwMapViewOfSection",
+          "files": [
+            "FUN_00011454.c"
+          ]
+        },
+        {
+          "name": "wrmsr",
+          "files": [
+            "FUN_00011640.c"
+          ]
+        },
+        {
+          "name": "rdmsr",
+          "files": [
+            "FUN_00011670.c"
+          ]
+        }
+      ]
+    },
+    "medium": {
+      "count": 1,
+      "functions": [
+        {
+          "name": "ObReferenceObjectByHandle",
+          "files": [
+            "FUN_00011454.c"
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "total_ioctls": 3,
+  "total_raw_detections": 3,
+  "filtered_low_confidence": 0,
+  "ioctls": [
+    {
+      "code": "0x55FECFBC",
+      "decimal": 1442762684,
+      "device_type": "0x55FE",
+      "function_code": "0x3EF",
+      "method": 0,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_00010590.c",
+        "FUN_00010590.c"
+      ],
+      "contexts": [
+        "fined4 *)(param_2 + 0x30) = 0xc0000002;      goto LAB_00010626;    }    uVar8 = 0;    if (iVar1 == -0x55fedfbc) {      uVar8 = 4;      uVar5 = 4;    }    else {      uVar5 = uVar6;      if (iVar1 == -",
+        "f (iVar1 == -0x55fedfbc) {      puVar7 = (undefined *)(ulonglong)*puVar3;  LAB_0001060e:      bVar4 = FUN_00010524(puVar7);      uVar6 = (uint)CONCAT71(extraout_var,bVar4);    }    else if (iVar1 == -"
+      ]
+    },
+    {
+      "code": "0x55FEDFBC",
+      "decimal": 1442766780,
+      "device_type": "0x55FE",
+      "function_code": "0x7EF",
+      "method": 0,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_00010590.c",
+        "FUN_00010590.c"
+      ],
+      "contexts": [
+        " *)(param_2 + 0x38) = 0;    iVar1 = *(int *)(pcVar2 + 0x18);    if (*pcVar2 != '\\x0e') {      *(undefined4 *)(param_2 + 0x30) = 0xc0000002;      goto LAB_00010626;    }    uVar8 = 0;    if (iVar1 == -",
+        "ar8 = 4;      }    }    if ((*(uint *)(pcVar2 + 0x10) != uVar5) || (*(uint *)(pcVar2 + 8) != uVar8)) {      *(undefined4 *)(param_2 + 0x30) = 0xc000000d;      goto LAB_00010626;    }    if (iVar1 == -"
+      ]
+    },
+    {
+      "code": "0xC000000D",
+      "decimal": 3221225485,
+      "device_type": "0xC000",
+      "function_code": "0x003",
+      "method": 1,
+      "access": 0,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_00010590.c"
+      ],
+      "contexts": [
+        "   if (iVar1 == -0x55fecfbc) {        uVar5 = 8;        uVar8 = 4;      }    }    if ((*(uint *)(pcVar2 + 0x10) != uVar5) || (*(uint *)(pcVar2 + 8) != uVar8)) {      *(undefined4 *)(param_2 + 0x30) = "
+      ]
+    }
+  ]
+}

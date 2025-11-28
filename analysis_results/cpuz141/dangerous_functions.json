@@ -1,0 +1,75 @@
+{
+  "security_score": 100,
+  "risk_level": "CRITICAL",
+  "total": 54,
+  "by_severity": {
+    "high": {
+      "count": 2,
+      "functions": [
+        {
+          "name": "IoCreateDevice",
+          "files": [
+            "FUN_00011390.c"
+          ]
+        },
+        {
+          "name": "IoCreateSymbolicLink",
+          "files": [
+            "FUN_00011390.c"
+          ]
+        }
+      ]
+    },
+    "critical": {
+      "count": 49,
+      "functions": [
+        {
+          "name": "MmMapIoSpace",
+          "files": [
+            "FUN_000115b0.c"
+          ]
+        },
+        {
+          "name": "wrmsr",
+          "files": [
+            "FUN_000115b0.c"
+          ]
+        },
+        {
+          "name": "rdmsr",
+          "files": [
+            "FUN_000115b0.c"
+          ]
+        }
+      ]
+    },
+    "medium": {
+      "count": 2,
+      "functions": [
+        {
+          "name": "ExAllocatePoolWithTag",
+          "files": [
+            "FUN_000115b0.c"
+          ]
+        },
+        {
+          "name": "ExFreePoolWithTag",
+          "files": [
+            "FUN_000115b0.c"
+          ]
+        }
+      ]
+    },
+    "low": {
+      "count": 1,
+      "functions": [
+        {
+          "name": "IofCompleteRequest",
+          "files": [
+            "FUN_000115b0.c"
+          ]
+        }
+      ]
+    }
+  }
+}

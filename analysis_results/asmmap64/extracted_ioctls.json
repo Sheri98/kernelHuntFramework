@@ -1,0 +1,114 @@
+{
+  "total_ioctls": 7,
+  "total_raw_detections": 7,
+  "filtered_low_confidence": 0,
+  "ioctls": [
+    {
+      "code": "0x63BFDA70",
+      "decimal": 1673517680,
+      "device_type": "0x63BF",
+      "function_code": "0x69C",
+      "method": 0,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_000110e4.c"
+      ],
+      "contexts": [
+        "r9 = FUN_00011640(*(undefined8 *)(param_1 + 0x40),param_2,(longlong)pcVar3);        uVar8 = (undefined4)uVar9;        goto LAB_000111f9;      }      if (iVar2 != -0x63bfda74) {        if (((iVar2 != -"
+      ]
+    },
+    {
+      "code": "0x63BFDA74",
+      "decimal": 1673517684,
+      "device_type": "0x63BF",
+      "function_code": "0x69D",
+      "method": 0,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_000110e4.c"
+      ],
+      "contexts": [
+        "f (iVar2 == -0x63bfda78) {        uVar9 = FUN_00011640(*(undefined8 *)(param_1 + 0x40),param_2,(longlong)pcVar3);        uVar8 = (undefined4)uVar9;        goto LAB_000111f9;      }      if (iVar2 != -"
+      ]
+    },
+    {
+      "code": "0x63BFDA78",
+      "decimal": 1673517688,
+      "device_type": "0x63BF",
+      "function_code": "0x69E",
+      "method": 0,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_000110e4.c"
+      ],
+      "contexts": [
+        "fffffff,uVar5);        }        else {          DbgPrint(\"(UMMAPMEM) Insufficient input or output buffer\\n\");          uVar8 = 0xc000009a;        }        goto LAB_000111f9;      }      if (iVar2 == -"
+      ]
+    },
+    {
+      "code": "0x63BFDA7C",
+      "decimal": 1673517692,
+      "device_type": "0x63BF",
+      "function_code": "0x69F",
+      "method": 0,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_000110e4.c"
+      ],
+      "contexts": [
+        "f (iVar2 == -0x63bfda80) {        uVar9 = FUN_00011344(*(undefined8 *)(param_1 + 0x40),param_2,(longlong)pcVar3);        uVar8 = (undefined4)uVar9;        goto LAB_000111f9;      }      if (iVar2 == -"
+      ]
+    },
+    {
+      "code": "0x63BFDA80",
+      "decimal": 1673517696,
+      "device_type": "0x63BF",
+      "function_code": "0x6A0",
+      "method": 0,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_000110e4.c"
+      ],
+      "contexts": [
+        "(param_2 + 0x38) = 0;    uVar8 = 0xc0000002;    if ((*pcVar3 != '\\0') && (*pcVar3 != '\\x02')) {      if (*pcVar3 != '\\x0e') goto LAB_000111f9;      iVar2 = *(int *)(pcVar3 + 0x18);      if (iVar2 == -"
+      ]
+    },
+    {
+      "code": "0xC000000D",
+      "decimal": 3221225485,
+      "device_type": "0xC000",
+      "function_code": "0x003",
+      "method": 1,
+      "access": 0,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_000110e4.c"
+      ],
+      "contexts": [
+        "     if (iVar2 != -0x63bfda74) {        if (((iVar2 != -0x63bfda70) || (*(int *)(pcVar3 + 0x10) != *(int *)(pcVar3 + 8))) ||           (*(int *)(pcVar3 + 8) != 0xc)) {  LAB_00011219:          uVar8 = "
+      ]
+    },
+    {
+      "code": "0xC000009A",
+      "decimal": 3221225626,
+      "device_type": "0xC000",
+      "function_code": "0x026",
+      "method": 2,
+      "access": 0,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_000110e4.c",
+        "FUN_00011640.c"
+      ],
+      "contexts": [
+        "c),uVar5 & 0xffffffff);          uVar8 = ZwUnmapViewOfSection(0xffffffffffffffff,uVar5);        }        else {          DbgPrint(\"(UMMAPMEM) Insufficient input or output buffer\\n\");          uVar8 = ",
+        "ngth=%x,sizeof (LOGICAL_MEMORY_INFO)  = %x\",uVar2,0x18);    *(undefined8 *)(param_2 + 0x38) = 0;    if ((uVar1 < 0x18) || (uVar2 < 0x18)) {      DbgPrint(\"(MAPMEM) Buffer size error\\n\");      uVar6 = "
+      ]
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "total_ioctls": 4,
+  "total_raw_detections": 4,
+  "filtered_low_confidence": 0,
+  "ioctls": [
+    {
+      "code": "0x100004",
+      "decimal": 1048580,
+      "device_type": "0x0010",
+      "function_code": "0x001",
+      "method": 0,
+      "access": 0,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_00011010.c"
+      ],
+      "contexts": [
+        "al_170 = local_140;    puVar7 = local_150;    puVar5 = local_180;    local_180[0] = 0x30;    local_178 = 0;    local_168 = 0x40;    local_160 = 0;    local_158 = 0;    uVar2 = ZwCreateFile(&local_188,"
+      ]
+    },
+    {
+      "code": "0x7FFFE000",
+      "decimal": 2147475456,
+      "device_type": "0x7FFF",
+      "function_code": "0x800",
+      "method": 0,
+      "access": 3,
+      "confidence": 100.0,
+      "found_in": [
+        "FUN_00011b30.c"
+      ],
+      "contexts": [
+        "gPrint(\"CITMDRV.SYS: IRP_MJ_CREATE\\n\");      pcVar6 = \"CITMDRV.SYS: IRP_MJ_CREATE\\n\";    }    else {      if (cVar1 != '\\x02') {        if (cVar1 == '\\x0e') {          if (*(int *)(pcVar7 + 0x18) == -"
+      ]
+    },
+    {
+      "code": "0xC000000D",
+      "decimal": 3221225485,
+      "device_type": "0xC000",
+      "function_code": "0x003",
+      "method": 1,
+      "access": 0,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_00011b30.c"
+      ],
+      "contexts": [
+        "(\"CITMDRV.SYS: unknown IRP_MJ_DEVICE_CONTROL\\n\");            FUN_00011010(\"CITMDRV.SYS: unknown IRP_MJ_DEVICE_CONTROL\\n\",pcVar7,param_3,param_4);          }          *(undefined4 *)(param_2 + 0x30) = "
+      ]
+    },
+    {
+      "code": "0xC0000018",
+      "decimal": 3221225496,
+      "device_type": "0xC000",
+      "function_code": "0x006",
+      "method": 0,
+      "access": 0,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_00011540.c"
+      ],
+      "contexts": [
+        "      local_a0 = lVar14;          local_res18 = FUN_00011410(local_98,lVar3,plVar9,local_90,(ulonglong)*(uint *)(param_2 + 2),                                     lVar12);          if (local_res18 == "
+      ]
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "security_score": 73,
+  "risk_level": "CRITICAL",
+  "total": 24,
+  "by_severity": {
+    "high": {
+      "count": 2,
+      "functions": [
+        {
+          "name": "IoCreateDevice",
+          "files": [
+            "FUN_00011008.c"
+          ]
+        },
+        {
+          "name": "IoCreateSymbolicLink",
+          "files": [
+            "FUN_00011008.c"
+          ]
+        }
+      ]
+    },
+    "critical": {
+      "count": 7,
+      "functions": [
+        {
+          "name": "wrmsr",
+          "files": [
+            "FUN_00011284.c"
+          ]
+        },
+        {
+          "name": "rdmsr",
+          "files": [
+            "FUN_00011284.c"
+          ]
+        },
+        {
+          "name": "ZwMapViewOfSection",
+          "files": [
+            "FUN_0001242c.c"
+          ]
+        },
+        {
+          "name": "MmMapLockedPages",
+          "files": [
+            "FUN_00012654.c"
+          ]
+        },
+        {
+          "name": "MmMapLockedPagesSpecifyCache",
+          "files": [
+            "FUN_00012654.c"
+          ]
+        }
+      ]
+    },
+    "medium": {
+      "count": 13,
+      "functions": [
+        {
+          "name": "ExFreePoolWithTag",
+          "files": [
+            "FUN_00011c0c.c",
+            "FUN_00011284.c"
+          ]
+        },
+        {
+          "name": "IoFreeMdl",
+          "files": [
+            "FUN_00012654.c",
+            "FUN_00011284.c"
+          ]
+        },
+        {
+          "name": "ExAllocatePool",
+          "files": [
+            "FUN_00011b34.c",
+            "FUN_00011c0c.c"
+          ]
+        },
+        {
+          "name": "IoAllocateMdl",
+          "files": [
+            "FUN_00012700.c",
+            "FUN_00011c0c.c"
+          ]
+        },
+        {
+          "name": "ObReferenceObjectByHandle",
+          "files": [
+            "FUN_0001242c.c"
+          ]
+        },
+        {
+          "name": "MmBuildMdlForNonPagedPool",
+          "files": [
+            "FUN_00012654.c"
+          ]
+        }
+      ]
+    },
+    "low": {
+      "count": 2,
+      "functions": [
+        {
+          "name": "IofCompleteRequest",
+          "files": [
+            "FUN_000123d4.c",
+            "FUN_00011284.c"
+          ]
+        }
+      ]
+    }
+  }
+}

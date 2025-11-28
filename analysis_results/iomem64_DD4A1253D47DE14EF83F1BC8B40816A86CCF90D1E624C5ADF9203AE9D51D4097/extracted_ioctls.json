@@ -1,0 +1,161 @@
+{
+  "total_ioctls": 10,
+  "total_raw_detections": 10,
+  "filtered_low_confidence": 0,
+  "ioctls": [
+    {
+      "code": "0x63BCDC00",
+      "decimal": 1673321472,
+      "device_type": "0x63BC",
+      "function_code": "0x700",
+      "method": 0,
+      "access": 3,
+      "confidence": 100.0,
+      "found_in": [
+        "FUN_000112e0.c"
+      ],
+      "contexts": [
+        "  local_100 = 0;    lVar6 = FUN_000110e0(param_2);    uVar5 = *(uint *)(lVar6 + 0x10);    uVar1 = *(uint *)(lVar6 + 8);    puVar10 = *(uint **)(param_2 + 0x18);    local_28 = *(int *)(lVar6 + 0x18) + "
+      ]
+    },
+    {
+      "code": "0x7FFFFFFC",
+      "decimal": 2147483644,
+      "device_type": "0x7FFF",
+      "function_code": "0xFFF",
+      "method": 0,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_000121e3.c"
+      ],
+      "contexts": [
+        ") {      puVar2 = (undefined4 *)cpuid_brand_part1_info(0x80000002);    }    else if (iVar1 == -0x7ffffffd) {      puVar2 = (undefined4 *)cpuid_brand_part2_info(0x80000003);    }    else if (iVar1 == -"
+      ]
+    },
+    {
+      "code": "0x7FFFFFFD",
+      "decimal": 2147483645,
+      "device_type": "0x7FFF",
+      "function_code": "0xFFF",
+      "method": 1,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_000121e3.c"
+      ],
+      "contexts": [
+        ") {      puVar2 = (undefined4 *)cpuid_Quality_of_Service_info(0xf);    }    else if (iVar1 == -0x7ffffffe) {      puVar2 = (undefined4 *)cpuid_brand_part1_info(0x80000002);    }    else if (iVar1 == -"
+      ]
+    },
+    {
+      "code": "0x7FFFFFFE",
+      "decimal": 2147483646,
+      "device_type": "0x7FFF",
+      "function_code": "0xFFF",
+      "method": 2,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_000121e3.c"
+      ],
+      "contexts": [
+        "d) {      puVar2 = (undefined4 *)cpuid_Processor_Extended_States_info(0xd);    }    else if (iVar1 == 0xf) {      puVar2 = (undefined4 *)cpuid_Quality_of_Service_info(0xf);    }    else if (iVar1 == -"
+      ]
+    },
+    {
+      "code": "0x80000004",
+      "decimal": 2147483652,
+      "device_type": "0x8000",
+      "function_code": "0x001",
+      "method": 0,
+      "access": 0,
+      "confidence": 70.0,
+      "found_in": [
+        "FUN_000121e3.c"
+      ],
+      "contexts": [
+        ");    }    else if (iVar1 == -0x7ffffffd) {      puVar2 = (undefined4 *)cpuid_brand_part2_info(0x80000003);    }    else if (iVar1 == -0x7ffffffc) {      puVar2 = (undefined4 *)cpuid_brand_part3_info("
+      ]
+    },
+    {
+      "code": "0xC0000022",
+      "decimal": 3221225506,
+      "device_type": "0xC000",
+      "function_code": "0x008",
+      "method": 2,
+      "access": 0,
+      "confidence": 100.0,
+      "found_in": [
+        "FUN_000112e0.c"
+      ],
+      "contexts": [
+        "local_100 = 0;      break;    case 0x38:      if ((uVar5 < 2) || (uVar1 == 0)) {        local_100 = 0xc0000023;      }      else {        local_6c = 10000;        uVar5 = *puVar10;        local_100 = "
+      ]
+    },
+    {
+      "code": "0xC0000023",
+      "decimal": 3221225507,
+      "device_type": "0xC000",
+      "function_code": "0x008",
+      "method": 3,
+      "access": 0,
+      "confidence": 100.0,
+      "found_in": [
+        "FUN_000112e0.c",
+        "FUN_000112e0.c",
+        "FUN_000112e0.c"
+      ],
+      "contexts": [
+        "10);        KeLeaveCriticalRegion();        *puVar10 = uVar5;      }      *(undefined8 *)(param_2 + 0x38) = 4;      local_100 = 0;      break;    case 0x2c:      if (uVar5 < 0xc) {        local_100 = ",
+        "1f90(puVar10);        puVar10[3] = uVar5;      }      *(undefined8 *)(param_2 + 0x38) = 0x110;      local_100 = 0;      break;    case 0x38:      if ((uVar5 < 2) || (uVar1 == 0)) {        local_100 = ",
+        " uVar5 = FUN_00012110(puVar10);        puVar10[3] = uVar5;      }      *(undefined8 *)(param_2 + 0x38) = 0x1c;      local_100 = 0;      break;    case 0x44:      if (uVar5 < 0xc) {        local_100 = "
+      ]
+    },
+    {
+      "code": "0xC000008C",
+      "decimal": 3221225612,
+      "device_type": "0xC000",
+      "function_code": "0x023",
+      "method": 0,
+      "access": 0,
+      "confidence": 80.0,
+      "found_in": [
+        "FUN_000112e0.c"
+      ],
+      "contexts": [
+        "    puVar7 = puVar7 + 1;      }      *(undefined8 *)(param_2 + 0x38) = 0;      local_100 = 0;      break;    case 8:      if (2 < uVar5) {        if (0x1fff < (ushort)*puVar10) {          local_100 = "
+      ]
+    },
+    {
+      "code": "0xFFFFFFF0",
+      "decimal": 4294967280,
+      "device_type": "0xFFFF",
+      "function_code": "0xFFC",
+      "method": 0,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "__GSHandlerCheckCommon.c"
+      ],
+      "contexts": [
+        "ar1 = (ulonglong)*(uint *)(*(longlong *)(param_2 + 0x10) + 8) + *(longlong *)(param_2 + 8);    if ((*(byte *)(lVar1 + 3) & 0xf) != 0) {      param_1 = param_1 + (longlong)(int)(*(byte *)(lVar1 + 3) & "
+      ]
+    },
+    {
+      "code": "0xFFFFFFF8",
+      "decimal": 4294967288,
+      "device_type": "0xFFFF",
+      "function_code": "0xFFE",
+      "method": 0,
+      "access": 3,
+      "confidence": 70.0,
+      "found_in": [
+        "__GSHandlerCheckCommon.c"
+      ],
+      "contexts": [
+        "+ 8);    if ((*(byte *)(lVar1 + 3) & 0xf) != 0) {      param_1 = param_1 + (longlong)(int)(*(byte *)(lVar1 + 3) & 0xfffffff0);    }    FUN_00012250(param_1 ^ *(ulonglong *)((longlong)(int)(*param_3 & "
+      ]
+    }
+  ]
+}

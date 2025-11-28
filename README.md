@@ -42,8 +42,6 @@ kernelHuntFramework.exe
 
 **Note:** Compile from `kernelHuntFramework.sln` in Visual Studio
 
-https://github.com/user-attachments/assets/c6db5708-60af-42b1-89d3-c55a4f0ce4cd
-
 
 ---
 

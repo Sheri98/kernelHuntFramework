@@ -133,4 +133,7 @@ void enumerateAllDrivers();
 void runParallelBatchAnalysis();
 void generateMasterDashboard();
 void runDriverLoader();
+<<<<<<< HEAD
 void printBanner();
+=======
+>>>>>>> origin/main

@@ -16,14 +16,9 @@ from datetime import datetime
 from concurrent.futures import ProcessPoolExecutor, as_completed
 
 class ParallelBatchAnalyzer:
-<<<<<<< HEAD
     def __init__(self, driver_source, ghidra_path, output_base, max_workers=None, is_directory=False):
         self.driver_source = Path(driver_source)
         self.is_directory = is_directory
-=======
-    def __init__(self, driver_json, ghidra_path, output_base, max_workers=None):
-        self.driver_json = Path(driver_json)
->>>>>>> origin/main
         self.ghidra_path = ghidra_path
         self.output_base = Path(output_base)
         self.max_workers = max_workers or mp.cpu_count()
@@ -37,7 +32,6 @@ class ParallelBatchAnalyzer:
         print(f"[+] Using {self.max_workers} parallel workers")
         print(f"[+] Output Directory: {self.output_base}\n")
 
-<<<<<<< HEAD
     def scan_directory_for_drivers(self, directory):
         """Scan directory for .sys driver files."""
         directory = Path(directory)
@@ -84,31 +78,6 @@ class ParallelBatchAnalyzer:
 
             print(f"[+] Loaded {len(drivers)} drivers from {self.driver_source.name}\n")
             return drivers
-=======
-    def load_drivers(self):
-        """Load driver list from JSON file."""
-        if not self.driver_json.exists():
-            raise FileNotFoundError(f"Driver JSON not found: {self.driver_json}")
-
-        with open(self.driver_json, 'r') as f:
-            data = json.load(f)
-
-        # Handle both formats: driver.json and all_drivers.json
-        if 'drivers' in data:
-            if isinstance(data['drivers'], list):
-                # Check if it's all_drivers.json format
-                if data['drivers'] and isinstance(data['drivers'][0], dict):
-                    drivers = [d['path'] for d in data['drivers']]
-                else:
-                    drivers = data['drivers']
-            else:
-                drivers = []
-        else:
-            drivers = []
-
-        print(f"[+] Loaded {len(drivers)} drivers from {self.driver_json.name}\n")
-        return drivers
->>>>>>> origin/main
 
     def analyze_single_driver(self, driver_info):
         """Analyze a single driver (runs in separate process)."""
@@ -241,17 +210,12 @@ class ParallelBatchAnalyzer:
                 stats['completed'] += 1
                 stats[result['status']] += 1
 
-<<<<<<< HEAD
                 # Calculate progress and time estimates
-=======
-                # Print progress
->>>>>>> origin/main
                 driver_name = result['driver']
                 status = result['status'].upper()
                 steps = result['steps_completed']
                 progress = (stats['completed'] / total) * 100
 
-<<<<<<< HEAD
                 # Time estimates
                 elapsed = (datetime.now() - start_time).total_seconds()
                 avg_time = elapsed / stats['completed']
@@ -259,8 +223,6 @@ class ParallelBatchAnalyzer:
                 eta_mins = int(remaining / 60)
                 eta_secs = int(remaining % 60)
 
-=======
->>>>>>> origin/main
                 status_color = {
                     'success': '\033[92m',  # Green
                     'partial': '\033[93m',  # Yellow
@@ -269,7 +231,6 @@ class ParallelBatchAnalyzer:
                     'error': '\033[91m'     # Red
                 }.get(result['status'], '\033[97m')
 
-<<<<<<< HEAD
                 # Progress bar
                 bar_width = 30
                 filled = int(bar_width * progress / 100)
@@ -283,14 +244,6 @@ class ParallelBatchAnalyzer:
                 if result['errors']:
                     for error in result['errors'][:1]:  # Show first error
                         print(f"    ⚠ {error[:80]}...")
-=======
-                print(f"[{stats['completed']}/{total}] ({progress:.1f}%) "
-                      f"{status_color}{status}\033[0m - {driver_name} - {steps}/4 steps")
-
-                if result['errors']:
-                    for error in result['errors'][:2]:  # Show first 2 errors
-                        print(f"    ⚠ {error}")
->>>>>>> origin/main
 
         end_time = datetime.now()
         duration = end_time - start_time
@@ -356,7 +309,6 @@ class ParallelBatchAnalyzer:
 def main():
     parser = argparse.ArgumentParser(
         description='Parallel batch driver analysis using all CPU cores',
-<<<<<<< HEAD
         epilog='Examples:\n'
                '  From JSON: python parallel_batch_analyzer.py -j driver.json -g C:\\ghidra_11.0_PUBLIC\n'
                '  From directory: python parallel_batch_analyzer.py -d C:\\VulnerableDrivers -g C:\\ghidra_11.0_PUBLIC',
@@ -370,13 +322,6 @@ def main():
     input_group.add_argument('-d', '--directory',
                         help='Directory containing .sys driver files')
 
-=======
-        epilog='Example: python parallel_batch_analyzer.py -j driver.json -g C:\\ghidra_11.0_PUBLIC'
-    )
-
-    parser.add_argument('-j', '--json', required=True,
-                        help='Driver JSON file (driver.json or all_drivers.json)')
->>>>>>> origin/main
     parser.add_argument('-g', '--ghidra', required=True,
                         help='Ghidra installation path')
     parser.add_argument('-o', '--output', default='analysis_results',
@@ -387,7 +332,6 @@ def main():
     args = parser.parse_args()
 
     try:
-<<<<<<< HEAD
         # Determine input source and type
         if args.json:
             driver_source = args.json
@@ -402,13 +346,6 @@ def main():
             output_base=args.output,
             max_workers=args.workers,
             is_directory=is_directory
-=======
-        analyzer = ParallelBatchAnalyzer(
-            driver_json=args.json,
-            ghidra_path=args.ghidra,
-            output_base=args.output,
-            max_workers=args.workers
->>>>>>> origin/main
         )
 
         stats = analyzer.run()

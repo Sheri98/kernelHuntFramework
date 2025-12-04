@@ -216,7 +216,6 @@ void runParallelBatchAnalysis() {
     cout << "\033[96m================================================================\033[0m\n\n";
 
     cout << "\033[92m⚡ SPEED BOOST: Analyzes multiple drivers simultaneously!\033[0m\n";
-<<<<<<< HEAD
     cout << "\033[93m📊 Much faster than sequential batch analysis (Menu [8])\033[0m\n\n";
 
     cout << "\033[97mSelect input type:\033[0m\n";
@@ -247,14 +246,6 @@ void runParallelBatchAnalysis() {
         cin.get();
         return;
     }
-=======
-    cout << "\033[93m📊 Much faster than sequential batch analysis (Menu [2])\033[0m\n\n";
-
-    string jsonFile;
-    cout << "\033[97mDriver JSON file (driver.json or all_drivers.json):\033[0m ";
-    cin.ignore();
-    getline(cin, jsonFile);
->>>>>>> origin/main
 
     // Get CPU core count
     SYSTEM_INFO sysInfo;
@@ -271,24 +262,15 @@ void runParallelBatchAnalysis() {
 
     string projectDir = getProjectDirectory();
     string scriptPath = projectDir + "\\parallel_batch_analyzer.py";
-<<<<<<< HEAD
     string cmd = "python \"" + scriptPath + "\" " + cmdArg + " -g \"" + GHIDRA_PATH + "\"";
-=======
-    string cmd = "python \"" + scriptPath + "\" -j \"" + jsonFile + "\" -g \"" + GHIDRA_PATH + "\"";
->>>>>>> origin/main
     int result = system(cmd.c_str());
 
     if (result == 0 || result == 1) {
         printStatus("success", "Parallel batch analysis complete!");
         printStatus("success", "Check analysis_results\\ for all driver reports");
         printStatus("success", "See parallel_analysis_results.json for detailed stats");
-<<<<<<< HEAD
         printStatus("success", "Open master_dashboard.html to view all results!");
-    }
-    else {
-=======
     } else {
->>>>>>> origin/main
         printStatus("error", "Parallel batch analysis had issues (check output above)");
     }
 
@@ -296,10 +278,6 @@ void runParallelBatchAnalysis() {
     cin.get();
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/main
 void generateMasterDashboard() {
     system("cls");
     printBanner();

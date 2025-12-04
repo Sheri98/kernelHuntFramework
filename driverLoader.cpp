@@ -67,12 +67,7 @@ bool LoadSingleDriver(const string& driverPath, string& serviceName, DWORD& erro
                 CloseServiceHandle(scManager);
                 errorCode = 0;
                 return true;
-<<<<<<< HEAD
-            }
-            else {
-=======
             } else {
->>>>>>> origin/main
                 errorCode = GetLastError();
                 CloseServiceHandle(existingService);
                 CloseServiceHandle(scManager);
@@ -174,10 +169,7 @@ void LoadDriversFromFile(const string& filePath) {
     }
 
     cout << "\n\033[94m[ℹ]\033[0m Found " << driverPaths.size() << " drivers to load\n" << endl;
-<<<<<<< HEAD
     cout << "\033[93m[⚠]\033[0m Loading with 3-second delay between each driver to prevent system instability\n" << endl;
-=======
->>>>>>> origin/main
 
     int successCount = 0;
     int failCount = 0;
@@ -187,7 +179,6 @@ void LoadDriversFromFile(const string& filePath) {
         string serviceName;
         DWORD errorCode;
 
-<<<<<<< HEAD
         // Extract and display service name that will be used
         serviceName = GetServiceNameFromPath(driverPath);
 
@@ -199,8 +190,7 @@ void LoadDriversFromFile(const string& filePath) {
             cout << "\033[92m✓ SUCCESS\033[0m" << endl;
             loadedDrivers.push_back({ serviceName, driverPath, true, 0 });
             successCount++;
-        }
-        else {
+        } else {
             cout << "\033[91m✗ FAILED\033[0m (Error: " << errorCode << ")" << endl;
             loadedDrivers.push_back({ serviceName, driverPath, false, errorCode });
             failCount++;
@@ -211,19 +201,6 @@ void LoadDriversFromFile(const string& filePath) {
             cout << "    \033[90mWaiting 3 seconds before next driver...\033[0m" << endl;
             Sleep(3000);  // 3 second delay
         }
-=======
-        cout << "\033[96m[" << (i + 1) << "/" << driverPaths.size() << "]\033[0m Loading: " << driverPath << " ... ";
-
-        if (LoadSingleDriver(driverPath, serviceName, errorCode)) {
-            cout << "\033[92m✓ SUCCESS\033[0m" << endl;
-            loadedDrivers.push_back({serviceName, driverPath, true, 0});
-            successCount++;
-        } else {
-            cout << "\033[91m✗ FAILED\033[0m (Error: " << errorCode << ")" << endl;
-            loadedDrivers.push_back({serviceName, driverPath, false, errorCode});
-            failCount++;
-        }
->>>>>>> origin/main
     }
 
     cout << "\n\033[96m================================================================\033[0m" << endl;
@@ -261,10 +238,7 @@ void LoadDriversFromDirectory(const string& dirPath) {
     }
 
     cout << "\n\033[94m[ℹ]\033[0m Found " << driverFiles.size() << " .sys files\n" << endl;
-<<<<<<< HEAD
     cout << "\033[93m[⚠]\033[0m Loading with 3-second delay between each driver to prevent system instability\n" << endl;
-=======
->>>>>>> origin/main
 
     int successCount = 0;
     int failCount = 0;
@@ -274,7 +248,6 @@ void LoadDriversFromDirectory(const string& dirPath) {
         string serviceName;
         DWORD errorCode;
 
-<<<<<<< HEAD
         // Extract and display service name that will be used
         serviceName = GetServiceNameFromPath(driverPath);
 
@@ -286,8 +259,7 @@ void LoadDriversFromDirectory(const string& dirPath) {
             cout << "\033[92m✓ SUCCESS\033[0m" << endl;
             loadedDrivers.push_back({ serviceName, driverPath, true, 0 });
             successCount++;
-        }
-        else {
+        } else {
             cout << "\033[91m✗ FAILED\033[0m (Error: " << errorCode << ")" << endl;
             loadedDrivers.push_back({ serviceName, driverPath, false, errorCode });
             failCount++;
@@ -298,19 +270,6 @@ void LoadDriversFromDirectory(const string& dirPath) {
             cout << "    \033[90mWaiting 3 seconds before next driver...\033[0m" << endl;
             Sleep(3000);  // 3 second delay
         }
-=======
-        cout << "\033[96m[" << (i + 1) << "/" << driverFiles.size() << "]\033[0m Loading: " << driverPath << " ... ";
-
-        if (LoadSingleDriver(driverPath, serviceName, errorCode)) {
-            cout << "\033[92m✓ SUCCESS\033[0m" << endl;
-            loadedDrivers.push_back({serviceName, driverPath, true, 0});
-            successCount++;
-        } else {
-            cout << "\033[91m✗ FAILED\033[0m (Error: " << errorCode << ")" << endl;
-            loadedDrivers.push_back({serviceName, driverPath, false, errorCode});
-            failCount++;
-        }
->>>>>>> origin/main
     }
 
     cout << "\n\033[96m================================================================\033[0m" << endl;
@@ -346,12 +305,7 @@ void UnloadAllLoadedDrivers() {
             cout << "\033[92m✓ SUCCESS\033[0m" << endl;
             driver.loaded = false;
             successCount++;
-<<<<<<< HEAD
-        }
-        else {
-=======
         } else {
->>>>>>> origin/main
             cout << "\033[91m✗ FAILED\033[0m (Error: " << errorCode << ")" << endl;
             failCount++;
         }
@@ -381,21 +335,12 @@ void ListLoadedDrivers() {
 
         if (driver.loaded) {
             cout << "\033[92m[✓]\033[0m ";
-<<<<<<< HEAD
-        }
-        else {
-=======
         } else {
->>>>>>> origin/main
             cout << "\033[91m[✗]\033[0m ";
         }
 
         cout << driver.serviceName << endl;
-<<<<<<< HEAD
         cout << "    Path: " << driver.driverPath << endl;
-=======
-        cout << "    Path: " << driver.path << endl;
->>>>>>> origin/main
         if (!driver.loaded && driver.errorCode != 0) {
             cout << "    \033[91mError Code: " << driver.errorCode << "\033[0m" << endl;
         }

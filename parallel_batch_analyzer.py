@@ -23,6 +23,9 @@ class ParallelBatchAnalyzer:
         self.output_base = Path(output_base)
         self.max_workers = max_workers or mp.cpu_count()
 
+        # Get the directory where this script is located (for absolute paths to other scripts)
+        self.script_dir = Path(__file__).parent.resolve()
+
         self.output_base.mkdir(parents=True, exist_ok=True)
 
         print(f"\n{'='*80}")
@@ -102,7 +105,7 @@ class ParallelBatchAnalyzer:
             # Step 1: Decompile
             try:
                 cmd = [
-                    'python', 'driver_decompiler.py',
+                    'python', str(self.script_dir / 'driver_decompiler.py'),
                     '-g', self.ghidra_path,
                     '-d', driver_path,
                     '-o', str(output_dir)
@@ -125,7 +128,7 @@ class ParallelBatchAnalyzer:
 
             # Step 2: IOCTL Analysis
             try:
-                cmd = ['python', 'ioctl_analyzer.py', '-d', str(output_dir)]
+                cmd = ['python', str(self.script_dir / 'ioctl_analyzer.py'), '-d', str(output_dir)]
                 subprocess.run(cmd, capture_output=True, timeout=300)
                 result['steps_completed'] += 1
             except Exception as e:
@@ -133,7 +136,7 @@ class ParallelBatchAnalyzer:
 
             # Step 3: HTML Report
             try:
-                cmd = ['python', 'html_report_generator.py', '-d', str(output_dir)]
+                cmd = ['python', str(self.script_dir / 'html_report_generator.py'), '-d', str(output_dir)]
                 subprocess.run(cmd, capture_output=True, timeout=300)
                 result['steps_completed'] += 1
             except Exception as e:
@@ -141,7 +144,7 @@ class ParallelBatchAnalyzer:
 
             # Step 4: Exploit Primitives
             try:
-                cmd = ['python', 'exploit_primitive_detector.py', '-d', str(output_dir)]
+                cmd = ['python', str(self.script_dir / 'exploit_primitive_detector.py'), '-d', str(output_dir)]
                 subprocess.run(cmd, capture_output=True, timeout=300)
                 result['steps_completed'] += 1
             except Exception as e:
@@ -293,7 +296,7 @@ class ParallelBatchAnalyzer:
 
             try:
                 cmd = [
-                    'python', 'master_dashboard_generator.py',
+                    'python', str(self.script_dir / 'master_dashboard_generator.py'),
                     '-d', str(self.output_base),
                     '-o', 'master_dashboard.html'
                 ]
